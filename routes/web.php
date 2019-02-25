@@ -16,6 +16,36 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+// 19 - 40 wzl
+Route::get('admin/a',function(){
+	return view('admin/layout/index');
+});
 Route::resource('admin/user','Admin\UserController');
+
+Route::resource('admin/post','Admin\PostController');
+
+//41-60 czz
+//61-80 wsx
+//81-100 oywz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
