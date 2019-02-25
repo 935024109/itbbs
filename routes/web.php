@@ -21,6 +21,62 @@ Route::resource('admin/user','Admin\UserController');
 
 
 
-//41-60 czz
-//61-80 wsx
-//81-100 oywz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//轮播图路由
+Route::resource('admin/carousel','CarouselController');
