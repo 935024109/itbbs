@@ -114,6 +114,7 @@
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
+
                     <li>
                         <a href="#"><i class="icon-list"></i> Forms</a>
                         <ul>
@@ -121,7 +122,21 @@
                             <li><a href="form_elements.html">Elements</a></li>
                             <li><a href="form_wizard.html">Wizard</a></li>
                         </ul>
-                    </li>         
+                    </li> 
+                    
+
+
+
+
+
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 帖子管理</a>
+                        <ul>
+                            <li><a href="form_layouts.html">添加帖子</a></li>
+                            <li><a href="form_elements.html">帖子列表</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
         </div>
