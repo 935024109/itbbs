@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
+	echo 13;
     return view('welcome');
 });
+
+
+Route::resource('admin/user','Admin\UserController');
