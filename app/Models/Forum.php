@@ -4,12 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Forum extends Model
 {
-
-
-
-	
     //设置主键
-    public $primaryKey = 'uid';
+    public $primaryKey = 'fid';
 }

@@ -10,12 +10,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <!-- Plugin Stylesheets first to ease overrides -->
-<link rel="stylesheet" type="text/css" href="/admin//colorpicker/colorpicker.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admin/colorpicker/colorpicker.css" media="screen">
 
 <!-- Required Stylesheets -->
 <link rel="stylesheet" type="text/css" href="/admin/bootstrap/css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admin/css/fonts/ptsans/stylesheet.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admin/css/fonts/icomoon/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admin/css/page-post.css" media="screen">
 
 <link rel="stylesheet" type="text/css" href="/admin/css/mws-style.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admin/css/icons/icol16.css" media="screen">
@@ -111,37 +112,107 @@
             <!-- Searchbox -->
             
             
+
             <!-- Main Navigation -->
             <div id="mws-navigation">
-                <ul>
-
-                    <li>
-                        <a href="#"><i class="icon-list"></i> Forms</a>
-                        <ul>
-                            <li><a href="form_layouts.html">Layouts</a></li>
-                            <li><a href="form_elements.html">Elements</a></li>
-                            <li><a href="form_wizard.html">Wizard</a></li>
-                        </ul>
-                    </li> 
+                <ul> 
                     
 
 
 
 
 
+
+                
+                <!-- ============================================= -->
+
                     <li>
                         <a href="#"><i class="icon-list"></i> 帖子管理</a>
                         <ul>
-                            <li><a href="form_layouts.html">添加帖子</a></li>
-                            <li><a href="form_elements.html">帖子列表</a></li>
+                            <li><a href="/admin/post">帖子列表</a></li>
+                            <li><a href="/admin/post/create">添加帖子</a></li>
+                            <li><a href="form_wizard.html"></a></li>
                         </ul>
                     </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 </ul>
             </div>
         </div>
         
+        <!-- ======================================= -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Main Container Start -->
+        <!-- 显示错误消息 开始 -->
+            @if (session('success'))
+                <div class="mws-form-message success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="mws-form-message error">
+                    {{ session('error') }}
+                </div>
+            @endif
+        <div id="mws-container" class="clearfix">
         @section('main')
         
 
@@ -155,7 +226,7 @@
     <script src="/admin/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/admin/js/libs/jquery.mousewheel.min.js"></script>
     <script src="/admin/js/libs/jquery.placeholder.min.js"></script>
-    <script src="custom-plugins/fileinput.js"></script>
+    <script src="/admin/custom-plugins/fileinput.js"></script>
     
     <!-- jQuery-UI Dependent Scripts -->
     <script src="/admin/jui/js/jquery-ui-1.9.2.min.js"></script>
