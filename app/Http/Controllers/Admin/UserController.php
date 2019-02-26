@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\user;
+use Hash;
+use App\Http\Requests\UserStoreBlogPost;
+use DB;
 class UserController extends Controller
 {
     /**
@@ -12,10 +15,21 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        // echo 12;
+        // 所有条数
+        $count = $request->input('count','5');
+
+        // 搜索条件
+        $search = $request->input('search','');
+
+        $request = $request->all();
+        // dump($request);
+        // 查询所有数据
+        $user = new User;
+        $data = $user->where('uname','like','%'.$search.'%')->paginate($count);
+        // dump($data);
+        return view('admin/user/index',['data'=>$data,'search'=>$search,'count'=>$count,'request'=>$request]);
     }
 
     /**
@@ -25,7 +39,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/user/create');
     }
 
     /**
@@ -34,9 +48,46 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreBlogPost $request)
     {
-        //
+        /*
+            开启事务   DB::beginTransaction();
+            提交事务    DB::commit()
+            回滚事务   DB::rollBack()
+
+         */
+        DB::beginTransaction();
+        $data = $request->except('_token','repwd');
+        //dd($data);
+
+        // 如果文件存在
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $extension = $file->extension();
+            $filename = time().rand(1000,9999).'.'.$extension;
+            // dump($filename);
+            $res = $file->storeAs('images',$filename);
+            //dump($res);
+        }
+
+        // 将所获得的所有数据保存到数据库
+        $user = new User;
+        $user->uname = $data['uname'];
+        $user->nickname = $data['nickname'];
+        $user->pwd = Hash::make($data['pwd']);
+        $user->email = $data['email'];
+        $user->photo = $res;
+        $user->auth = $data['auth'];
+        $user->last_time = date('Y-m-d H:i:s',time());
+        $res = $user->save();
+        
+        if ($res) {
+            DB::commit();
+            return redirect('/admin/user')->with('success','添加成功');
+        } else {
+            DB::rollBack();
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -57,8 +108,16 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        if ($id == session('id') ){
+            // 根据id查询
+        $user = User::find($id);
+        // dd($user);
+        return view('admin/user/edit',['user'=>$user]);
+        } else {
+            return redirect('admin/user')->with('error','对不起 无法修改其他人信息');
+        }
+        
     }
 
     /**
@@ -70,7 +129,37 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $data = $request->except('_token','_method','uname');
+        //dd($data);
+        // 修改信息
+        $user = User::find($id);
+        $user->nickname = $data['nickname'];
+        $user->email = $data['email'];
+        $user->phone = $data['phone'];
+        $user->auth = $data['auth'];
+        // 如果上传了新头像
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $extension = $file->extension();
+            $filename = time().rand(1000,9999).'.'.$extension;
+            // dump($filename);
+            $res = $file->storeAs('images',$filename);
+            //dump($res);
+            if ($res) {
+                $user->photo = $res;
+            } else {
+                $user->photo = $user->photo;
+            }
+
+        }
+
+        $res = $user->save();
+        if ($res){
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','修改成功');
+        } else {
+            return redirect($_SERVER['HTTP_REFERER'])->with('error','修改失败');
+        }
     }
 
     /**
@@ -81,6 +170,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // 根据id删除用户
+        $res = User::destroy($id);
+        //dd($_SERVER['HTTP_REFERER']);
+        if ($res){
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        } else {
+            return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+        }
     }
+
+
 }

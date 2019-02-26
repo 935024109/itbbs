@@ -17,10 +17,48 @@ Route::get('/', function () {
 });
 
 // 19 - 40 wzl
-Route::resource('admin/user','Admin\UserController');
+Route::resource('/admin/user','Admin\UserController');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 //41-60 czz
+Route::get('/admin','Admin\LoginController@index');
+Route::post('/admin/login','Admin\LoginController@login');
+Route::get('/admin/out','Admin\LoginController@out');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //61-80 wsx
 //81-100 oywz
