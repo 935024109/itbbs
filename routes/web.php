@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 // 19 - 40 wzl
-Route::get('admin/a',function(){
+Route::get('admin',function(){
 	return view('admin/layout/index');
 });
 Route::resource('admin/user','Admin\UserController');
@@ -79,5 +79,5 @@ Route::resource('admin/post','Admin\PostController');
 
 
 //轮播图路由
-Route::resource('admin/carousel','CarouselController');
+Route::resource('admin/carousel','Admin\CarouselController');
 

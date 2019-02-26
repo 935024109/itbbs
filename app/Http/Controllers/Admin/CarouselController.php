@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Carousel;
 
 class CarouselController extends Controller
 {
@@ -15,7 +16,9 @@ class CarouselController extends Controller
     public function index()
     {
         //
-        echo 'index';
+        $carousels = Carousel::all();
+        // dd($carousels);
+        return view('admin.carousel.index',['carousels' => $carousels]);
     }
 
     /**
@@ -26,7 +29,7 @@ class CarouselController extends Controller
     public function create()
     {
         //
-        echo 'create';
+        return view('admin.carousel.create');
     }
 
     /**
@@ -37,7 +40,47 @@ class CarouselController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 表单数据验证
+        $this->validate($request, [
+            'title' => 'required',
+            'img_src' => 'required',
+            'link_url' => 'required',
+        ],[
+            'title.required' => '标题必填',
+            'img_src.required' => '文件必须上传',
+            'link_url.required' => '链接地址必填',
+        ]);
+
+        // 执行文件上传
+        if($request->hasFile('img_src')){
+            $file = $request->file('img_src');
+            $ext = $file->extension();
+            // 拼接名称
+            $file_name = time()+rand(1000,9999).'.'.$ext;
+            // dump($file_name);
+            $file->storeAs('images',$file_name);
+        }
+
+        // 接收数据
+        $data = $request->except(['_token']);
+
+        // 赋值
+        $data['img_src'] = $file_name;
+        $carousel = new Carousel;
+        $carousel->title = $data['title'];
+        $carousel->img_src = $data['img_src'];
+        $carousel->link_url = $data['link_url'];
+
+        // 压入到数据库
+        $res = $carousel->save();
+        //判断返回值,做出响应
+        if($res){
+            return redirect('admin/carousel')->with('success', '添加成功');
+        }else{
+            return back()->with('error', '添加失败');
+        }
+        
+        
     }
 
     /**
@@ -59,7 +102,10 @@ class CarouselController extends Controller
      */
     public function edit($id)
     {
-        //
+        //根据id 获取数据,分配数据到视图
+        $carousel = Carousel::find($id);
+
+        return view('admin.carousel.edit',['carousel'=>$carousel]);
     }
 
     /**
@@ -71,7 +117,37 @@ class CarouselController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         // 接收数据
+        $data = $request->except(['_token']);
+        //获取数据
+        if($request->hasFile('img_src')){
+            $file = $request->file('img_src');
+            $ext = $file->extension();
+            // 拼接名称
+            $file_name = time()+rand(1000,9999).'.'.$ext;
+            // dump($file_name);
+            $file->storeAs('images',$file_name);
+        }else{
+
+         
+        }
+
+
+        // 赋值
+        $data['img_src'] = $file_name;
+        $carousel = new Carousel;
+        $carousel->title = $data['title'];
+        $carousel->img_src = $data['img_src'];
+        $carousel->link_url = $data['link_url'];
+
+        // 压入到数据库
+        $res = $carousel->where('carid',$id)->save();
+        //判断返回值,做出响应
+        if($res){
+            return redirect('admin/carousel')->with('success', '修改成功');
+        }else{
+            return back()->with('error', '修改失败');
+        }
     }
 
     /**
@@ -82,6 +158,13 @@ class CarouselController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //根据id删除轮播图
+        $res = Carousel::destroy($id);
+        //判断返回值,做出响应
+        if($res){
+            return redirect('admin/carousel')->with('success', '删除成功');
+        }else{
+            return back()->with('error', '删除失败');
+        }
     }
 }

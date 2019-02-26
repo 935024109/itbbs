@@ -10,29 +10,29 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <!-- Plugin Stylesheets first to ease overrides -->
-<link rel="stylesheet" type="text/css" href="/admin//colorpicker/colorpicker.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/plugins/colorpicker/colorpicker.css" media="screen">
 
 <!-- Required Stylesheets -->
-<link rel="stylesheet" type="text/css" href="/admin/bootstrap/css/bootstrap.min.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/admin/css/fonts/ptsans/stylesheet.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/admin/css/fonts/icomoon/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/bootstrap/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/fonts/ptsans/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/fonts/icomoon/style.css" media="screen">
 
-<link rel="stylesheet" type="text/css" href="/admin/css/mws-style.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/admin/css/icons/icol16.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/admin/css/icons/icol32.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/mws-style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/icons/icol16.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/icons/icol32.css" media="screen">
 
 <!-- Demo Stylesheet -->
-<link rel="stylesheet" type="text/css" href="/admin/css/demo.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/demo.css" media="screen">
 
 <!-- jQuery-UI Stylesheet -->
-<link rel="stylesheet" type="text/css" href="/admin/jui/css/jquery.ui.all.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/admin/jui/jquery-ui.custom.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/jui/css/jquery.ui.all.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/jui/jquery-ui.custom.css" media="screen">
 
 <!-- Theme Stylesheet -->
-<link rel="stylesheet" type="text/css" href="/admin/css/mws-theme.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/admin/css/themer.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/mws-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/themer.css" media="screen">
 
-<title>MWS Admin - Table</title>
+<title>MWS admins - Table</title>
 
 </head>
 
@@ -60,7 +60,7 @@
         
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
-                <img src="/admin/images/mws-logo.png" alt="mws admin">
+                <img src="/admins/images/mws-logo.png" alt="mws admins">
             </div>
         </div>
         
@@ -73,7 +73,7 @@
             
                 <!-- User Photo -->
                 <div id="mws-user-photo">
-                    <img src="/admin/example/profile.jpg" alt="User Photo">
+                    <img src="/admins/example/profile.jpg" alt="User Photo">
                 </div>
                 
                 <!-- Username and Functions -->
@@ -114,67 +114,138 @@
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
-
-                    <li>
-                        <a href="#"><i class="icon-list"></i> Forms</a>
-                        <ul>
-                            <li><a href="form_layouts.html">Layouts</a></li>
-                            <li><a href="form_elements.html">Elements</a></li>
-                            <li><a href="form_wizard.html">Wizard</a></li>
-                        </ul>
-                    </li> 
+                    
                     
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <li>
-                        <a href="#"><i class="icon-list"></i> 帖子管理</a>
+                        <a href="#"><i class="icon-list"></i>轮播图管理</a>
                         <ul>
-                            <li><a href="form_layouts.html">添加帖子</a></li>
-                            <li><a href="form_elements.html">帖子列表</a></li>
+                            <li><a href="/admin/carousel/create">添加轮播图</a></li>
+                            <li><a href="/admin/carousel">轮播图列表</a></li>
                         </ul>
                     </li>
-
-                </ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 板块管理</a>
+                        <ul>
+                            <li><a href="form_layouts.html">添加板块</a></li>
+                            <li><a href="form_elements.html">板块列表</a></li>
+                        </ul>
+                    </li>     
+                </ul>              
             </div>
         </div>
-        
         <!-- Main Container Start -->
+        <!-- 显示错误消息 开始 -->
+            @if (session('success'))
+                <div class="mws-form-message success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="mws-form-message error">
+                    {{ session('error') }}
+                </div>
+            @endif
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
         @section('main')
         
 
         @show
-
+        </div>
         <!-- Main Container End -->
         
     </div>
 
     <!-- JavaScript Plugins -->
-    <script src="/admin/js/libs/jquery-1.8.3.min.js"></script>
-    <script src="/admin/js/libs/jquery.mousewheel.min.js"></script>
-    <script src="/admin/js/libs/jquery.placeholder.min.js"></script>
-    <script src="custom-plugins/fileinput.js"></script>
+    <script src="/admins/js/libs/jquery-1.8.3.min.js"></script>
+    <script src="/admins/js/libs/jquery.mousewheel.min.js"></script>
+    <script src="/admins/js/libs/jquery.placeholder.min.js"></script>
+    <script src="/admins/custom-plugins/fileinput.js"></script>
     
     <!-- jQuery-UI Dependent Scripts -->
-    <script src="/admin/jui/js/jquery-ui-1.9.2.min.js"></script>
-    <script src="/admin/jui/jquery-ui.custom.min.js"></script>
-    <script src="/admin/jui/js/jquery.ui.touch-punch.js"></script>
+    <script src="/admins/jui/js/jquery-ui-1.9.2.min.js"></script>
+    <script src="/admins/jui/jquery-ui.custom.min.js"></script>
+    <script src="/admins/jui/js/jquery.ui.touch-punch.js"></script>
 
     <!-- Plugin Scripts -->
-    <script src="/admin/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="/admin/plugins/colorpicker/colorpicker-min.js"></script>
+    <script src="/admins/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/admins/plugins/colorpicker/colorpicker-min.js"></script>
 
     <!-- Core Script -->
-    <script src="/admin/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/admin/js/core/mws.js"></script>
+    <script src="/admins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/admins/js/core/mws.js"></script>
 
     <!-- Themer Script (Remove if not needed) -->
-    <script src="/admin/js/core/themer.js"></script>
+    <script src="/admins/js/core/themer.js"></script>
 
     <!-- Demo Scripts (remove if not needed) -->
-    <script src="/admin/js/demo/demo.table.js"></script>
+    <script src="/admins/js/demo/demo.table.js"></script>
 
 </body>
 </html>

@@ -23,8 +23,8 @@
 	// the plugin prototype
 	FileInput.prototype = {
 		defaults: {
-			placeholder: 'No file selected...', 
-			buttontext: 'Browse...'
+			placeholder: '还没有选择文件......', 
+			buttontext: '选择文件'
 		}, 
 
 		_init: function( element, options ) {
