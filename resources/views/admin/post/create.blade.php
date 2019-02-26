@@ -29,7 +29,7 @@
 
                     					<select name="fid" id="p_type">
 									       <option value="0">选择分类↓</option>
-                                           @foreach
+                                          
 									       <option value="1">1</option>
 										
 										</select>
