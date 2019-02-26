@@ -192,7 +192,7 @@
                     <li>
                         <a href="#"><i class="icon-list"></i>轮播图管理</a>
                         <ul>
-<<<<<<< HEAD
+
                             <li><a href="/admin/carousel/create">添加轮播图</a></li>
                             <li><a href="/admin/carousel">轮播图列表</a></li>
                         </ul>
@@ -204,31 +204,15 @@
                             <li><a href="form_elements.html">板块列表</a></li>
                         </ul>
                     </li>     
-                </ul>              
-            </div>
-        </div>
-=======
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 帖子管理</a>
+                        <ul>
                             <li><a href="/admin/post">帖子列表</a></li>
                             <li><a href="/admin/post/create">添加帖子</a></li>
-                            <li><a href="form_wizard.html"></a></li>
                         </ul>
                     </li>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </ul>
+    
             </div>
         </div>
         
@@ -278,7 +262,7 @@
 
 
 
->>>>>>> origin/wzl
+
         <!-- Main Container Start -->
         <!-- 显示错误消息 开始 -->
             @if (session('success'))
@@ -292,10 +276,7 @@
                     {{ session('error') }}
                 </div>
             @endif
-<<<<<<< HEAD
-        <!-- Main Container Start -->
-=======
->>>>>>> origin/wzl
+
         <div id="mws-container" class="clearfix">
         @section('main')
         
@@ -307,17 +288,13 @@
     </div>
 
     <!-- JavaScript Plugins -->
-<<<<<<< HEAD
+
     <script src="/admins/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/admins/js/libs/jquery.mousewheel.min.js"></script>
     <script src="/admins/js/libs/jquery.placeholder.min.js"></script>
     <script src="/admins/custom-plugins/fileinput.js"></script>
-=======
-    <script src="/admin/js/libs/jquery-1.8.3.min.js"></script>
-    <script src="/admin/js/libs/jquery.mousewheel.min.js"></script>
-    <script src="/admin/js/libs/jquery.placeholder.min.js"></script>
-    <script src="/admin/custom-plugins/fileinput.js"></script>
->>>>>>> origin/wzl
+
+
     
     <!-- jQuery-UI Dependent Scripts -->
     <script src="/admins/jui/js/jquery-ui-1.9.2.min.js"></script>
