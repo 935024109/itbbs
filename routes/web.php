@@ -21,6 +21,11 @@ Route::get('admin',function(){
 	return view('admin/layout/index');
 });
 Route::resource('admin/user','Admin\UserController');
+// Route::get('admin/post/aaa','Admin\PostController@aaa');
+Route::get('admin/post/hot/{id}','Admin\PostController@hot');
+Route::get('admin/post/nothot/{id}','Admin\PostController@nothot');
+Route::get('admin/post/top/{id}','Admin\PostController@top');
+Route::get('admin/post/nottop/{id}','Admin\PostController@nottop');
 
 Route::resource('admin/post','Admin\PostController');
 
