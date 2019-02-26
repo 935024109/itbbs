@@ -21,6 +21,41 @@ Route::resource('admin/user','Admin\UserController');
 
 
 
-//41-60 czz
-//61-80 wsx
-//81-100 oywz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Blogroll 友情链接路由
+Route::resource('admin/blogroll','Admin\BlogrollController');
