@@ -29,6 +29,7 @@
                                 <th style="width:85px">是/否顶置</th>
                                 <th style="width:85px">是/否加精</th>
                                 <th style="width:185px">创建时间</th>
+                                <th style="width:185px">最后回帖时间</th>
                                 <th style="width:400px">操作</th>
                             </tr>
                             
@@ -55,6 +56,7 @@
                                 <td> {{ $v->top ? '是' : '否'}} </td>    
                                 <td> {{ $v->hot ? '是' : '否'}} </td>    
                                 <td> {{ $v->created_at }} </td>    
+                                <td> {{ $v->last_time }} </td>    
                                 <td> 
 									<form style="display:inline-block;">	
 										<input type="submit" value="删除" class="btn btn-danger">
