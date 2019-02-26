@@ -91,8 +91,9 @@ class PostController extends Controller
     public function edit($id)
     {
         //
-        
-        return view('admin.post.edit');
+        $psot = Post::find($id);
+        // dump($psot);
+        return view('admin.post.edit',['post'=>$psot]);
     }
 
     /**
@@ -104,7 +105,31 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request, [
+            'title' => 'required|max:50',
+            'content' => 'required'
+        ],[
+            'title.required' => '标题不能为空',
+            'title.max' => '标题太长',
+            'content.required' => '内容不能为空',
+        ]);
+
+        // dump($request);
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->top = $request->top;
+        $post->hot = $request->hot;
+        $post->revert = $request->revert;
+        $res = $post->save();
+
+        if($res){
+            return redirect('admin/post')->with('success','修改成功');
+        } else {
+            return back()->with('error','修改失败');
+        }
+
+
     }
 
     /**
