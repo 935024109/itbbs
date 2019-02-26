@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blogroll extends Model
 {
-    //
+    public $primaryKey = 'bid';
 }

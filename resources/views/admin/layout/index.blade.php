@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <!-- Plugin Stylesheets first to ease overrides -->
+<link rel="stylesheet" type="text/css" href="/admin/css/page_page.css" media="screen">
 
 <link rel="stylesheet" type="text/css" href="/admins/plugins/colorpicker/colorpicker.css" media="screen">
 
@@ -112,14 +113,10 @@
             </div>
             
             <!-- Searchbox -->
-            
-            
-
-            <!-- Main Navigation -->
+         
+            <!-- Main Navigation --> 
             <div id="mws-navigation">
-
-                    
-                    
+                <ul>
 
 
 
@@ -158,6 +155,52 @@
 
 
 
+
+
+
+            
+             
+             
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 友情链接</a>
+                        <ul>
+                            <li><a href="/admin/blogroll">链接列表</a></li>
+                            <li><a href="/admin/blogroll/create">添加链接</a></li>
+                        </ul>
+                    </li>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </ul>
 
 
 
@@ -204,6 +247,7 @@
                             <li><a href="form_elements.html">板块列表</a></li>
                         </ul>
                     </li>     
+
                     <li>
                         <a href="#"><i class="icon-list"></i> 帖子管理</a>
                         <ul>
@@ -212,7 +256,8 @@
                         </ul>
                     </li>
 
-    
+                </ul>              
+
             </div>
         </div>
         
@@ -276,7 +321,14 @@
                     {{ session('error') }}
                 </div>
             @endif
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+        <!-- Main Container Start -->
+>>>>>>> 84ee624498471462baf815207af6cabc25abab98
+>>>>>>> origin/wsx
         <div id="mws-container" class="clearfix">
         @section('main')
         
@@ -284,11 +336,10 @@
         @show
         </div>
         <!-- Main Container End -->
-        
+      
     </div>
 
     <!-- JavaScript Plugins -->
-
     <script src="/admins/js/libs/jquery-1.8.3.min.js"></script>
     <script src="/admins/js/libs/jquery.mousewheel.min.js"></script>
     <script src="/admins/js/libs/jquery.placeholder.min.js"></script>

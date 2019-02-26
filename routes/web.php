@@ -86,3 +86,44 @@ Route::resource('admin/post','Admin\PostController');
 //轮播图路由
 Route::resource('admin/carousel','Admin\CarouselController');
 
+<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Blogroll 友情链接路由
+Route::resource('admin/blogroll','Admin\BlogrollController');
+=======
+>>>>>>> 84ee624498471462baf815207af6cabc25abab98
