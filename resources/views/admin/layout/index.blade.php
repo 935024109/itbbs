@@ -10,15 +10,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <!-- Plugin Stylesheets first to ease overrides -->
-<link rel="stylesheet" type="text/css" href="/admin/css/page_page.css" media="screen">
 
+<link rel="stylesheet" type="text/css" href="/admins/css/page_page.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/plugins/colorpicker/colorpicker.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/custom-plugins/wizard/wizard.css" media="screen">
+
 
 <!-- Required Stylesheets -->
 <link rel="stylesheet" type="text/css" href="/admins/bootstrap/css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/fonts/ptsans/stylesheet.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/fonts/icomoon/style.css" media="screen">
-
 <link rel="stylesheet" type="text/css" href="/admins/css/page-post.css" media="screen">
 
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-style.css" media="screen">
@@ -37,24 +38,14 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/themer.css" media="screen">
 
 <title>MWS admins - Table</title>
+<link rel="stylesheet" type="text/css" href="/admins/css/page_page.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/userpage.css" media="screen">
+<title>MWS Admin - Dashboard</title>
+
 
 </head>
 
 <body>
-
-    <!-- Themer (Remove if not needed) -->  
-    <div id="mws-themer">
-        <div id="mws-themer-css-dialog">
-            <form class="mws-form">
-                <div class="mws-form-row">
-                    <div class="mws-form-item">
-                        <textarea cols="auto" rows="auto" readonly="readonly"></textarea>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- Themer End -->
 
     <!-- Header -->
     <div id="mws-header" class="clearfix">
@@ -64,31 +55,28 @@
         
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
-                <img src="/admins/images/mws-logo.png" alt="mws admins">
+                <img src="/admins/images/mws-logo.png" alt="mws admin">
             </div>
         </div>
         
         <!-- User Tools (notifications, logout, profile, change password) -->
-        <div id="mws-user-tools" class="clearfix">
-        
-      
+        <div id="mws-user-tools" class="clearfix">           
             <!-- User Information and functions section -->
             <div id="mws-user-info" class="mws-inset">
             
                 <!-- User Photo -->
                 <div id="mws-user-photo">
-                    <img src="/admins/example/profile.jpg" alt="User Photo">
+                    <img src="/uploads/{{session('photo')}}" alt="User Photo">
                 </div>
                 
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        欢迎光临
+                        你好, {{session('uname')}}
                     </div>
                     <ul>
-                        <li><a href="#">头像</a></li>
-                        <li><a href="#">修改密码</a></li>
-                        <li><a href="index.html">退出登录</a></li>
+                        <li><a href="#">更换密码</a></li>
+                        <li><a href="/admin/out">退出</a></li>
                     </ul>
                 </div>
             </div>
@@ -115,197 +103,77 @@
             <!-- Searchbox -->
          
             <!-- Main Navigation --> 
+            <div id="mws-searchbox" class="mws-inset">
+                <form action="typography.html">
+                    <input type="text" class="mws-search-input" placeholder="Search...">
+                    <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
+                </form>
+            </div>
+            
+            <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-             
-             
+                     <li>
+                        <a href="#"><i class="icon-users"></i> 用户管理</a>
+                        <ul>
+                            <li><a href="/admin/user">用户列表</a></li>
+                            <li><a href="/admin/user/create">用户添加</a></li>
+                        </ul>
+                    </li>
                     <li>
+                        <a href="#"><i class="icon-list"></i> 板块分类</a>
+                        <ul>
+                            <li><a href="form_layouts.html">添加板块</a></li>
+                            <li><a href="form_elements.html">板块列表</a></li>
+                        </ul>
+                    </li>   
+                    <li>
+                        <a href="#"><i class="icon-list-2"></i> 帖子管理</a>
+                        <ul>
+                            <li><a href="/admin/post">帖子列表</a></li>
+                            <li><a href="/admin/post/create">添加帖子</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-file-word"></i> 回帖管理</a>
+                        <ul>
+                            <li><a href="#">回帖列表</a></li>
+                            <li><a href="#">添加帖子</a></li>
+                        </ul>
+                    </li>   
+                    <li>
+                        <a href="#"><i class="icon-database"></i> 收藏管理</a>
+                        <ul>
+                            <li><a href="#">收藏列表</a></li>
+                            <li><a href="#">添加收藏</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="#"><i class="icon-list"></i>轮播图管理</a>
+                        <ul>
+                            <li><a href="/admin/carousel/create">添加轮播图</a></li>
+                            <li><a href="/admin/carousel">轮播图列表</a></li>
+                        </ul>
+                    </li>
+                    <li>
+
                         <a href="#"><i class="icon-list"></i> 友情链接</a>
                         <ul>
                             <li><a href="/admin/blogroll">链接列表</a></li>
                             <li><a href="/admin/blogroll/create">添加链接</a></li>
                         </ul>
                     </li>   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 网站配置管理</a>
+                        <ul>
+                            <li><a href="#">网站配置列表</a></li>
+                            <li><a href="#">添加网站配置</a></li>
+                        </ul>
+                    </li>                   
                 </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-                <!-- ============================================= -->
-
-                    <li>
-                        <a href="#"><i class="icon-list"></i>轮播图管理</a>
-                        <ul>
-
-                            <li><a href="/admin/carousel/create">添加轮播图</a></li>
-                            <li><a href="/admin/carousel">轮播图列表</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon-list"></i> 板块管理</a>
-                        <ul>
-                            <li><a href="form_layouts.html">添加板块</a></li>
-                            <li><a href="form_elements.html">板块列表</a></li>
-                        </ul>
-                    </li>     
-
-                    <li>
-                        <a href="#"><i class="icon-list"></i> 帖子管理</a>
-                        <ul>
-                            <li><a href="/admin/post">帖子列表</a></li>
-                            <li><a href="/admin/post/create">添加帖子</a></li>
-                        </ul>
-                    </li>
-
-                </ul>              
-
-            </div>
+            </div>         
         </div>
         
-        <!-- ======================================= -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <!-- Main Container Start -->
@@ -321,20 +189,16 @@
                     {{ session('error') }}
                 </div>
             @endif
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
         <!-- Main Container Start -->
->>>>>>> 84ee624498471462baf815207af6cabc25abab98
->>>>>>> origin/wsx
         <div id="mws-container" class="clearfix">
         @section('main')
         
 
         @show
+
         </div>
+
         <!-- Main Container End -->
       
     </div>
@@ -344,8 +208,6 @@
     <script src="/admins/js/libs/jquery.mousewheel.min.js"></script>
     <script src="/admins/js/libs/jquery.placeholder.min.js"></script>
     <script src="/admins/custom-plugins/fileinput.js"></script>
-
-
     
     <!-- jQuery-UI Dependent Scripts -->
     <script src="/admins/jui/js/jquery-ui-1.9.2.min.js"></script>
@@ -354,7 +216,17 @@
 
     <!-- Plugin Scripts -->
     <script src="/admins/plugins/datatables/jquery.dataTables.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/admins/js/libs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="/admins/plugins/flot/jquery.flot.min.js"></script>
+    <script src="/admins/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+    <script src="/admins/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+    <script src="/admins/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+    <script src="/admins/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
     <script src="/admins/plugins/colorpicker/colorpicker-min.js"></script>
+    <script src="/admins/plugins/validate/jquery.validate-min.js"></script>
+    <script src="/admins/custom-plugins/wizard/wizard.min.js"></script>
 
     <!-- Core Script -->
     <script src="/admins/bootstrap/js/bootstrap.min.js"></script>
@@ -365,6 +237,8 @@
 
     <!-- Demo Scripts (remove if not needed) -->
     <script src="/admins/js/demo/demo.table.js"></script>
+    <script src="/admins/js/demo/demo.dashboard.js"></script>
+
 
 </body>
 </html>

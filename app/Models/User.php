@@ -6,10 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-
-
-
-	
-    //设置主键
+	 // 默认主键
     public $primaryKey = 'uid';
 }

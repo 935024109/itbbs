@@ -17,10 +17,8 @@ Route::get('/', function () {
 });
 
 // 19 - 40 wzl
-Route::get('admin',function(){
-	return view('admin/layout/index');
-});
-Route::resource('admin/user','Admin\UserController');
+
+
 // Route::get('admin/post/aaa','Admin\PostController@aaa');
 Route::get('admin/post/hot/{id}','Admin\PostController@hot');
 Route::get('admin/post/nothot/{id}','Admin\PostController@nothot');
@@ -37,6 +35,34 @@ Route::resource('admin/post','Admin\PostController');
 
 
 
+//41-60 czz
+//用户路由
+Route::resource('/admin/user','Admin\UserController');
+//后台登录页面
+Route::get('/admin/in','Admin\LoginController@index');
+//登录
+Route::post('/admin/login','Admin\LoginController@login');
+//退出
+Route::get('/admin/out','Admin\LoginController@out');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//61-80 wsx
+// Blogroll 友情链接路由
+Route::resource('admin/blogroll','Admin\BlogrollController');
 
 
 
@@ -54,39 +80,10 @@ Route::resource('admin/post','Admin\PostController');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//81-100 oywz
 //轮播图路由
 Route::resource('admin/carousel','Admin\CarouselController');
 
-<<<<<<< HEAD
 
 
 
@@ -123,7 +120,29 @@ Route::resource('admin/carousel','Admin\CarouselController');
 
 
 
-// Blogroll 友情链接路由
-Route::resource('admin/blogroll','Admin\BlogrollController');
-=======
->>>>>>> 84ee624498471462baf815207af6cabc25abab98
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
