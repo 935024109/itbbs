@@ -8,6 +8,8 @@ use App\Http\Requests\StoreBlogPost;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Forum;
+use App\Models\Reply;
+use DB;
 
 class PostController extends Controller
 {
@@ -139,6 +141,18 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        DB::beginTransaction();
+        $res = Post::destroy($id);
+        $res1 = Reply::where('pid',$id)->delete();
+
+        if($res && $res1){
+            DB::commit();
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        } else {
+            DB::rollback();
+            return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+        }
+
     }
 
     /**
@@ -212,29 +226,44 @@ class PostController extends Controller
     }
 
 
+    /**
+     * 允许回复设置
+     * @return [type] [description]
+     */
+    public function revert($id)
+    {
+
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
+        // dd($data);
+        $data->revert = 1;
+        $res = $data->save();
+        if($res){
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','允许回复成功');
+        } else {
+            return back($_SERVER['HTTP_REFERER'])->with('error','允许回复失败');
+        }
+    }
+
+    /**
+     * 不允许回复设置
+     * @return [type] [description]
+     */
+    public function notrevert($id)
+    {
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
+        // dd($data);
+        $data->revert = 0;
+        $res = $data->save();
+        if($res){
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','不允许回复成功');
+        } else {
+            return back($_SERVER['HTTP_REFERER'])->with('error','不允许回复失败');
+        }
+    }
 
 
 
-
-
-
-
-    // public function aaa()
-    // {
-    //     echo 123;
-    //     for ($i=0; $i < 10; $i++) { 
-    //      $post = new Post;
-    //     $post->title = 'sdfsdfasdfsdf'.rand(11111,99999);
-    //     $post->content = 'asdfsd'.rand(99999,11111);
-    //     $post->fid = rand(1,10);
-    //     $post->uid = rand(1,10);
-    //     $post->revert = rand(1,2);
-    //     $post->hot = rand(1,2);
-    //     $post->clicks = rand(100,200);
-    //     $res = $post->save();
-    //     dump($res);
-    //     }
-        
-    // }
 
 }

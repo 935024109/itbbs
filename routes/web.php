@@ -17,9 +17,9 @@ Route::get('/', function () {
 });
 
 // 19 - 40 wzl
+Route::get('admin/post/revert/{id}','Admin\PostController@revert');
+Route::get('admin/post/notrevert/{id}','Admin\PostController@notrevert');
 
-
-// Route::get('admin/post/aaa','Admin\PostController@aaa');
 Route::get('admin/post/hot/{id}','Admin\PostController@hot');
 Route::get('admin/post/nothot/{id}','Admin\PostController@nothot');
 Route::get('admin/post/top/{id}','Admin\PostController@top');
