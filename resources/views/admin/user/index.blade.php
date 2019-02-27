@@ -49,13 +49,15 @@
 				<th>
 					{{$v->created_at}}
 				</th>
-				<th>
+				<th style="width:300px;">
 					<a href="/admin/user/{{$v->uid}}/edit" class="btn btn-info">修改</a>
 					<form method="post" action="/admin/user/{{$v->uid}}" style="display:inline-block;">
 						{{csrf_field()}}
 						{{method_field('DELETE')}}
 						<button class="btn btn-danger">删除</button>
 					</form>
+					<a href="/admin/user/stoptalk/{{$v->uid}}" class="btn btn-danger"  style="display:inline-block;">禁止发言</a>
+					<a href="/admin/user/stopin/{{$v->uid}}" class="btn btn-danger"  style="display:inline-block;">禁止访问</a>
 				</th>
         	</tr>
 		@endforeach

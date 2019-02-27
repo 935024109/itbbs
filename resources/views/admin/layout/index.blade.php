@@ -66,7 +66,13 @@
             
                 <!-- User Photo -->
                 <div id="mws-user-photo">
-                    <img src="/uploads/{{session('photo')}}" alt="User Photo">
+                	@if (session('photo'))
+						<img src="/uploads/{{ session('photo')}}" alt="User Photo">
+                	
+                	@else 
+                		<img src="/uploads/images/15511519105394.jpeg" alt="User Photo">
+                	
+                    @endif
                 </div>
                 
                 <!-- Username and Functions -->
@@ -75,8 +81,11 @@
                         你好, {{session('uname')}}
                     </div>
                     <ul>
-                        <li><a href="#">更换密码</a></li>
-                        <li><a href="/admin/out">退出</a></li>
+                        @if (!session('uname'))
+                        <li><a href="/admin/in"">请登录</a></li>
+                        @else
+                        <li><a href="/admin/out" >退出</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -118,6 +127,7 @@
                         <ul>
                             <li><a href="/admin/user">用户列表</a></li>
                             <li><a href="/admin/user/create">用户添加</a></li>
+                            <li><a href="/admin/user/black">小黑屋</a></li>
                         </ul>
                     </li>
                     <li>

@@ -41,6 +41,6 @@ class LoginController extends Controller
     {
     	session()->forget('uname');
     	session()->forget('photo');
-    	return redirect('/admin/in')->with('success','退出成功');
+    	return redirect('/admin/user')->with('success','退出成功');
     }
 }
