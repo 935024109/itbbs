@@ -118,7 +118,12 @@ class CarouselController extends Controller
     public function update(Request $request, $id)
     {
          // 接收数据
-        $data = $request->except(['_token']);
+        $data = $request->except(['_token','_method']);
+        //根据id获取数据
+        $carousel = Carousel::find($id);
+        $carousel->title = $data['title'];
+        $carousel->link_url = $data['link_url'];
+
         //获取数据
         if($request->hasFile('img_src')){
             $file = $request->file('img_src');
@@ -127,21 +132,17 @@ class CarouselController extends Controller
             $file_name = time()+rand(1000,9999).'.'.$ext;
             // dump($file_name);
             $file->storeAs('images',$file_name);
+            //给模型图片路径属性赋值
+            $carousel->img_src = $file_name;
+            // 压入到数据库
+            $res = $carousel->save();
         }else{
-
-         
+            // 压入到数据库
+            $res = $carousel->save();
+            
         }
-
-
-        // 赋值
-        $data['img_src'] = $file_name;
-        $carousel = new Carousel;
-        $carousel->title = $data['title'];
-        $carousel->img_src = $data['img_src'];
-        $carousel->link_url = $data['link_url'];
-
-        // 压入到数据库
-        $res = $carousel->where('carid',$id)->save();
+       
+        
         //判断返回值,做出响应
         if($res){
             return redirect('admin/carousel')->with('success', '修改成功');

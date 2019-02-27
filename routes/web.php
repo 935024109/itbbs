@@ -83,6 +83,10 @@ Route::resource('admin/blogroll','Admin\BlogrollController');
 //81-100 oywz
 //轮播图路由
 Route::resource('admin/carousel','Admin\CarouselController');
+//添加板块子分类路由
+Route::get('admin/forum/create/{id}','Admin\ForumController@create');
+//板块分类资源路由
+Route::resource('admin/forum','Admin\ForumController');
 
 
 

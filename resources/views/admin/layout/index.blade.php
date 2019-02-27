@@ -10,17 +10,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <!-- Plugin Stylesheets first to ease overrides -->
-
-<link rel="stylesheet" type="text/css" href="/admins/css/page_page.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/plugins/colorpicker/colorpicker.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/custom-plugins/wizard/wizard.css" media="screen">
-
 
 <!-- Required Stylesheets -->
 <link rel="stylesheet" type="text/css" href="/admins/bootstrap/css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/fonts/ptsans/stylesheet.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/fonts/icomoon/style.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/admins/css/page-post.css" media="screen">
 
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-style.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol16.css" media="screen">
@@ -37,11 +33,7 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/themer.css" media="screen">
 
-<title>MWS admins - Table</title>
-<link rel="stylesheet" type="text/css" href="/admins/css/page_page.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/admins/css/userpage.css" media="screen">
-<title>MWS Admin - Dashboard</title>
-
+<title>MWS admins - Dashboard</title>
 
 </head>
 
@@ -55,28 +47,30 @@
         
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
-                <img src="/admins/images/mws-logo.png" alt="mws admin">
+                <img src="/admins/images/mws-logo.png" alt="mws admins">
             </div>
         </div>
         
         <!-- User Tools (notifications, logout, profile, change password) -->
-        <div id="mws-user-tools" class="clearfix">           
+        <div id="mws-user-tools" class="clearfix">
+        
             <!-- User Information and functions section -->
             <div id="mws-user-info" class="mws-inset">
             
                 <!-- User Photo -->
                 <div id="mws-user-photo">
-                    <img src="/uploads/{{session('photo')}}" alt="User Photo">
+                    <img src="/admins/example/profile.jpg" alt="User Photo">
                 </div>
                 
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        你好, {{session('uname')}}
+                        Hello, John Doe
                     </div>
                     <ul>
-                        <li><a href="#">更换密码</a></li>
-                        <li><a href="/admin/out">退出</a></li>
+                        <li><a href="/admins/#">Profile</a></li>
+                        <li><a href="/admins/#">Change Password</a></li>
+                        <li><a href="/admins/index.html">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -100,20 +94,10 @@
                 <span></span>
             </div>
             
-            <!-- Searchbox -->
-         
-            <!-- Main Navigation --> 
-            <div id="mws-searchbox" class="mws-inset">
-                <form action="typography.html">
-                    <input type="text" class="mws-search-input" placeholder="Search...">
-                    <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
-                </form>
-            </div>
-            
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
-                     <li>
+                    <li>
                         <a href="#"><i class="icon-users"></i> 用户管理</a>
                         <ul>
                             <li><a href="/admin/user">用户列表</a></li>
@@ -123,8 +107,8 @@
                     <li>
                         <a href="#"><i class="icon-list"></i> 板块分类</a>
                         <ul>
-                            <li><a href="form_layouts.html">添加板块</a></li>
-                            <li><a href="form_elements.html">板块列表</a></li>
+                            <li><a href="/admin/forum">板块列表</a></li>
+                            <li><a href="/admin/forum/create">添加板块</a></li>                           
                         </ul>
                     </li>   
                     <li>
@@ -132,15 +116,10 @@
                         <ul>
                             <li><a href="/admin/post">帖子列表</a></li>
                             <li><a href="/admin/post/create">添加帖子</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon-file-word"></i> 回帖管理</a>
-                        <ul>
                             <li><a href="#">回帖列表</a></li>
                             <li><a href="#">添加帖子</a></li>
                         </ul>
-                    </li>   
+                    </li>  
                     <li>
                         <a href="#"><i class="icon-database"></i> 收藏管理</a>
                         <ul>
@@ -151,8 +130,8 @@
                      <li>
                         <a href="#"><i class="icon-list"></i>轮播图管理</a>
                         <ul>
-                            <li><a href="/admin/carousel/create">添加轮播图</a></li>
                             <li><a href="/admin/carousel">轮播图列表</a></li>
+                            <li><a href="/admin/carousel/create">添加轮播图</a></li>
                         </ul>
                     </li>
                     <li>
@@ -174,10 +153,11 @@
             </div>         
         </div>
         
-
-
         <!-- Main Container Start -->
-        <!-- 显示错误消息 开始 -->
+        <div id="mws-container" class="clearfix">
+        
+            <!-- Inner Container Start -->
+            <!-- 显示错误消息 开始 -->
             @if (session('success'))
                 <div class="mws-form-message success">
                     {{ session('success') }}
@@ -188,19 +168,17 @@
                 <div class="mws-form-message error">
                     {{ session('error') }}
                 </div>
-            @endif
+            @endif  
 
-        <!-- Main Container Start -->
-        <div id="mws-container" class="clearfix">
-        @section('main')
+            @section('main')
         
 
-        @show
-
+            @show     
+            <!-- Inner Container End -->
+            
         </div>
-
         <!-- Main Container End -->
-      
+        
     </div>
 
     <!-- JavaScript Plugins -->
@@ -236,9 +214,7 @@
     <script src="/admins/js/core/themer.js"></script>
 
     <!-- Demo Scripts (remove if not needed) -->
-    <script src="/admins/js/demo/demo.table.js"></script>
     <script src="/admins/js/demo/demo.dashboard.js"></script>
-
 
 </body>
 </html>
