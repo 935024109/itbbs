@@ -18,12 +18,10 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {   
-        // $forum = Forum::all();
-        // dump($forum);
+        //搜索分页
         $search = $request->input('search','');
         $count = $request->input('count','5');
-        // dump($count);
-        // dump($search);
+       
         //添加视图
         $data = Post::where('title','like','%'.$search.'%')->paginate($count);
         
@@ -52,8 +50,7 @@ class PostController extends Controller
     {
         //接收数据
         $data = $request->except('_token');
-        // dump($data);
-        // die;
+        
         //把数据压入数据库
         $post = new Post;
         $post->title = $data['title'];
@@ -79,7 +76,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -90,7 +87,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 接受id 并查找数据
         $psot = Post::find($id);
         // dump($psot);
         return view('admin.post.edit',['post'=>$psot]);
@@ -105,6 +102,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //类型约束
          $this->validate($request, [
             'title' => 'required|max:50',
             'content' => 'required'
@@ -150,7 +148,7 @@ class PostController extends Controller
     public function hot($id)
     {
 
-        // dump($id.'加精');
+        // 找到对应id数据并且修改数据
         $data = Post::find($id);
         $data->hot = '1';
         $res = $data->save();
@@ -168,7 +166,8 @@ class PostController extends Controller
      */
     public function nothot($id)
     {
-         $data = Post::find($id);
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
         $data->hot = '0';
         $res = $data->save();
         if($res){
@@ -184,7 +183,8 @@ class PostController extends Controller
      */
     public function top($id)
     {
-         $data = Post::find($id);
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
         $data->top = '1';
         $res = $data->save();
         if($res){
@@ -200,7 +200,8 @@ class PostController extends Controller
      */
     public function nottop($id)
     {
-         $data = Post::find($id);
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
         $data->top = '0';
         $res = $data->save();
         if($res){
@@ -218,22 +219,22 @@ class PostController extends Controller
 
 
 
-    public function aaa()
-    {
-        echo 123;
-        for ($i=0; $i < 10; $i++) { 
-         $post = new Post;
-        $post->title = 'sdfsdfasdfsdf'.rand(11111,99999);
-        $post->content = 'asdfsd'.rand(99999,11111);
-        $post->fid = rand(1,10);
-        $post->uid = rand(1,10);
-        $post->revert = rand(1,2);
-        $post->hot = rand(1,2);
-        $post->clicks = rand(100,200);
-        $res = $post->save();
-        dump($res);
-        }
+    // public function aaa()
+    // {
+    //     echo 123;
+    //     for ($i=0; $i < 10; $i++) { 
+    //      $post = new Post;
+    //     $post->title = 'sdfsdfasdfsdf'.rand(11111,99999);
+    //     $post->content = 'asdfsd'.rand(99999,11111);
+    //     $post->fid = rand(1,10);
+    //     $post->uid = rand(1,10);
+    //     $post->revert = rand(1,2);
+    //     $post->hot = rand(1,2);
+    //     $post->clicks = rand(100,200);
+    //     $res = $post->save();
+    //     dump($res);
+    //     }
         
-    }
+    // }
 
 }

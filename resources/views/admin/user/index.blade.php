@@ -61,10 +61,10 @@
 		@endforeach
          </tbody>
      </table>
-     <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate" >
+    
      	{{ $data->appends($request)->links() }}
-     </div>
- 	</div>
+     
+ 	
     </div>
 </div>
 	

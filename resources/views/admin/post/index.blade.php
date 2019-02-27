@@ -23,14 +23,16 @@
                             <tr>
                                 <th style="width:30px">ID</th>
                                 <th style="width:155px">帖子标题</th>
-                                <th style="width:250px">帖子内容</th>
+                                <th style="width:150px">帖子内容</th>
                                 <th style="width:85px">发帖人</th>
                                 <th style="width:85px">所属板块</th>
                                 <th style="width:85px">是/否顶置</th>
                                 <th style="width:85px">是/否加精</th>
+                                <th style="width:85px">是/否可以回复</th>
+                                <th style="width:85px">回复</th>
                                 <th style="width:185px">创建时间</th>
                                 <th style="width:185px">最后回帖时间</th>
-                                <th style="width:400px">操作</th>
+                                <th style="width:370px">操作</th>
                             </tr>
                             
                         
@@ -46,15 +48,27 @@
                              	</td>    
                                 <td >
                                 	<span title="{{ $v->content }}">
-	                            		<p  style="margin:0 auto;width:250px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">
+	                            		<p  style="width:150px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">
 	                                 	 {{ $v->content }}
 	                            		</p>
                                 	</span>
                                 </td>    
                                 <td> {{ $v->User->uname }} </td>    
                                 <td> {{ $v->Forum->fname }} </td>    
-                                <td> {{ $v->top ? '是' : '否'}} </td>    
-                                <td> {{ $v->hot ? '是' : '否'}} </td>    
+                                <td> 
+
+                                	{{ $v->top ? '是' : '否'}}
+
+                                	
+                            	</td>    
+                                <td> 
+
+                                	{{ $v->hot ? '是' : '否'}}
+
+
+                                 </td>    
+                                <td> {{ $v->revert ? '是' : '否'}} </td>    
+                                <td> {{ $v->ReplyCount($v->pid)}} </td>    
                                 <td> {{ $v->created_at }} </td>    
                                 <td> {{ $v->last_time }} </td>    
                                 <td> 

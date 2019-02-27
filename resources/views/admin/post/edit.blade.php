@@ -51,8 +51,12 @@
                     				<label class="mws-form-label">是否可以回复</label>
                     				<div class="mws-form-item clearfix">
                     					<ul class="mws-form-list inline">
-                    						<li><input type="radio" name="revert" value="1" @if($post->revert == 1) checked @endif> <label>允许回复</label></li>
-                    						<li><input type="radio" name="revert" value="0" @if($post->revert == 0) checked @endif> <label>不允许回复</label></li>
+                    						<li>
+                    							<input type="radio" name="revert" value="1" @if($post->revert == 1) checked @endif> <label>允许回复</label>
+                    						</li>
+                    						<li>
+                    							<input type="radio" name="revert" value="0" @if($post->revert == 0) checked @endif> <label>不允许回复</label>
+                    						</li>
                     					
                     					</ul>
                     				</div>
@@ -71,8 +75,12 @@
                     				<label class="mws-form-label">是否加精</label>
                     				<div class="mws-form-item clearfix">
                     					<ul class="mws-form-list inline">
-                    						<li><input type="radio" name='hot' value="1" @if($post->hot == 1) checked @endif> <label>加精</label></li>
-                    						<li><input type="radio" name='hot' value="0" @if($post->hot == 0) checked @endif> <label>无加精</label></li>
+                    						<li>
+                    							<input type="radio" name='hot' value="1" @if($post->hot == 1) checked @endif> <label>加精</label>
+                    						</li>
+                    						<li>
+                    							<input type="radio" name='hot' value="0" @if($post->hot == 0) checked @endif> <label>无加精</label>
+                    						</li>
                     					</ul>
                     				</div>
                     			</div>
