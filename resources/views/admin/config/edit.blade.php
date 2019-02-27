@@ -1,0 +1,27 @@
+@extends('admin.layout.index')
+
+@section('main')
+	<div class="mws-panel grid_8">		
+	<div class="mws-panel-header">
+    	<span><i class="icon-pencil"></i> 网站配置</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+    	<form class="mws-form" action="/admin/config/{{$data->cid}}" method="post">
+    		{{ csrf_field() }}
+    		{{method_field('PUT')}}
+        	<div class="mws-form-inline">
+            	<div class="mws-form-row" style="width:600px">
+                	<label class="mws-form-label">配置名称</label>
+                	<div class="mws-form-item">
+                    	<input  class="large" type="text" name="cname" value="{{$data->cname}}">
+                    </div>
+                </div>
+                <div class="mws-button-row">
+					<input type="submit" value="修改" class="btn btn-success">
+					<input type="reset" value="重置" class="btn btn-info">
+				</div>
+            </div>
+        </form>
+	    </div>    	
+</div>
+@endsection

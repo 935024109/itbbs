@@ -32,7 +32,7 @@
             	<div class="mws-form-row">
                 	<label class="mws-form-label">链接描述</label>
                 	<div class="mws-form-item">
-                    	<input class="large" type="text" name="title" placeholder="your placeholder text" >
+                    	<input class="large" type="text" name="title">
                     </div>
                 </div>
                 <div class="mws-button-row">

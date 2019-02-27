@@ -166,8 +166,8 @@
                     <li>
                         <a href="#"><i class="icon-list"></i> 网站配置管理</a>
                         <ul>
-                            <li><a href="#">网站配置列表</a></li>
-                            <li><a href="#">添加网站配置</a></li>
+                            <li><a href="/admin/config">网站配置列表</a></li>
+                            <li><a href="/admin/config/create">添加网站配置</a></li>
                         </ul>
                     </li>                   
                 </ul>

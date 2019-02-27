@@ -63,6 +63,8 @@ Route::get('/admin/out','Admin\LoginController@out');
 //61-80 wsx
 // Blogroll 友情链接路由
 Route::resource('admin/blogroll','Admin\BlogrollController');
+// Config 网站配置
+Route::resource('admin/config','Admin\ConfigController');
 
 
 

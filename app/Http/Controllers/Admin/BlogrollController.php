@@ -19,10 +19,10 @@ class BlogrollController extends Controller
     {
         // dd($request->all());
         // 搜索条数
-        $count = $request->input('count',5);
+        // $count = $request->input('count',5);
         // 搜索关键字
         $search = $request->input('search','');
-        $data = Blogroll::where('name','like','%'. $search.'%')->paginate($count);
+        $data = Blogroll::where('name','like','%'. $search.'%')->get();
         // 获取数据库值
         // $data = Blogroll::get();
         // dd($data);
@@ -128,7 +128,23 @@ class BlogrollController extends Controller
         $blogroll = Blogroll::find($id);
         $blogroll->name = $data['name'];
         $blogroll->url = $data['url'];
+        $blogroll->logo = $data['logo'];
         $blogroll->title = $data['title'];
+        // 如果上传了新头像
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
+            $extension = $file->extension();
+            $filename = time().rand(1000,9999).'.'.$extension;
+            // dump($filename);
+            $data = $file->storeAs('images',$filename);
+            //dump($res);
+            if ($data) {
+                $blogroll->logo = $filename;
+            } else {
+                $blogroll->logo = $blogroll->logo;
+            }
+
+        }
         $data = $blogroll->save();
         if($data){
              return redirect('admin/blogroll')->with('success','修改成功');
