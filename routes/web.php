@@ -32,8 +32,8 @@ Route::resource('admin/post','Admin\PostController');
 
 
 
+// Route::get('admin/reply/add/{id}','Admin\ReplyController@add');
 Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']]);
-
 
 //41-60 czz
 //用户路由

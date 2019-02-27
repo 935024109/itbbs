@@ -132,8 +132,8 @@
                         <ul>
                             <li><a href="/admin/post">帖子列表</a></li>
                             <li><a href="/admin/post/create">添加帖子</a></li>
-                            <li><a href="#">回帖列表</a></li>
-                            <li><a href="#">添加帖子</a></li>
+                       
+                       
                         </ul>
                     </li> 
                     <li>

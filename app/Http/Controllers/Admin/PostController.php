@@ -38,8 +38,11 @@ class PostController extends Controller
      */
     public function create()
     {
+        //获取所有分区 下拉框便利
+        $forum = Forum::all();
+
         //添加视图
-        return view('admin.post.create');
+        return view('admin.post.create',compact('forum'));
     }
 
     /**

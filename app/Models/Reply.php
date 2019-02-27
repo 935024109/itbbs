@@ -11,4 +11,11 @@ class Reply extends Model
 
     //设置表名
     public $table = 'replys';
+
+
+    //跟user建立属于关系
+    public function User()
+    {
+    	return $this->belongsTo('App\Models\User','uid');
+    }
 }

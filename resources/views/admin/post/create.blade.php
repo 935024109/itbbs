@@ -29,9 +29,9 @@
 
                     					<select name="fid" id="p_type">
 									       <option value="0">选择分类↓</option>
-                                          
-									       <option value="1">1</option>
-										
+                                          @foreach($forum as $k=>$v)
+									       <option value="{{ $v->fid }}">{{ $v->fname }}</option>
+										  @endforeach
 										</select>
                     				</div>
                     			</div>

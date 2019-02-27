@@ -103,9 +103,9 @@
 									<form style="display:inline-block;" action="/admin/reply/{{ $v->pid }}" method="get">	
 										<input type="submit" value="查看回帖" class="btn btn-success">
 									</form>
-									<form style="display:inline-block;" action="/admin/reply/{{ $v->pid }}">	
+									<!-- <form style="display:inline-block;" action="/admin/reply/add/{{ $v->pid }}">	
 										<input type="submit" value="添加回复" class="btn btn-primary">
-									</form>
+									</form> -->
 									<!-- ------------------------------ -->
 								
                                 </td>    

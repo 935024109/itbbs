@@ -25,7 +25,7 @@
 <body>
 
     <div id="mws-login-wrapper">
-        <div id="mws-login">
+        <div id="mws-login" >
             @if (session('success'))
             <div class="mws-form-message success">
                     {{ session('success') }}
