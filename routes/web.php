@@ -32,7 +32,7 @@ Route::resource('admin/post','Admin\PostController');
 
 
 
-
+Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']]);
 
 
 //41-60 czz

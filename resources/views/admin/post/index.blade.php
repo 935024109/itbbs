@@ -26,13 +26,13 @@
                                 <th style="width:150px">帖子内容</th>
                                 <th style="width:85px">发帖人</th>
                                 <th style="width:85px">所属板块</th>
-                                <th style="width:150px">是/否顶置</th>
-                                <th style="width:150px">是/否加精</th>
-                                <th style="width:170px">是/否可以回复</th>
-                                <th style="width:85px">回复</th>
+                                <th style="width:100px">是/否顶置</th>
+                                <th style="width:100px">是/否加精</th>
+                                <th style="width:100px">是/否可以回复</th>
+                                <th style="width:60px">回复</th>
                                 <th style="width:185px">创建时间</th>
-                                <th style="width:185px">最后回帖时间</th>
-                                <th style="width:370px">操作</th>
+                                <!-- <th style="width:185px">最后回帖时间</th> -->
+                                <th style="width:300px">操作</th>
                             </tr>
                             
                         
@@ -58,9 +58,9 @@
                                 <td> 
 
                                 	@if($v->top == 0)
-										<a href="/admin/post/top/{{ $v->pid }}" class="btn btn-info">顶置</a>
+										<a href="/admin/post/top/{{ $v->pid }}" class="btn btn-info">Y</a>
 										@else
-										<a href="/admin/post/nottop/{{ $v->pid }}" class="btn btn-danger">取消顶置</a>
+										<a href="/admin/post/nottop/{{ $v->pid }}" class="btn btn-danger">N</a>
 									@endif
 
 
@@ -68,25 +68,25 @@
                                 <td> 
 
                                 	@if($v->hot == 0)
-											<a href="/admin/post/hot/{{ $v->pid }}" class="btn btn-info">加精</a>
+											<a href="/admin/post/hot/{{ $v->pid }}" class="btn btn-info">Y</a>
 										@else
-											<a href="/admin/post/nothot/{{ $v->pid }}" class="btn btn-danger">取消加精</a>
+											<a href="/admin/post/nothot/{{ $v->pid }}" class="btn btn-danger">N</a>
 									@endif
 
 
                                  </td>    
-                                <td>
+                                <td style="line-height:0px;padding:auto 0;">
 	                                @if($v->revert == 1)
-											<a href="/admin/post/notrevert/{{ $v->pid }}" class="btn btn-info">不可以回复</a>
+											<a href="/admin/post/notrevert/{{ $v->pid }}" class="btn btn-danger">N</a>
 										@else
-											<a href="/admin/post/revert/{{ $v->pid }}" class="btn btn-danger">可以回复</a>
+											<a href="/admin/post/revert/{{ $v->pid }}" class="btn btn-info">Y</a>
 									@endif
 
 
                              	</td>    
                                 <td> {{ $v->ReplyCount($v->pid)}} </td>    
                                 <td> {{ $v->created_at }} </td>    
-                                <td> {{ $v->last_time }} </td>    
+                                <!-- <td> {{ $v->last_time }} </td>     -->
                                 <td> 
 
 									<form style="display:inline-block;" action="/admin/post/{{ $v->pid }}" method="post">	
@@ -99,6 +99,14 @@
 										<input type="submit" value="修改" class="btn btn-info">
 									</form>
 									
+									<!-- ----------------------- -->
+									<form style="display:inline-block;" action="/admin/reply/{{ $v->pid }}" method="get">	
+										<input type="submit" value="查看回帖" class="btn btn-success">
+									</form>
+									<form style="display:inline-block;" action="/admin/reply/{{ $v->pid }}">	
+										<input type="submit" value="添加回复" class="btn btn-primary">
+									</form>
+									<!-- ------------------------------ -->
 								
                                 </td>    
                             </tr>

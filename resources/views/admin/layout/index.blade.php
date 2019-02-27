@@ -132,15 +132,10 @@
                         <ul>
                             <li><a href="/admin/post">帖子列表</a></li>
                             <li><a href="/admin/post/create">添加帖子</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="icon-file-word"></i> 回帖管理</a>
-                        <ul>
                             <li><a href="#">回帖列表</a></li>
                             <li><a href="#">添加帖子</a></li>
                         </ul>
-                    </li>   
+                    </li> 
                     <li>
                         <a href="#"><i class="icon-database"></i> 收藏管理</a>
                         <ul>
