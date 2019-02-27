@@ -144,15 +144,14 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-        DB::beginTransaction();
+      
         $res = Post::destroy($id);
-        $res1 = Reply::where('pid',$id)->delete();
+        $res1 = Reply::where('pid',$id)->delete();  
+      
 
-        if($res && $res1){
-            DB::commit();
+        if($res){
             return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
         } else {
-            DB::rollback();
             return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
         }
 
