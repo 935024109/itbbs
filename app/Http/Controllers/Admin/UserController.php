@@ -68,6 +68,8 @@ class UserController extends Controller
             // dump($filename);
             $res = $file->storeAs('images',$filename);
             //dump($res);
+        } else {
+            $res = 'images/15511519105394.jpeg';
         }
 
         // 将所获得的所有数据保存到数据库
@@ -76,8 +78,8 @@ class UserController extends Controller
         $user->nickname = $data['nickname'];
         $user->pwd = Hash::make($data['pwd']);
         $user->email = $data['email'];
-        $user->photo = $res;
         $user->auth = $data['auth'];
+        $user->photo = $res;
         $user->phone = $data['phone'];
         $user->last_time = date('Y-m-d H:i:s',time());
         $res = $user->save();

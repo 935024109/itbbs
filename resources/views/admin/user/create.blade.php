@@ -1,5 +1,6 @@
 @extends('admin/layout/index')
 @section('main')
+<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	@if (count($errors) > 0)
 	    <div class="alert alert-danger">
 	        <ul>
@@ -8,7 +9,9 @@
 	            @endforeach
 	        </ul>
 	    </div>
+	    
 	@endif
+
 	<div class="mws-panel grid_8">
     	<div class="mws-panel-header">
         	<span>添加用户</span>

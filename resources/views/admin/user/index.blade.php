@@ -23,7 +23,7 @@
 			  <input type="submit" value="搜索" class="btn btn-info">
 			</div>
 		</form>
-        <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
+        <table class="table table-bordered" style="width:100%;background-color:#cccccc;">
            <thead>
 			  <tr role="row">
 				<th>ID</th>
@@ -61,10 +61,10 @@
 		@endforeach
          </tbody>
      </table>
-     <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate" >
+    
      	{{ $data->appends($request)->links() }}
-     </div>
- 	</div>
+     
+ 	
     </div>
 </div>
 	
