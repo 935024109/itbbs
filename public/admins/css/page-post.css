@@ -1,7 +1,8 @@
 ul.pagination{
 	margin:10px 700px;
 	/*padding: 0 auto;*/
-	text-align:center
+	text-align:center;
+    /*width:700px;*/
 }
 
 ul.pagination li{
