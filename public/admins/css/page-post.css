@@ -1,15 +1,15 @@
 ul.pagination{
-	margin:10px 700px;
-	/*padding: 0 auto;*/
-	text-align:center;
-    /*width:700px;*/
+    margin:10px 995px;
+    padding: 0 auto;
+    text-align:center;
+    width:700px;
 }
 
 ul.pagination li{
-	display: inline;
+    display: inline;
 }
 ul.pagination li a{
-	    position: relative;
+        position: relative;
     float: left;
     padding: 6px 12px;
     margin-left: -1px;
@@ -20,7 +20,7 @@ ul.pagination li a{
     border: 1px solid #ddd;
 }
 ul.pagination li.active span{
-     /*z-index: 2;*/
+     z-index: 2;
          text-decoration: none;
     color: #fff;
     cursor: default;
@@ -33,7 +33,7 @@ ul.pagination li.active span{
     line-height: 1.42857143;
 }
 ul.pagination li.disabled{
-		    position: relative;
+            position: relative;
     float: left;
     padding: 6px 12px;
     margin-left: -1px;

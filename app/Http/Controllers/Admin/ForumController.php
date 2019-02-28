@@ -9,10 +9,11 @@ use DB;
 class ForumController extends Controller
 {
     // 获取模板分类数据
-    public static function getForumCates()
+    public static function getForumCates($count, $search)
     {   
+        
         //根据条件获取分类数据
-        $forums_cates = Forum::select('*',DB::raw("concat(path,',',fid) as paths"))->get();
+        $forums_cates = Forum::where('fname','like','%'. $search.'%')->select('*',DB::raw("concat(path,',',fid) as paths"))->paginate($count);
         foreach ($forums_cates as $key => $value) {
             //统计path中 , 出现时 次数
             $sum  = substr_count($value->path, ',');
@@ -26,11 +27,14 @@ class ForumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+       // 获取每页的条数, 搜索的关键字
+         $count = $request->input('count',5);
+        $search = $request->input('search','');
+        
         //加载视图,分配数据
-       
-        return view('admin.forum.index',['forums'=>self::getForumCates()]);
+        return view('admin.forum.index',['request'=>$request->all(),'forums'=>self::getForumCates($count,$search)]);
     }
 
     /**

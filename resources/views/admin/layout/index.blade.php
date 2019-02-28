@@ -33,6 +33,10 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/themer.css" media="screen">
 
+<!-- wzl pages Stylesheet -->
+<link rel="stylesheet" type="text/css" href="/admins/css/page_page.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/page-post.css" media="screen">
+
 <title>MWS admins - Dashboard</title>
 
 </head>
@@ -123,8 +127,6 @@
                         <ul>
                             <li><a href="/admin/post">帖子列表</a></li>
                             <li><a href="/admin/post/create">添加帖子</a></li>
-                            <li><a href="#">回帖列表</a></li>
-                            <li><a href="#">添加帖子</a></li>
                         </ul>
                     </li>  
                     <li>
