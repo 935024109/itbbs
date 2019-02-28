@@ -20,6 +20,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {   
+        
         //搜索分页
         $search = $request->input('search','');
         $count = $request->input('count','5');

@@ -18,7 +18,13 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        
+        // dd(session('id'));
+        $this->validate($request, [
+            'captcha' => 'required|captcha',
+        ],[
+            'captcha.required' => '验证码不能为空',
+            'captcha.captcha' => '请看好了在填写'
+        ]);
     	$data = $request->except('_token');
     	// 根据用户名去查询数据
     	$user = User::where('uname','=',$data['uname'])->first();
@@ -28,6 +34,7 @@ class LoginController extends Controller
     		$res = Hash::check($data['pwd'], $user->pwd);
     		if ($res) {
     			// 如果匹配成功
+                session(['flag'=>true]); 
     			session(['id'=>$user->uid]);
     			session(['uname'=>$data['uname']]);
     			session(['photo'=>$user->photo]);
@@ -42,7 +49,9 @@ class LoginController extends Controller
 
     public function out()
     {
-    	session()->forget('uname');
+        session(['flag'=>false]); 
+        session()->forget('uname');
+    	session()->forget('id');
     	session()->forget('photo');
     	return redirect('/admin/user')->with('success','退出成功');
     }
