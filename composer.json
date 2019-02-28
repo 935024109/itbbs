@@ -60,5 +60,5 @@
 
     "require": {
         "gregwar/captcha": "1.*"
-    },
+    }
 }
