@@ -9,7 +9,7 @@ use Hash;
 use App\Http\Requests\UserStoreBlogPost;
 use DB;
 class UserController extends Controller
-{
+{	
     /**
      * Display a listing of the resource.
      *
@@ -68,6 +68,8 @@ class UserController extends Controller
             // dump($filename);
             $res = $file->storeAs('images',$filename);
             //dump($res);
+        } else {
+            $res = 'images/15511519105394.jpeg';
         }
 
         // 将所获得的所有数据保存到数据库
@@ -76,8 +78,8 @@ class UserController extends Controller
         $user->nickname = $data['nickname'];
         $user->pwd = Hash::make($data['pwd']);
         $user->email = $data['email'];
-        $user->photo = $res;
         $user->auth = $data['auth'];
+        $user->photo = $res;
         $user->phone = $data['phone'];
         $user->last_time = date('Y-m-d H:i:s',time());
         $res = $user->save();
@@ -181,5 +183,52 @@ class UserController extends Controller
         }
     }
 
+    // 小黑屋主页面
+    public function black()
+    {
+    	$data = User::onlyTrashed()->get();;
+    	//dump($data);
+    	return view('/admin/user/black',['data'=>$data]);
+    }
 
+    // 禁止发言
+    public function stoptalk($id)
+    {
+    	$data = User::find($id);
+    	$data->black = 1;
+    	$res = $data->save();
+    	$res2 = User::destroy([$id]);
+    	if ($res && $res2){
+    		return redirect('admin/user')->with('success','成功加入小黑屋');
+    	} else {
+    		return redirect('admin/user')->with('error','失败加入小黑屋');
+    	}
+    }
+
+    // 禁止访问
+    public function stopin($id)
+    {
+    	$data = User::find($id);
+    	$data->black = 2;
+    	$res = $data->save();
+    	$res2 = User::destroy([$id]);
+    	if ($res && $res2){
+    		return redirect('admin/user')->with('success','成功加入小黑屋');
+    	} else {
+    		return redirect('admin/user')->with('error','失败加入小黑屋');
+    	}
+    }
+
+    // 刑满释放
+    public function freedom($id)
+    {
+    	$res = User::withTrashed()
+            ->where('uid', $id)
+            ->restore();
+        if ($res){
+        	return redirect('admin/user')->with('success','释放成功');
+        } else {
+        	return back()->with('error','释放失败');
+        }
+    }
 }

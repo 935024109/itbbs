@@ -35,8 +35,15 @@ Route::resource('admin/post','Admin\PostController');
 // Route::get('admin/reply/add/{id}','Admin\ReplyController@add');
 Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']]);
 
+
+
+
 //41-60 czz
 //用户路由
+Route::get('/admin/user/freedom/{id}','Admin\UserController@freedom');
+Route::get('/admin/user/stopin/{id}','Admin\UserController@stopin');
+Route::get('/admin/user/stoptalk/{id}','Admin\UserController@stoptalk');
+Route::get('/admin/user/black','Admin\UserController@black');
 Route::resource('/admin/user','Admin\UserController');
 //后台登录页面
 Route::get('/admin/in','Admin\LoginController@index');
