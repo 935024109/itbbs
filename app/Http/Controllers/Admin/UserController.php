@@ -66,10 +66,10 @@ class UserController extends Controller
             $extension = $file->extension();
             $filename = time().rand(1000,9999).'.'.$extension;
             // dump($filename);
-            $res = $file->storeAs('images',$filename);
+            $res = $file->storeAs('images/user',$filename);
             //dump($res);
         } else {
-            $res = 'images/15511519105394.jpeg';
+            $res = 'images/user/15512302229854.jpeg';
         }
 
         // 将所获得的所有数据保存到数据库
