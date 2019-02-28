@@ -92,7 +92,7 @@
 									<form style="display:inline-block;" action="/admin/post/{{ $v->pid }}" method="post">	
 										{{  csrf_field() }}
 										{{  method_field('DELETE') }}
-										<input type="submit" value="删除" class="btn btn-danger">
+										<input onclick="return confirm('您确定要这么做?')" type="submit" value="删除" class="btn btn-danger">
 										
 									</form>
 									<form style="display:inline-block;" action="/admin/post/{{ $v->pid }}/edit">	
