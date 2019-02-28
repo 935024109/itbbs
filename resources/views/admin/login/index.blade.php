@@ -36,7 +36,18 @@
                     {{ session('error') }}
                 </div>
             @endif
+            @if (count($errors) > 0)
+			    <div class="alert alert-danger">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			                <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			    
+			@endif
             <h1>登录</h1>
+
             <div class="mws-login-lock"><i class="icon-lock"></i></div>
             <div id="mws-login-form">
                 <form class="mws-form" action="/admin/login" method="post">
@@ -51,6 +62,10 @@
                             <input type="password" name="pwd" class="mws-login-password required" placeholder="密码">
                         </div>
                     </div>
+                    <div class="mws-form-row">
+                    	<input name="captcha" type="text" placeholder="验证码">  
+					    <img src="{{captcha_src()}}" style="cursor: pointer" onclick="this.src='{{captcha_src()}}'+Math.random()">
+					</div>
                     <div class="mws-form-row">
                         <input type="submit" value="点击登录" class="btn btn-success mws-login-button">
                     </div>
@@ -75,3 +90,10 @@
 
 </body>
 </html>
+<script type="text/javascript">  
+    function re_captcha() {  
+        $url = "{{ URL('/admin/captcha') }}";
+        $url = $url + "/1?a=" + Math.random();
+            document.getElementById('127ddf0de5a04167a9e427d883690ff6').src = $url;
+        }
+</script>  

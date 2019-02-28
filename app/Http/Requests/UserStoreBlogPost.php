@@ -48,7 +48,6 @@ class UserStoreBlogPost extends FormRequest
             'email.required' => '邮箱不能为空',
             'phone.required' => '手机号不能为空',
             'phone.regex' => '手机号格式不正确',
-           
         ];
     }
 }

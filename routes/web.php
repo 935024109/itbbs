@@ -46,11 +46,15 @@ Route::get('/admin/user/stoptalk/{id}','Admin\UserController@stoptalk');
 Route::get('/admin/user/black','Admin\UserController@black');
 Route::resource('/admin/user','Admin\UserController');
 //后台登录页面
+Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha');
 Route::get('/admin/in','Admin\LoginController@index');
 //登录
 Route::post('/admin/login','Admin\LoginController@login');
 //退出
 Route::get('/admin/out','Admin\LoginController@out');
+
+// 前台首页
+Route::resource("/home",'Home\IndexController');
 
 
 

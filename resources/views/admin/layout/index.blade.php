@@ -66,14 +66,14 @@
                 	@if (session('photo'))
 						<img src="/uploads/{{ session('photo')}}" alt="User Photo">               	
                 	@else 
-                		<img src="/uploads/images/15511519105394.jpeg" alt="User Photo">               	
+                		<img src="/uploads/images/user/15512302229854.jpeg" alt="User Photo">               	
                     @endif
                 </div>
                 
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        Hello, John Doe
+                        你好，{{session('uname')}}
                     </div>
                     <ul>
                         @if (!session('uname'))
