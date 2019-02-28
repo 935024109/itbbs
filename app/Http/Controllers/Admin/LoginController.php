@@ -18,6 +18,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        
     	$data = $request->except('_token');
     	// 根据用户名去查询数据
     	$user = User::where('uname','=',$data['uname'])->first();

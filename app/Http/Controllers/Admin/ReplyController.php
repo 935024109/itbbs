@@ -50,7 +50,7 @@ class ReplyController extends Controller
     {
         //查找帖子和对应帖子的回复
         $post = Post::find($id);
-        $reply = Reply::where('pid',$id)->get();
+        $reply = Reply::where('pid',$id)->paginate(5);
         
         return view('admin.reply.show',['post'=>$post,'reply'=>$reply]);
     }

@@ -53,8 +53,8 @@
                     				<label class="mws-form-label">是否可以回复</label>
                     				<div class="mws-form-item clearfix">
                     					<ul class="mws-form-list inline">
-                    						<li><input type="radio" checked name="revert" value="1"> <label>允许回复</label></li>
-                    						<li><input type="radio" name="revert" value="0"> <label>不允许回复</label></li>
+                    						<li><input type="radio" checked name="revert" value="0"> <label>不允许回复</label></li>&nbsp;&nbsp;
+                                            <li><input type="radio"  name="revert" value="1"> <label>允许回复</label></li>
                     					
                     					</ul>
                     				</div>
@@ -63,10 +63,23 @@
                     				<label class="mws-form-label">是否顶置</label>
                     				<div class="mws-form-item clearfix">
                     					<ul class="mws-form-list inline">
-                    						<li><input type="radio" name='top' value="1"> <label>顶置</label></li>
+                                            <li><input type="radio" checked name='top' value="0"> <label>不顶置</label></li>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                            <li><input type="radio"  name='top' value="1"> <label>顶 &nbsp;&nbsp;置</label></li> 
                     					</ul>
                     				</div>
                     			</div>
+
+                                <div class="mws-form-row">
+                                    <label class="mws-form-label">是否加精</label>
+                                    <div class="mws-form-item clearfix">
+                                        <ul class="mws-form-list inline">
+                                            <li><input type="radio" name='hot' checked value="0"> <label>不加精</label></li> &nbsp;&nbsp; &nbsp;&nbsp;
+                                            <li><input type="radio" name='hot' value="1"> <label>加 &nbsp;&nbsp;精</label></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
 
 
                     			

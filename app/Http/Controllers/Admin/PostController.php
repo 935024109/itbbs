@@ -38,6 +38,7 @@ class PostController extends Controller
      */
     public function create()
     {
+
         //获取所有分区 下拉框便利
         $forum = Forum::all();
 
@@ -53,6 +54,7 @@ class PostController extends Controller
      */
     public function store(StoreBlogPost $request)
     {
+
         //接收数据
         $data = $request->except('_token');
         
@@ -61,8 +63,10 @@ class PostController extends Controller
         $post->title = $data['title'];
         $post->content = $data['content'];
         $post->fid = $data['fid'];
-        $post->uid = '1';
+        $post->uid = session('id');
         $post->revert = $data['revert'];
+        $post->hot = $data['hot'];
+        $post->top = $data['top'];
         $res = $post->save();
         //判断数据添加成功
         if($res){

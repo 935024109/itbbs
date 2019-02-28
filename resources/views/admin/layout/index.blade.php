@@ -21,6 +21,8 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-style.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol16.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/icons/icol32.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/page_page.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/admins/css/page-post.css" media="screen">
 
 <!-- Demo Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/admins/css/demo.css" media="screen">
@@ -72,7 +74,7 @@
                 
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
-                    <div id="mws-username">
+                   <div id="mws-username">
                         你好，{{session('uname')}}
                     </div>
                     <ul>

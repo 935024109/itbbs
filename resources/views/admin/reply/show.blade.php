@@ -6,14 +6,7 @@
 <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
 <div class="table-responsive " >
 		<div>
-			<form action="/admin/post" method="get">
 			
-
-			<div style="float:right">
-				<label>搜索: <input type="text" name="search"></label>
-				<input type="submit" value="搜索" class="btn btn-info">
-			</div>
-			</form>
 			<table class="table table-bordered text-center" style="margin:0 10px;width:99%">
 				<tr>
 					<td>帖子ID</td>
@@ -63,7 +56,7 @@
 									<form style="display:inline-block;" action="/admin/reply/{{ $v->rid }}" method="post">	
 										{{  csrf_field() }}
 										{{  method_field('DELETE') }}
-										<input type="submit" value="删除" class="btn btn-danger">
+										<input type="submit" onclick="return confirm('您确定要这么做?')" value="删除" class="btn btn-danger">
 										
 									</form>
                         			
@@ -78,7 +71,7 @@
                         </table>
                      
 		
-	
+		{{ $reply->links() }}
 								  
 	
         </div>
