@@ -8,6 +8,8 @@ use App\Http\Requests\StoreBlogPost;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Forum;
+use App\Models\Reply;
+use DB;
 
 class PostController extends Controller
 {
@@ -18,12 +20,10 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {   
-        // $forum = Forum::all();
-        // dump($forum);
+        //搜索分页
         $search = $request->input('search','');
         $count = $request->input('count','5');
-        // dump($count);
-        // dump($search);
+       
         //添加视图
         $data = Post::where('title','like','%'.$search.'%')->paginate($count);
         
@@ -38,8 +38,11 @@ class PostController extends Controller
      */
     public function create()
     {
+        //获取所有分区 下拉框便利
+        $forum = Forum::all();
+
         //添加视图
-        return view('admin.post.create');
+        return view('admin.post.create',compact('forum'));
     }
 
     /**
@@ -52,8 +55,7 @@ class PostController extends Controller
     {
         //接收数据
         $data = $request->except('_token');
-        // dump($data);
-        // die;
+        
         //把数据压入数据库
         $post = new Post;
         $post->title = $data['title'];
@@ -79,7 +81,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -90,7 +92,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 接受id 并查找数据
         $psot = Post::find($id);
         // dump($psot);
         return view('admin.post.edit',['post'=>$psot]);
@@ -105,6 +107,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //类型约束
          $this->validate($request, [
             'title' => 'required|max:50',
             'content' => 'required'
@@ -141,6 +144,17 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+      
+        $res = Post::destroy($id);
+        $res1 = Reply::where('pid',$id)->delete();  
+      
+
+        if($res){
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        } else {
+            return redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+        }
+
     }
 
     /**
@@ -150,7 +164,7 @@ class PostController extends Controller
     public function hot($id)
     {
 
-        // dump($id.'加精');
+        // 找到对应id数据并且修改数据
         $data = Post::find($id);
         $data->hot = '1';
         $res = $data->save();
@@ -168,7 +182,8 @@ class PostController extends Controller
      */
     public function nothot($id)
     {
-         $data = Post::find($id);
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
         $data->hot = '0';
         $res = $data->save();
         if($res){
@@ -184,7 +199,8 @@ class PostController extends Controller
      */
     public function top($id)
     {
-         $data = Post::find($id);
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
         $data->top = '1';
         $res = $data->save();
         if($res){
@@ -200,7 +216,8 @@ class PostController extends Controller
      */
     public function nottop($id)
     {
-         $data = Post::find($id);
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
         $data->top = '0';
         $res = $data->save();
         if($res){
@@ -211,29 +228,44 @@ class PostController extends Controller
     }
 
 
-
-
-
-
-
-
-
-    public function aaa()
+    /**
+     * 允许回复设置
+     * @return [type] [description]
+     */
+    public function revert($id)
     {
-        echo 123;
-        for ($i=0; $i < 10; $i++) { 
-         $post = new Post;
-        $post->title = 'sdfsdfasdfsdf'.rand(11111,99999);
-        $post->content = 'asdfsd'.rand(99999,11111);
-        $post->fid = rand(1,10);
-        $post->uid = rand(1,10);
-        $post->revert = rand(1,2);
-        $post->hot = rand(1,2);
-        $post->clicks = rand(100,200);
-        $res = $post->save();
-        dump($res);
+
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
+        // dd($data);
+        $data->revert = 1;
+        $res = $data->save();
+        if($res){
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','允许回复成功');
+        } else {
+            return back($_SERVER['HTTP_REFERER'])->with('error','允许回复失败');
         }
-        
     }
+
+    /**
+     * 不允许回复设置
+     * @return [type] [description]
+     */
+    public function notrevert($id)
+    {
+        // 找到对应id数据并且修改数据
+        $data = Post::find($id);
+        // dd($data);
+        $data->revert = 0;
+        $res = $data->save();
+        if($res){
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','不允许回复成功');
+        } else {
+            return back($_SERVER['HTTP_REFERER'])->with('error','不允许回复失败');
+        }
+    }
+
+
+
 
 }

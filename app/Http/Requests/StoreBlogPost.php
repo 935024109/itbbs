@@ -25,7 +25,7 @@ class StoreBlogPost extends FormRequest
     {
         return [
             'title' => 'required|max:50',
-            'fid' => 'required|accepted:0',
+            'fid' => 'required',
             'content' => 'required',
         ];
     }
@@ -40,7 +40,6 @@ class StoreBlogPost extends FormRequest
         return [
             'title.required' => '标题不能为空',
             'fid.required'  => '请选择所属分类',
-            'fid.accepted'  => '请正确选择所属分类',
             'content.required'  => '内容不能为空'
         ];
     }
