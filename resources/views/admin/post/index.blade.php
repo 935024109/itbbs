@@ -15,7 +15,7 @@
 
 			<div style="float:right">
 				<label>搜索: <input type="text" name="search"></label>
-				<input type="submit" value="搜索" class="btn btn-info">
+				<input type="submit" value="搜索" class="btn btn-info" value="{{ $request['search'] or '' }}">
 			</div>
 			</form>
 		</div>

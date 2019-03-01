@@ -80,7 +80,10 @@ Route::resource('/home/user','Home\UserController');
 // Blogroll 友情链接路由
 Route::resource('admin/blogroll','Admin\BlogrollController')->middleware('login');
 // Config 网站配置
-Route::resource('admin/config','Admin\ConfigController')->middleware('login');
+Route::resource('admin/config','Admin\ConfigController');
+// announcement 公告管理
+Route::resource('admin/announcement','Admin\AnnouncementController');
+
 
 
 
