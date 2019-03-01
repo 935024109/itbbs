@@ -155,6 +155,13 @@
                             <li><a href="/admin/config">网站配置列表</a></li>
                             <li><a href="/admin/config/create">添加网站配置</a></li>
                         </ul>
+                    </li>
+                     <li>
+                        <a href="#"><i class="icon-list"></i>公告管理</a>
+                        <ul>
+                            <li><a href="/admin/announcement">公告列表</a></li>
+                            <li><a href="/admin/announcement/create">添加公告</a></li>
+                        </ul>
                     </li>                   
                 </ul>
             </div>         

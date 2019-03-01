@@ -8,18 +8,8 @@ use App\Models\Config;
 use DB;
 class ConfigController extends Controller
 {
-    public static function getConfig()
-    {
-         $data_index = Config::select('*',DB::raw("concat(path,',',cid) as paths"))->orderBy('paths','asc')->get();
-
-        foreach($data_index as $k => $v){
-            // 统计path中 , 出现的次数
-            $n = substr_count($v->path,',');
-            // 重复使用一个字符串
-            $data_index[$k]->cname = str_repeat('|---',$n).$v->cname;
-        }
-        return $data_index;
-    }
+   
+    
     /**
      * Display a listing of the resource.
      *
@@ -27,17 +17,10 @@ class ConfigController extends Controller
      */
     public function index(Request $request)
     {
-        // $data_index = Config::all();
-        // 搜索关键字
-        $search = $request->input('search','');
-        // 搜索条数
-        $count = $request->input('count','5');
-        // 获取数据库值
-        $data = Config::where('cname','like','%'.$search.'%')->paginate($count);
+        $data = Config::all();
+           
         // 加载视图
-        return view('admin.config.index',['data_index'=>self::getConfig(),'data'=>$data,'count'=>$count,'request'=>$request->all()]);
-
-
+        return view('admin.config.index',['data'=>$data]);        
     }
 
     /**
@@ -47,9 +30,9 @@ class ConfigController extends Controller
      */
     public function create()
     {
-        $data_create = Config::all();
+        // $data_create = Config::all();
         // 加载视图
-        return view('admin.config.create',['data_create'=>self::getConfig()]);
+        return view('admin.config.create');
     }
 
     /**
@@ -60,31 +43,33 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
-        // 接收数据
-        $data =$request->except(['_token']);
-        // 处理分类路径
-        // 顶级分类
-        if($data['pid'] == 0){
-            $data['path'] = 0;
-        }else{
-            //获取父级分类的信息
-            $parent_data = Config::find($data['pid']);
-            // 获取分级飞鸟类的 path,id
-            $data['path'] = $parent_data->path.','.$parent_data->cid;
-        }
-
-        // 赋值
-        $config = new Config;
-        $config->cname = $data['cname'];
-        $config->pid = $data['pid'];
-        $config->path = $data['path'];
-       
-        // 执行添加到数据库
-        if($config->save()){
+        
+        // 检测是否有文件上传
+        if($request->hasFile('logo')){
+            // 创建文件上传对象
+            $file = $request->file('logo');           
+            // 执行文件上传 并且指定文件名
+            // 获取文件后缀
+            $ext = $file->extension();
+            // 拼接名称
+            $file_name = time()+rand(1000,9999).'.'.$ext;
+            $res = $file->storeAs('images/config',$file_name);
+             // 接收数据
+            $data = $request->except(['_token']);
+            // 实例化模型,赋值
+            $config = new Config;
+            $config->logo = $file_name;
+            $config->title = $data['title'];
+            $config->url = $data['url'];
+            $config->on_off = $data['on_off'];
+            $config->save();
             return redirect('admin/config')->with('success','添加成功');
+            // dump($res);
         }else{
             return back()->with('error','添加失败');
         }
+
+        
     }
 
     /**
@@ -121,17 +106,34 @@ class ConfigController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // 接受修改后的表单数据
-        $data = $request->except(['_token','_method']);
-        // 根据id查询模型数据
+         $data = $request->except(['_token','_method']);
+        // dd($data);
+        // 
         $config = Config::find($id);
-        // 赋值
-        $config->cname = $data['cname'];
-        // 判断修改条件
-       if($config->save()){
-            return redirect('admin/config')->with('success','修改成功');
+        $config->on_off = $data['on_off'];
+        $config->url = $data['url'];
+        $config->title = $data['title'];
+        // 如果上传了新头像
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
+            $extension = $file->extension();
+            $filename = time().rand(1000,9999).'.'.$extension;
+            // dump($filename);
+            $data = $file->storeAs('images/config',$filename);
+            //dump($res);
+            
+            if ($data) {
+                $config->logo = $data;
+            } else {
+                return back()->with('error','新头像修改失败');
+            }
+
+        }
+        $data = $config->save();
+        if($data){
+             return redirect('admin/config')->with('success','修改成功');
         }else{
-            return back()->with('error','修改失败');
+              return back()->with('error','修改失败');
         }
     }
 
@@ -143,15 +145,15 @@ class ConfigController extends Controller
      */
     public function destroy($id)
     {
-        //检查分类下是否有子分类
-        $child_data = Config::where('pid',$id)->first();
-        if($child_data){
-            return back()->with('error','当前分类下有链接.不能删除');
-        }
-         if(Config::destroy($id)){
-            return redirect('admin/config')->with('success','删除成功');
-        }else{
-            return  redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
-        }
+      
+        // $logo = Config::find($id)->logo;
+        // $logo_path = 'uploads/images/config/'.$logo;
+        // $res1 = Config::destroy($id);
+        // $res2 = unlink($logo_path);
+        // if($res1 && $res2){
+        //     return redirect('admin/config')->with('success','删除成功');
+        // }else{
+        //     return  redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+        // }
     }
 }

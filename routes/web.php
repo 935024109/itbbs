@@ -72,6 +72,8 @@ Route::get('/admin/out','Admin\LoginController@out');
 Route::resource('admin/blogroll','Admin\BlogrollController');
 // Config 网站配置
 Route::resource('admin/config','Admin\ConfigController');
+// announcement 公告管理
+Route::resource('admin/announcement','Admin\AnnouncementController');
 
 
 

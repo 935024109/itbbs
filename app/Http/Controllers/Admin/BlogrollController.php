@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Blogroll;
 use DB;
-use App\Http\Requests\BologrollRequest;
 
 class BlogrollController extends Controller
 {
@@ -71,6 +70,7 @@ class BlogrollController extends Controller
              // 接收数据
             $data = $request->except(['_token']);
             // dd($data);
+            // 实例化模型,赋值
             $Blogroll = new Blogroll;
             $Blogroll->name = $data['name'];
             $Blogroll->logo = $file_name;
@@ -125,6 +125,7 @@ class BlogrollController extends Controller
     {
         $data = $request->except(['_token','_method']);
         // dd($data);
+        // 
         $blogroll = Blogroll::find($id);
         $blogroll->name = $data['name'];
         $blogroll->url = $data['url'];
