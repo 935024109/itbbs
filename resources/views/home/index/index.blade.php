@@ -213,7 +213,7 @@
       <li>
         <a href="dc_signin-dc_signin.html" id="mn_plink_dc_signin">每日签到</a></li>
     </ul>
-    <!-- 二级导航 -->  @foreach($common_forum_cate as $k => $v ) {{$v}} @endforeach
+    <!-- 二级导航 -->  
     <div class="sub_nav">
       <ul class="p_pop h_pop" id="mn_N8473_menu" style="display: none">
         <li>
