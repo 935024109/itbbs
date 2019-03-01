@@ -9,7 +9,7 @@ use DB;
 class ForumController extends Controller
 {
     // 获取模板分类数据
-    public static function getForumCates($count, $search)
+    public static function getForumCates($count = 5, $search = 0)
     {   
         
         //根据条件获取分类数据

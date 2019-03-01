@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use View;
+use App\Http\Controllers\Home\IndexController;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //共享分类数据
+        View::share('common_forum_cate',IndexController::getPidForumCates());
     }
 
     /**

@@ -12,9 +12,9 @@
 <meta name="copyright" content="2001-2013 Comsenz Inc." />
 <meta name="MSSmartTagsPreventParsing" content="True" />
 <meta http-equiv="MSThemeCompatible" content="Yes" />
-<link rel="stylesheet" type="text/css" href="static/css/style_2_common.css" /><link rel="stylesheet" type="text/css" href="static/css/style_2_forum_index.css" />    <script src="static/js/jquery.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_common.css" /><link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_index.css" />    <script src="/homes/static/js/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">var STYLEID = '2', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'Ac9', charset = 'gbk', discuz_uid = '0', cookiepre = '6tcf_40b9_', cookiedomain = '.itxdl.cn', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '1|威望|,2|金钱|,3|贡献|', defaultstyle = '', REPORTURL = 'aHR0cDovL2Jicy5pdHhkbC5jbi8=', SITEURL = 'http://bbs.itxdl.cn/', JSPATH = 'static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
-<script src="static/js/common.js" type="text/javascript"></script>
+<script src="/homes/static/js/common.js" type="text/javascript"></script>
     <!--[if IE 6]>
      <script language='javascript' type="text/javascript">   
     function ResumeError() {  
@@ -27,9 +27,9 @@
 <meta name="msapplication-tooltip" content="兄弟连论坛_每个人的交流社区" />
 <meta name="msapplication-task" content="name=论坛;action-uri=http://bbs.itxdl.cn;icon-uri=http://bbs.itxdl.cn/static/image/common/bbs.ico" />
 <link rel="archives" title="兄弟连论坛_每个人的交流社区" href="http://bbs.itxdl.cn/archiver/" />
-<link rel="stylesheet" id="css_widthauto" type="text/css" href="static/css/style_2_widthauto.css" />
+<link rel="stylesheet" id="css_widthauto" type="text/css" href="/homes/static/css/style_2_widthauto.css" />
 <script type="text/javascript">HTMLNODE.className += ' widthauto'</script>
-<script src="static/js/forum.js" type="text/javascript"></script>
+<script src="/homes/static/js/forum.js" type="text/javascript"></script>
 </head><body id="nv_forum" class="pg_index" onkeydown="if(event.keyCode==27) return false;">
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
@@ -54,7 +54,7 @@
     <div class="wp cl">
       <!-- 站点LOGO -->
       <div class="hd_logo"> 
-          <h2><a href="http://bbs.itxdl.cn/" target="_blank"><img src="static/picture/logo.png" /></a></h2>
+          <h2><a href="http://bbs.itxdl.cn/" target="_blank"><img src="/homes/static/picture/logo.png" /></a></h2>
       </div>
       <!-- 导航 -->
       <div class="nav">
@@ -101,7 +101,7 @@
               <li class="z"><a href="member.php?mod=register" ><i></i>注册</a></li>
        </ul>
       </div>
-      <div style="display:none"><script src="static/js/logging.js" type="text/javascript"></script>
+      <div style="display:none"><script src="/homes/static/js/logging.js" type="text/javascript"></script>
 <form method="post" autocomplete="off" id="lsform" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes" onsubmit="return lsSubmit();">
 <div class="fastlg cl">
 <span id="return_ls" style="display:none"></span>
@@ -201,7 +201,55 @@ initSearchmenu('scbar', '');
   </ul>
  
 <!-- 二级导航 -->
-<div class="sub_nav"> <ul class="p_pop h_pop" id="mn_N8473_menu" style="display: none"><li><a href="http://java.itxdl.cn/" hidefocus="true" target="_blank" >Java工程师</a></li><li><a href="http://bt.itxdl.cn/" hidefocus="true" target="_blank" >Go全栈+区块链</a></li><li><a href="http://python.itxdl.cn/" hidefocus="true" target="_blank" >Python+人工智能</a></li><li><a href="http://php.itxdl.cn/" hidefocus="true" target="_blank" >PHP开发工程师</a></li><li><a href="http://ui.itxdl.cn/" hidefocus="true" >UI/UE全能设计师</a></li><li><a href="http://linux.itxdl.cn/" hidefocus="true" target="_blank" >云计算Linux</a></li><li><a href="http://data.itxdl.cn/" hidefocus="true" target="_blank" >大数据开发工程师</a></li><li><a href="http://h5.itxdl.cn/" hidefocus="true" target="_blank" >前端全栈工程师</a></li><li><a href="http://em.itxdl.cn/" hidefocus="true" target="_blank" >互联网营销经理人</a></li></ul><ul class="p_pop h_pop" id="mn_N8ea2_menu" style="display: none"><li><a href="http://bbs.itxdl.cn/thread-htm-fid-101-page-1.html" hidefocus="true" target="_blank" >视频教程</a></li><li><a href="http://bbs.itxdl.cn/thread-htm-fid-162-page-1.html" hidefocus="true" target="_blank" >资源分享</a></li></ul><ul class="p_pop h_pop" id="mn_N9ec7_menu" style="display: none"><li><a href="http://bbs.itxdl.cn/thread-htm-fid-271-page-1.html" hidefocus="true" target="_blank" >Java技术交流</a></li><li><a href="http://bbs.itxdl.cn/thread-htm-fid-291-page-1.html" hidefocus="true" target="_blank" >Go+区块链</a></li><li><a href="http://bbs.itxdl.cn/thread-htm-fid-286-page-1.html" hidefocus="true" target="_blank" >Python+人工智能</a></li><li><a href="http://bbs.itxdl.cn/thread-htm-fid-127-page-1.html" hidefocus="true" >PHP技术交流</a></li><li><a href="http://bbs.itxdl.cn/thread-htm-fid-126-page-1.html" hidefocus="true" target="_blank" >前端全栈</a></li><li><a href="http://bbs.itxdl.cn/thread-htm-fid-276-page-1.html" hidefocus="true" target="_blank" >UI/UE全能设计</a></li><li><a href="http://bbs.itxdl.cn/thread-htm-fid-128-page-1.html" hidefocus="true" target="_blank" >云计算Linux</a></li><li><a href="http://bbs.itxdl.cn/thread-htm-fid-289-page-1.html" hidefocus="true" target="_blank" >大数据</a></li><li><a href="http://bbs.itxdl.cn/forum.php" hidefocus="true" target="_blank" >互联网营销经理人</a></li></ul><div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div> </div>
+<div class="sub_nav">
+  <ul class="p_pop h_pop" id="mn_N8473_menu" style="display: none">
+    <li>
+      <a href="http://java.itxdl.cn/" hidefocus="true" target="_blank">Java工程师</a></li>
+    <li>
+      <a href="http://bt.itxdl.cn/" hidefocus="true" target="_blank">Go全栈+区块链</a></li>
+    <li>
+      <a href="http://python.itxdl.cn/" hidefocus="true" target="_blank">Python+人工智能</a></li>
+    <li>
+      <a href="http://php.itxdl.cn/" hidefocus="true" target="_blank">PHP开发工程师</a></li>
+    <li>
+      <a href="http://ui.itxdl.cn/" hidefocus="true">UI/UE全能设计师</a></li>
+    <li>
+      <a href="http://linux.itxdl.cn/" hidefocus="true" target="_blank">云计算Linux</a></li>
+    <li>
+      <a href="http://data.itxdl.cn/" hidefocus="true" target="_blank">大数据开发工程师</a></li>
+    <li>
+      <a href="http://h5.itxdl.cn/" hidefocus="true" target="_blank">前端全栈工程师</a></li>
+    <li>
+      <a href="http://em.itxdl.cn/" hidefocus="true" target="_blank">互联网营销经理人</a></li>
+  </ul>
+  <ul class="p_pop h_pop" id="mn_N8ea2_menu" style="display: none">
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-101-page-1.html" hidefocus="true" target="_blank">视频教程</a></li>
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-162-page-1.html" hidefocus="true" target="_blank">资源分享</a></li>
+  </ul>
+  <ul class="p_pop h_pop" id="mn_N9ec7_menu" style="display: none">
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-271-page-1.html" hidefocus="true" target="_blank">Java技术交流</a></li>
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-291-page-1.html" hidefocus="true" target="_blank">Go+区块链</a></li>
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-286-page-1.html" hidefocus="true" target="_blank">Python+人工智能</a></li>
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-127-page-1.html" hidefocus="true">PHP技术交流</a></li>
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-126-page-1.html" hidefocus="true" target="_blank">前端全栈</a></li>
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-276-page-1.html" hidefocus="true" target="_blank">UI/UE全能设计</a></li>
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-128-page-1.html" hidefocus="true" target="_blank">云计算Linux</a></li>
+    <li>
+      <a href="http://bbs.itxdl.cn/thread-htm-fid-289-page-1.html" hidefocus="true" target="_blank">大数据</a></li>
+    <li>
+      <a href="http://bbs.itxdl.cn/forum.php" hidefocus="true" target="_blank">互联网营销经理人</a></li>
+  </ul>
+  <div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div>
+</div>
 
 
 <!-- 用户菜单 -->
@@ -247,7 +295,7 @@ initSearchmenu('scbar', '');
   <div class="ft_top cl" style="width: 100%; background: #2D3237;">
   <div class="wp sections cl">
   <div class="link-section">
-    <h3> <img src="static/picture/logo-footer.png" style="position: relative;top: 1px;margin-right: 10px;" alt="quater" height="16px"> 课程培训 </h3>
+    <h3> <img src="/homes/static/picture/logo-footer.png" style="position: relative;top: 1px;margin-right: 10px;" alt="quater" height="16px"> 课程培训 </h3>
     <div class="link1">
       <ul>
         <li><a href="http://java.itxdl.cn" target="_blank">Java培训</a></li>
@@ -285,19 +333,19 @@ initSearchmenu('scbar', '');
   </div>
   <div class="qr-section">
     <h3>官方微博</h3>
-    <img src="static/picture/wb.png" class="qr" alt="关注我们">
+    <img src="/homes/static/picture/wb.png" class="qr" alt="关注我们">
   </div>
   <div class="qr-section">
     <h3>官方微信</h3>
-    <img src="static/picture/wx.jpg" class="qr" alt="关注我们">
+    <img src="/homes/static/picture/wx.jpg" class="qr" alt="关注我们">
   </div>
     <div class="phone"><p>官方咨询电话&nbsp;&nbsp;400-700-1307</p></div> 
   </div>
   </div>
   <div id="ft" class="wp cl">
      <div class="footer-left cl">
-      <a href="http://bbs.itxdl.cn/archiver/" >Archiver</a><span class="pipe">|</span><a href="http://m.bbs.itxdl.cn" >手机版</a><span class="pipe">|</span><a href="http://bbs.itxdl.cn/forum.php?mod=misc&action=showdarkroom" >小黑屋</a><span class="pipe">|</span>      <span>Copyright 易第优（北京）科技股份有限公司 2006 - 2018 Edu Inc. <a style="margin-left:20px;" href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow"> 京ICP备11018177号</a> <a style="margin-right:20px;" target="_blank"><img src="static/picture/beian.png" alt="">京公网安备 11010802026987号</a>
-        <script src="static/js/cnzz.js" type="text/javascript"></script><span id="cnzz_stat_icon_1261440059"><a href="http://www.cnzz.com/stat/website.php?web_id=1261440059" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="static/picture/pic.gif"></a></span><script src=" static/js/stat.js" type="text/javascript" type="text/javascript"></script><script src="static/js/core.js" type="text/javascript" charset="utf-8" type="text/javascript"></script>
+      <a href="http://bbs.itxdl.cn/archiver/" >Archiver</a><span class="pipe">|</span><a href="http://m.bbs.itxdl.cn" >手机版</a><span class="pipe">|</span><a href="http://bbs.itxdl.cn/forum.php?mod=misc&action=showdarkroom" >小黑屋</a><span class="pipe">|</span>      <span>Copyright 易第优（北京）科技股份有限公司 2006 - 2018 Edu Inc. <a style="margin-left:20px;" href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow"> 京ICP备11018177号</a> <a style="margin-right:20px;" target="_blank"><img src="/homes/static/picture/beian.png" alt="">京公网安备 11010802026987号</a>
+        <script src="/homes/static/js/cnzz.js" type="text/javascript"></script><span id="cnzz_stat_icon_1261440059"><a href="http://www.cnzz.com/stat/website.php?web_id=1261440059" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="/homes/static/picture/pic.gif"></a></span><script src="/homes/static/js/stat.js" type="text/javascript" type="text/javascript"></script><script src="/homes/static/js/core.js" type="text/javascript" charset="utf-8" type="text/javascript"></script>
       </span>
       <script type="text/javascript">
         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1274442336'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1274442336%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
@@ -314,7 +362,7 @@ initSearchmenu('scbar', '');
  
 
  
-<script src="static/js/home.js" type="text/javascript"></script> 
+<script src="/homes/static/js/home.js" type="text/javascript"></script> 
  
 
  
@@ -365,4 +413,4 @@ jQuery(function(){
 (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); 
 </script>
 </body>
-<script src="static/js/bdtj.js" type="text/javascript"></script><script src="static/js/cnzz.js" type="text/javascript"></script></html> 
+<script src="/homes/static/js/bdtj.js" type="text/javascript"></script><script src="/homes/static/js/cnzz.js" type="text/javascript"></script></html> 
