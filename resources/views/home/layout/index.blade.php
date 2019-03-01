@@ -12,7 +12,15 @@
 <meta name="copyright" content="2001-2013 Comsenz Inc." />
 <meta name="MSSmartTagsPreventParsing" content="True" />
 <meta http-equiv="MSThemeCompatible" content="Yes" />
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_common.css" /><link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_index.css" />    <script src="/homes/static/js/jquery.min.js" type="text/javascript"></script>
+=======
+<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_common.css" />
+<link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_index.css" />    <script src="/homes/static/js/jquery.min.js" type="text/javascript"></script>
+>>>>>>> origin/czz
 <script type="text/javascript">var STYLEID = '2', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'Ac9', charset = 'gbk', discuz_uid = '0', cookiepre = '6tcf_40b9_', cookiedomain = '.itxdl.cn', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '1|威望|,2|金钱|,3|贡献|', defaultstyle = '', REPORTURL = 'aHR0cDovL2Jicy5pdHhkbC5jbi8=', SITEURL = 'http://bbs.itxdl.cn/', JSPATH = 'static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
 <script src="/homes/static/js/common.js" type="text/javascript"></script>
     <!--[if IE 6]>
@@ -96,7 +104,7 @@
       <!-- 用户信息 --> 
             <div class="Quater_user" style="width: 88px; margin-left: 20px; line-height: 60px; font-size: 14px;">
        <ul>
-              <li class="z"><a href="member.php?mod=logging&amp;action=login"><i></i>登录</a></li>
+              <li class="z"><a href="/home/user/login"><i></i>登录</a></li>
               <span class="pipe z" style="margin: 0 12px; color: #e6e6e6;">|</span>
               <li class="z"><a href="member.php?mod=register" ><i></i>注册</a></li>
        </ul>
@@ -345,7 +353,11 @@ initSearchmenu('scbar', '');
   <div id="ft" class="wp cl">
      <div class="footer-left cl">
       <a href="http://bbs.itxdl.cn/archiver/" >Archiver</a><span class="pipe">|</span><a href="http://m.bbs.itxdl.cn" >手机版</a><span class="pipe">|</span><a href="http://bbs.itxdl.cn/forum.php?mod=misc&action=showdarkroom" >小黑屋</a><span class="pipe">|</span>      <span>Copyright 易第优（北京）科技股份有限公司 2006 - 2018 Edu Inc. <a style="margin-left:20px;" href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow"> 京ICP备11018177号</a> <a style="margin-right:20px;" target="_blank"><img src="/homes/static/picture/beian.png" alt="">京公网安备 11010802026987号</a>
+<<<<<<< HEAD
         <script src="/homes/static/js/cnzz.js" type="text/javascript"></script><span id="cnzz_stat_icon_1261440059"><a href="http://www.cnzz.com/stat/website.php?web_id=1261440059" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="/homes/static/picture/pic.gif"></a></span><script src="/homes/static/js/stat.js" type="text/javascript" type="text/javascript"></script><script src="/homes/static/js/core.js" type="text/javascript" charset="utf-8" type="text/javascript"></script>
+=======
+        <script src="/homes/static/js/cnzz.js" type="text/javascript"></script><span id="cnzz_stat_icon_1261440059"><a href="http://www.cnzz.com/stat/website.php?web_id=1261440059" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="/homes/static/picture/pic.gif"></a></span><script src=" /homes/static/js/stat.js" type="text/javascript" type="text/javascript"></script><script src="/homes/static/js/core.js" type="text/javascript" charset="utf-8" type="text/javascript"></script>
+>>>>>>> origin/czz
       </span>
       <script type="text/javascript">
         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1274442336'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1274442336%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));

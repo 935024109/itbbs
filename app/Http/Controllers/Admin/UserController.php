@@ -8,6 +8,8 @@ use App\Models\user;
 use Hash;
 use App\Http\Requests\UserStoreBlogPost;
 use DB;
+use App\Models\post;
+use App\Models\reply;
 class UserController extends Controller
 {	
     /**
@@ -176,7 +178,21 @@ class UserController extends Controller
     public function destroy($id)
     {
         // 根据id删除用户
-        $res = User::destroy($id);
+        $user = User::find($id);
+        // dd($res);
+
+        // 根据id查询主贴
+        $post = Post::where('uid',$user->uid)->get();
+        foreach($post as $k=>$v){
+            //根据主贴id查询回帖
+            $reply = Reply::where('pid',$v->pid)->get();
+            if (!empty($reply)) {
+                Reply::where('pid',$v->pid)->delete();
+            }
+        }
+        Post::where('uid',$user->uid)->delete();
+        $res = $user->forceDelete($id);
+        
         //dd($_SERVER['HTTP_REFERER']);
         if ($res){
             return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');

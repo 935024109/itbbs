@@ -99,7 +99,7 @@
           <div class="Quater_user" style="width: 88px; margin-left: 20px; line-height: 60px; font-size: 14px;">
             <ul>
               <li class="z">
-                <a href="member.php?mod=logging&amp;action=login">
+                <a href="/home/user/login">
                   <i>
                   </i>登录</a>
               </li>
