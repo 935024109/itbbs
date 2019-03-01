@@ -97,6 +97,7 @@ class RegisterController extends Controller
      */
     public function email(Request $request)
     {
+        //基础验证
         $this->validate($request, [
             'email' => 'required|email',
             'pwd' => 'required',
@@ -109,15 +110,13 @@ class RegisterController extends Controller
              'repwd.required' => '确认密码不能为空'
         ]);
 
-        // dump($request->except('_token'));
-        // 接受数据
+        // 接收数据
         $email = $request->email;
         // dd($email);
         $uname = $request->uname;
         //查询数据库是否唯一 
         $res = User::where('email',$email)->first();
         $res2 = User::where('uname',$uname)->first();
-        // dd(typeOf($res));
         // 判断是否存在 存在就调回
         if($res){
             return back()->with('error','邮箱已存在');
@@ -125,18 +124,17 @@ class RegisterController extends Controller
         if($res2){
             return back()->with('error','用户名已存在');
         }
-
+        // 把数据保存到数据库 此时未激活
         $user = new User;
         $user->uname = $request->uname;
         $user->nickname = $request->uname;
         $user->pwd = Hash::make($request->pwd);
         $user->email = $email;
         $user->photo = 'iamges/user/default.jpg';
-        $user->token = str_random(60);
+        $user->token = str_random(60); //生成token
+        //如果压入数据成功就发送邮件激活
         if($user->save()){
             Mail::send('home.register.mail', ['user' => $user->uname,'id'=>$user->uid,'token'=>$user->token], function ($m) use ($user) {
-                
-
                 if($m->to($user->email)->subject('Your Reminder!')){
                    return back()->with('success','成功');
                 } else {
@@ -152,8 +150,7 @@ class RegisterController extends Controller
 
     public function changestatus($id,$token)
     {
-        // dump($id);
-        // dump($token);
+        // 接收数据
         $user = User::find($id);
         if($user->token != $token){
             dd('未知错误..');
@@ -161,10 +158,11 @@ class RegisterController extends Controller
         if(!$user){
             dd('未知错误..');
         }
-
+        // 更改激活
         $user->status = '1';
+        //生成新的token 
         $user->token = str_random(60);
-        
+        // 跳转
         if($user->save()){
             dd('激活成功');
         } else {
