@@ -28,7 +28,7 @@
                 	<div class="mws-form-item">
                     	<input type="file" name="logo" value="{{$data->logo}}">
                     	<p style="wdith:100px;">
-                    		<img src="/uploads/images/{{$data->logo}}">
+                    		<img src="/uploads/{{$data->logo}}">
                     	</p>
                     </div>
                 </div>
