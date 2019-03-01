@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Carousel;
+use Illuminate\Support\Facades\Storage;
 
 class CarouselController extends Controller
 {
@@ -159,13 +160,19 @@ class CarouselController extends Controller
      */
     public function destroy($id)
     {
+        //根据id 获取数据,拼接图片地址
+        $img_src = Carousel::find($id)->img_src;
+        $img_src = 'uploads/images/'.$img_src;
         //根据id删除轮播图
-        $res = Carousel::destroy($id);
+        $res1 = Carousel::destroy($id);
+        //删除图片
+        $res2 = unlink($img_src);
         //判断返回值,做出响应
-        if($res){
+        if($res1 && $res2){
             return redirect('admin/carousel')->with('success', '删除成功');
         }else{
             return back()->with('error', '删除失败');
         }
+        
     }
 }
