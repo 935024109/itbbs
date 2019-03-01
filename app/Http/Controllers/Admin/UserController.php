@@ -17,6 +17,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        // dump(session('flag'))
         // 所有条数
         $count = $request->input('count','5');
 
@@ -39,6 +40,7 @@ class UserController extends Controller
      */
     public function create()
     {
+      
         return view('admin/user/create');
     }
 

@@ -12,20 +12,20 @@
 */
 
 Route::get('/', function () {
-	// echo 13;
+	
     return view('welcome');
 });
 
 // 19 - 40 wzl
-Route::get('admin/post/revert/{id}','Admin\PostController@revert');
-Route::get('admin/post/notrevert/{id}','Admin\PostController@notrevert');
+Route::get('admin/post/revert/{id}','Admin\PostController@revert')->middleware('login');
+Route::get('admin/post/notrevert/{id}','Admin\PostController@notrevert')->middleware('login');
 
-Route::get('admin/post/hot/{id}','Admin\PostController@hot');
-Route::get('admin/post/nothot/{id}','Admin\PostController@nothot');
-Route::get('admin/post/top/{id}','Admin\PostController@top');
-Route::get('admin/post/nottop/{id}','Admin\PostController@nottop');
+Route::get('admin/post/hot/{id}','Admin\PostController@hot')->middleware('login');
+Route::get('admin/post/nothot/{id}','Admin\PostController@nothot')->middleware('login');
+Route::get('admin/post/top/{id}','Admin\PostController@top')->middleware('login');
+Route::get('admin/post/nottop/{id}','Admin\PostController@nottop')->middleware('login');
 
-Route::resource('admin/post','Admin\PostController');
+Route::resource('admin/post','Admin\PostController')->middleware('login');
 
 
 
@@ -33,20 +33,20 @@ Route::resource('admin/post','Admin\PostController');
 
 
 // Route::get('admin/reply/add/{id}','Admin\ReplyController@add');
-Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']]);
+Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']])->middleware('login');
 
 
 
 
 //41-60 czz
 //用户路由
-Route::get('/admin/user/freedom/{id}','Admin\UserController@freedom');
-Route::get('/admin/user/stopin/{id}','Admin\UserController@stopin');
-Route::get('/admin/user/stoptalk/{id}','Admin\UserController@stoptalk');
-Route::get('/admin/user/black','Admin\UserController@black');
-Route::resource('/admin/user','Admin\UserController');
+Route::get('/admin/user/freedom/{id}','Admin\UserController@freedom')->middleware('login');
+Route::get('/admin/user/stopin/{id}','Admin\UserController@stopin')->middleware('login');
+Route::get('/admin/user/stoptalk/{id}','Admin\UserController@stoptalk')->middleware('login');
+Route::get('/admin/user/black','Admin\UserController@black')->middleware('login');
+Route::resource('/admin/user','Admin\UserController')->middleware('login');
 //后台登录页面
-Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha');
+Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha')	;
 Route::get('/admin/in','Admin\LoginController@index');
 //登录
 Route::post('/admin/login','Admin\LoginController@login');
@@ -73,9 +73,9 @@ Route::resource("/home",'Home\IndexController');
 
 //61-80 wsx
 // Blogroll 友情链接路由
-Route::resource('admin/blogroll','Admin\BlogrollController');
+Route::resource('admin/blogroll','Admin\BlogrollController')->middleware('login');
 // Config 网站配置
-Route::resource('admin/config','Admin\ConfigController');
+Route::resource('admin/config','Admin\ConfigController')->middleware('login');
 
 
 
@@ -95,11 +95,11 @@ Route::resource('admin/config','Admin\ConfigController');
 
 //81-100 oywz
 //轮播图路由
-Route::resource('admin/carousel','Admin\CarouselController');
+Route::resource('admin/carousel','Admin\CarouselController')->middleware('login');
 //添加板块子分类路由
-Route::get('admin/forum/create/{id}','Admin\ForumController@create');
+Route::get('admin/forum/create/{id}','Admin\ForumController@create')->middleware('login');
 //板块分类资源路由
-Route::resource('admin/forum','Admin\ForumController');
+Route::resource('admin/forum','Admin\ForumController')->middleware('login');
 
 
 
