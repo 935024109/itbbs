@@ -56,6 +56,11 @@ Route::get('/admin/out','Admin\LoginController@out');
 // 前台首页
 Route::resource("/home",'Home\IndexController');
 
+// 前台用户管理
+Route::get('/home/user/in','Home\UserController@in');
+Route::get('/home/user/login','Home\UserController@login');
+Route::resource('/home/user','Home\UserController');
+
 
 
 
