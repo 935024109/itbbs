@@ -29,7 +29,7 @@ class UserStoreBlogPost extends FormRequest
             'nickname' => 'required|regex:/^[a-zA-Z0-9_-]{4,16}$/',
             'pwd' => 'required|regex:/^[\w]{6,18}$/',
             'repwd' => 'required|same:pwd',
-            'email' => 'required',
+            'email' => 'required|email',
             'phone' => 'required|regex:/^1{1}[3-9]{1}[\d]{9}$/',
         ];
     }
@@ -46,6 +46,7 @@ class UserStoreBlogPost extends FormRequest
             'repwd.required' => '确认密码不能为空',
             'repwd.same' => '两次密码不一致',
             'email.required' => '邮箱不能为空',
+            'email.email' => '邮箱格式不对',
             'phone.required' => '手机号不能为空',
             'phone.regex' => '手机号格式不正确',
         ];

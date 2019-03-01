@@ -38,7 +38,7 @@
 </head><body id="nv_forum" class="pg_index" onkeydown="if(event.keyCode==27) return false;">
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
- 
+ <link rel="stylesheet" type="text/css" href="/homes/static/css/register.css" />
  
  
  
@@ -291,7 +291,7 @@ initSearchmenu('scbar', '');
   <li class="user_list app_login"><a href="connect.php?mod=login&amp;op=init&amp;referer=forum.php&amp;statfrom=login"><i class="i_qq"></i>腾讯QQ</a></li>
   <li class="user_list app_login"><a href="wechat-login.html"><i class="i_wb"></i>微信登录</a></li>
 </ul> 
-
+ 
 @section('main')
 
 @show

@@ -17,23 +17,24 @@ Route::get('/', function () {
 });
 
 // 19 - 40 wzl
+// 后台
+//加精置顶是否可以回复的路由开始
 Route::get('admin/post/revert/{id}','Admin\PostController@revert')->middleware('login');
 Route::get('admin/post/notrevert/{id}','Admin\PostController@notrevert')->middleware('login');
-
 Route::get('admin/post/hot/{id}','Admin\PostController@hot')->middleware('login');
 Route::get('admin/post/nothot/{id}','Admin\PostController@nothot')->middleware('login');
 Route::get('admin/post/top/{id}','Admin\PostController@top')->middleware('login');
 Route::get('admin/post/nottop/{id}','Admin\PostController@nottop')->middleware('login');
+//结束
+Route::resource('admin/post','Admin\PostController')->middleware('login');//帖子
+Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']])->middleware('login');//回帖的路由
+//前台
+Route::get('home/user/register','Home\RegisterController@index');
+Route::post('home/user/register/email','Home\RegisterController@email');
+Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterController@changestatus');
 
-Route::resource('admin/post','Admin\PostController')->middleware('login');
 
 
-
-
-
-
-// Route::get('admin/reply/add/{id}','Admin\ReplyController@add');
-Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']])->middleware('login');
 
 
 
