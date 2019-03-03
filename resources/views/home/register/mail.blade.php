@@ -6,6 +6,6 @@
 </head>
 <body>
 	<h1>欢迎 {{ $user }} </h1>
-	<a href="web.com/home/user/register/changestatus/{{ $id }}/{{ $token }}">哈哈哈</a>
+	<a href="www.web.com/home/user/register/changestatus/{{ $id }}/{{ $token }}">哈哈哈</a>
 </body>
 </html>

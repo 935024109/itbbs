@@ -96,7 +96,7 @@
           <div class="th_post y cl" style="display: none;">
             <a onClick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=')" href="javascript:;" title="发新帖" style="margin: 0;">发布</a></div>
           <!-- 用户信息 -->
-          <div class="Quater_user" style="width: 88px; margin-left: 20px; line-height: 60px; font-size: 14px;">
+          <div class="Quater_user" style="width: 148px; margin-left: 20px; line-height: 60px; font-size: 14px;">
             <ul>
               <li class="z">
                 <a href="/home/user/login">
@@ -105,9 +105,9 @@
               </li>
               <span class="pipe z" style="margin: 0 12px; color: #e6e6e6;">|</span>
               <li class="z">
-                <a href="member.php?mod=register">
+                <a href="/home/user/register">
                   <i>
-                  </i>注册</a>
+                  </i>快速注册</a>
               </li>
             </ul>
           </div>
