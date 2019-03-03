@@ -33,11 +33,11 @@ class LoginController extends Controller
     	// ]);
     	
 		// 判断用户名和密码
-    	$uname = User::where('uname',$request->uname)->first();
-    	if(empty($uname)){
+    	$user = User::where('uname',$request->uname)->first();
+    	if(empty($user)){
     		return back()->with('error','用户名或者密码不正确');
     	}
-    	$pwd = Hash::check($request->pwd, $uname->pwd);
+    	$pwd = Hash::check($request->pwd, $user->pwd);
     	// dd($pwd);
     	//返回错误
     	if(!$pwd){
@@ -46,7 +46,7 @@ class LoginController extends Controller
 	
     	session(['flag'=>true]); 
 		session(['id'=>$user->uid]);
-		session(['uname'=>$data['uname']]);
+		session(['uname'=>$user->uname]);
 		session(['photo'=>$user->photo]);
 
 		return redirect('/home')->with('success','登录成功');	

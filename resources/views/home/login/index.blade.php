@@ -15,7 +15,7 @@
 		        <div class="ldLoginIntro cl" style="float: left; width: 400px;">
 		           <img src="/homes/static/picture/main_fm365.png">
 		        </div>
-				<form style="float: right; width: 400px;" action="javascript:;" method="post" onsubmit="return false">
+				<form style="float: right; width: 400px;" action="/home/in" method="post" >
 					{{  csrf_field() }}
 					<h1 align="center">登录</h1>
 					@if (count($errors) > 0)
@@ -43,18 +43,5 @@
 				</form>
 	</div>
 		</div>
-
-	<script type="text/javascript">
-		$.ajaxSetup({
-
-	        headers: {
-
-	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
-	        }
-
-		});
-
-	</script>
 
 @endsection
