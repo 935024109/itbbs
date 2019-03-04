@@ -30,7 +30,7 @@ class LoginController extends Controller
     	$user = User::where('uname','=',$data['uname'])->first();
     	//dd($user->photo);
     	if ($user) {
-    		// 匹配密码
+    		// 匹配密码 
     		$res = Hash::check($data['pwd'], $user->pwd);
     		if ($res) {
     			// 如果匹配成功

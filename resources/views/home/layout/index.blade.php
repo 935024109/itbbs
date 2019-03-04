@@ -1,10 +1,9 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>兄弟连论坛_每个人的交流社区 - </title>
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="keywords" content="PHP交流,PHP教程,PHP论坛,php视频,HTML5学习,HTML5教程,Linux教程,UI设计学习,java教程,H5教程,平面设计教程,UE培训" />
 <meta name="description" content="兄弟连教育旗下官方论坛：大咖分分钟解答的技术交流社区，专注PHP、linux、java、html5、UI设计培训等专业技术交流与教程分享的地方 " />
 <meta name="generator" content="Discuz! X3.3" />
@@ -33,7 +32,7 @@
 </head><body id="nv_forum" class="pg_index" onkeydown="if(event.keyCode==27) return false;">
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
- 
+ <link rel="stylesheet" type="text/css" href="/homes/static/css/register.css" />
  
  
  
@@ -95,11 +94,16 @@
       <div class="th_post y cl" style="display: none;"><a onClick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=')" href="javascript:;" title="发新帖" style="margin: 0;">发布</a></div>
       <!-- 用户信息 --> 
             <div class="Quater_user" style="width: 88px; margin-left: 20px; line-height: 60px; font-size: 14px;">
+        
+
        <ul>
-              <li class="z"><a href="member.php?mod=logging&amp;action=login"><i></i>登录</a></li>
+              <li class="z"><a href="/home/login"><i></i>登录</a></li>
               <span class="pipe z" style="margin: 0 12px; color: #e6e6e6;">|</span>
-              <li class="z"><a href="member.php?mod=register" ><i></i>注册</a></li>
+              <li class="z"><a href="/home/user/register" ><i></i>注册</a></li>
        </ul>
+    
+      
+
       </div>
       <div style="display:none"><script src="/homes/static/js/logging.js" type="text/javascript"></script>
 <form method="post" autocomplete="off" id="lsform" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes" onsubmit="return lsSubmit();">
@@ -286,7 +290,17 @@ initSearchmenu('scbar', '');
   <li class="user_list app_login"><a href="connect.php?mod=login&amp;op=init&amp;referer=forum.php&amp;statfrom=login"><i class="i_qq"></i>腾讯QQ</a></li>
   <li class="user_list app_login"><a href="wechat-login.html"><i class="i_wb"></i>微信登录</a></li>
 </ul> 
+ @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
+ @if (session('error'))
+    <div class="alert alert-error">
+        {{ session('error') }}
+    </div>
+@endif
 @section('main')
 
 @show

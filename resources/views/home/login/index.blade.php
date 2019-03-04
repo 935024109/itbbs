@@ -15,7 +15,8 @@
 		        <div class="ldLoginIntro cl" style="float: left; width: 400px;">
 		           <img src="/homes/static/picture/main_fm365.png">
 		        </div>
-				<form style="float: right; width: 400px;" action="/home/user/in">
+				<form style="float: right; width: 400px;" action="/home/in" method="post" >
+					{{  csrf_field() }}
 					<h1 align="center">登录</h1>
 					@if (count($errors) > 0)
 					    <div class="alert alert-danger">
@@ -28,7 +29,7 @@
 					@endif
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">用户名</label>
-				    <input name="uname" type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名">
+				    <input name="uname" type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名" value="{{ old('uname') }}">
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">密码</label>
@@ -38,8 +39,9 @@
                     	<input name="captcha" style="width:49%;height: 50px;" type="text" placeholder="验证码">  
 					    <img style="border: 2px solid blue;width:49%;height: 50px;" src="{{captcha_src()}}" style="cursor: pointer" onclick="this.src='{{captcha_src()}}'+Math.random()">
 					</div>
-				  <button type="submit" class="btn btn-info" style="width: 100%;">点击登录</button>
+				  <button type="submit" class="btn btn-info" style="width: 100%;" >点击登录</button>
 				</form>
 	</div>
 		</div>
+
 @endsection

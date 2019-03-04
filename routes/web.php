@@ -17,23 +17,23 @@ Route::get('/', function () {
 });
 
 // 19 - 40 wzl
+// 后台
+//加精置顶是否可以回复的路由开始
 Route::get('admin/post/revert/{id}','Admin\PostController@revert')->middleware('login');
 Route::get('admin/post/notrevert/{id}','Admin\PostController@notrevert')->middleware('login');
-
 Route::get('admin/post/hot/{id}','Admin\PostController@hot')->middleware('login');
 Route::get('admin/post/nothot/{id}','Admin\PostController@nothot')->middleware('login');
 Route::get('admin/post/top/{id}','Admin\PostController@top')->middleware('login');
 Route::get('admin/post/nottop/{id}','Admin\PostController@nottop')->middleware('login');
-
-Route::resource('admin/post','Admin\PostController')->middleware('login');
-
-
-
-
-
-
-// Route::get('admin/reply/add/{id}','Admin\ReplyController@add');
-Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']])->middleware('login');
+//结束
+Route::resource('admin/post','Admin\PostController')->middleware('login');//帖子
+Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']])->middleware('login');//回帖的路由
+//前台
+Route::get('home/user/register','Home\RegisterController@index');//注册
+Route::post('home/user/register/email','Home\RegisterController@email');//发送邮件
+Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterController@changestatus');//激活
+Route::get('home/login','Home\LoginController@login');//登录页面
+Route::post('home/in','Home\LoginController@in');//
 
 
 
@@ -46,20 +46,14 @@ Route::get('/admin/user/stoptalk/{id}','Admin\UserController@stoptalk')->middlew
 Route::get('/admin/user/black','Admin\UserController@black')->middleware('login');
 Route::resource('/admin/user','Admin\UserController')->middleware('login');
 //后台登录页面
-Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha')	;
-Route::get('/admin/in','Admin\LoginController@index');
-//登录
-Route::post('/admin/login','Admin\LoginController@login');
-//退出
-Route::get('/admin/out','Admin\LoginController@out');
+Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha');
 
 // 前台首页
 Route::resource("/home",'Home\IndexController');
 
-// 前台用户管理
-Route::get('/home/user/in','Home\UserController@in');
-Route::get('/home/user/login','Home\UserController@login');
-Route::resource('/home/user','Home\UserController');
+
+
+
 
 
 
