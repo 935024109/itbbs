@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //共享分类数据
-        View::share('common_forum_cate',IndexController::getPidForumCates());
+        View::share('common_forum',IndexController::getIdForum());
     }
 
     /**

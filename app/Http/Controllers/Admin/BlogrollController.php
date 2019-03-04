@@ -141,10 +141,12 @@ class BlogrollController extends Controller
             if ($data) {
                 $blogroll->logo = $data;
             } else {
-                $blogroll->logo = $blogroll->logo;
+               return back()->with('error','修改失败');
             }
         }
+
         $data = $blogroll->save();
+
         if($data){
              return redirect('admin/blogroll')->with('success','修改成功');
         }else{
