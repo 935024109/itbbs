@@ -66,14 +66,14 @@ class BlogrollController extends Controller
             // 拼接名称
             $file_name = time()+rand(1000,9999).'.'.$ext;
             // dump($file_name);
-            $res = $file->storeAs('images',$file_name);
+            $res = $file->storeAs('images/blogroll',$file_name);
              // 接收数据
             $data = $request->except(['_token']);
             // dd($data);
             // 实例化模型,赋值
             $Blogroll = new Blogroll;
             $Blogroll->name = $data['name'];
-            $Blogroll->logo = $file_name;
+            $Blogroll->logo = $res;
             $Blogroll->title = $data['title'];
             $Blogroll->url = $data['url'];
             $Blogroll->save();
@@ -129,7 +129,6 @@ class BlogrollController extends Controller
         $blogroll = Blogroll::find($id);
         $blogroll->name = $data['name'];
         $blogroll->url = $data['url'];
-        $blogroll->logo = $data['logo'];
         $blogroll->title = $data['title'];
         // 如果上传了新头像
         if ($request->hasFile('logo')) {
@@ -137,16 +136,18 @@ class BlogrollController extends Controller
             $extension = $file->extension();
             $filename = time().rand(1000,9999).'.'.$extension;
             // dump($filename);
-            $data = $file->storeAs('images',$filename);
+            $data = $file->storeAs('images/blogroll',$filename);
+            // dd($data);
             //dump($res);
             if ($data) {
-                $blogroll->logo = $filename;
+                $blogroll->logo = $data;
             } else {
-                $blogroll->logo = $blogroll->logo;
+               return back()->with('error','修改失败');
             }
-
         }
+
         $data = $blogroll->save();
+
         if($data){
              return redirect('admin/blogroll')->with('success','修改成功');
         }else{

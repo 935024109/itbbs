@@ -36,7 +36,7 @@
                                     <td>{{$v->name}}</td>
                                     <td>
                                     	<p style="width:100px">
-                                    		<img src="/uploads/images/{{$v->logo}}">
+                                    		<img src="/uploads/{{$v->logo}}">
                                     	</p>
                                     </td>
                                     <td>{{$v->url}}</td>

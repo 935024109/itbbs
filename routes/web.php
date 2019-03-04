@@ -76,6 +76,7 @@ Route::resource('/home/user','Home\UserController');
 
 
 
+
 //61-80 wsx
 // Blogroll 友情链接路由
 Route::resource('admin/blogroll','Admin\BlogrollController')->middleware('login');
