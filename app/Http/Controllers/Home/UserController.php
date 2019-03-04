@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\User;
+use Hash;
 class UserController extends Controller
 {
     /**
@@ -105,7 +106,7 @@ class UserController extends Controller
          
 
         $data = $request->except('_token');
-        dd($data);
+        // dd($data);
         // 根据用户名去查询数据
         $user = User::where('uname','=',$data['uname'])->first();
         //dd($user->photo);
@@ -117,7 +118,7 @@ class UserController extends Controller
                 session(['id'=>$user->uid]);
                 session(['uname'=>$data['uname']]);
                 session(['photo'=>$user->photo]);
-                return redirect('/admin/user');
+                return redirect('/home');
             } else {
                 return back()->with('error','密码输入错误');
             }
