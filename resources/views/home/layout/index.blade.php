@@ -107,8 +107,8 @@
               <span class="pipe z" style="margin: 0 12px; color: #e6e6e6;">|</span>
               <li class="z"><a href="/home/user/register" ><i></i>注册</a></li>
        </ul>
-
     
+      
 
       </div>
       <div style="display:none"><script src="/homes/static/js/logging.js" type="text/javascript"></script>
