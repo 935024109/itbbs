@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-	
     return view('welcome');
 });
 
@@ -56,6 +55,11 @@ Route::post('/admin/login','Admin\LoginController@login');
 Route::get('/admin/out','Admin\LoginController@out');
 // 前台首页
 Route::resource("/home",'Home\IndexController');
+// 前台帖子
+Route::resource('/home/post','Home\PostController');
+// 前台帖子列表管理
+Route::resource('/home/postlist','Home\PostlistController');
+
 
 
 

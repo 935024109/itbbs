@@ -24,7 +24,7 @@ class Post extends Model
     	return $this->belongsTo('App\Models\Forum','fid');
     }
 
-    //跟forum建立一对多关系
+    //跟Reply建立一对多关系
     public function Reply()
     {
         return $this->hasMany('App\Models\Reply','pid');

@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Post;
-
-class PostController extends Controller
+use App\Models\Forum;
+use App\Models\User;
+class PostlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-
+        
     }
 
     /**
@@ -25,14 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //判断用户是否登录
-        /*if(!session('id')){
-            //如果没有登录,跳转到 登录页面
-            return view('home.login.index');
-        }*/
-
-        return view('home.post.create');
-
+        echo 'create';
     }
 
     /**
@@ -43,24 +36,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //获取数据
-        $data = $request->except('_token');
-
-        $post = new Post;
-        // $post->uid = session('id');
-        $post->uid = 22;
-        $post->title = $data['title'];
-        $post->content = $data['content'];
-        $post->revert = $data['revert'];
-        $post->fid = $data['fid'];
-
-        $res = $post->save();
-        if ($res) {
-            return '发帖成功';
-        }else{
-            return '发帖失败';
-        }
-
+        //
     }
 
     /**
@@ -80,9 +56,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
-        //
+        // 通过id查询板块信息
+        $data = Forum::find($id);
+        $post = $data->post;
+        // dump($request);
+        // dump($data);
+        return view('home/postlist/index',['id'=>$id,'data'=>$data,'post'=>$post]);
     }
 
     /**
@@ -107,5 +88,4 @@ class PostController extends Controller
     {
         //
     }
-
 }

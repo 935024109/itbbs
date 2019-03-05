@@ -170,11 +170,11 @@
             <div class="Framebox cl" style="width: 100%; padding: 10px 25px; border-radius: 0 0 2px 2px; background: #FFFFFF; box-shadow: none; overflow: hidden;">
               <!-- 栏目遍历 -->
               @foreach($data as $k=>$v)
-              <div class="fl bm">
+              <div class="fl bm" style="margin-right: 50px;">
                 <div class="bm bmw  flg cl">
                   <div class="bm_h cl">
                     <h2>
-                      <a href="http://bbs.itxdl.cn/forum.php?gid=123" style="">:::. {{$v->fname}} :::.</a></h2>
+                      :::. {{$v->fname}} :::.</h2>
                   </div>
                   <div id="category_123" class="bm_c" style="">
                     <table cellspacing="0" cellpadding="0" class="fl_tb">
@@ -183,13 +183,12 @@
                       <tr>
                         <td class="fl_g" width="49.9%">
                           <div class="fl_icn_g" style="width: 60px;">
-                            <a href="http://bbs.itxdl.cn/thread-htm-fid-271-page-1.html">
+                            <a href="/home/postlist/{{$vv->fid}}/edit">
                               <img src="/homes/static/picture/common_271_icon.png" align="left" alt="" /></a>
                           </div>
                           <dl style="margin-left: 60px;">
                             <dt>
-                              <a href="http://bbs.itxdl.cn/thread-htm-fid-271-page-1.html">{{$vv->fname}}</a>
-                              <em class="xw0 xi1" title="今日">(1)</em></dt>
+                              <a href="/home/postlist/{{$vv->fid}}/edit">{{$vv->fname}}</a>
                             <dd>
                               <em>帖数: {{$vv->count}}</em></dd>
                             <dd>
@@ -212,20 +211,7 @@
                 <div id="diy3" class="area"></div>
                 <!--[/diy]--></div>
               <div id="online" class="bm oll">
-                <div class="bm_h">
-                  <span class="o cl">
-                    <a href="http://bbs.itxdl.cn/forum.php?showoldetails=yes#online" title="收起/展开">
-                      <img src="/homes/static/picture/collapsed_yes.gif" alt="收起/展开" /></a>
-                  </span>
-                  <h3>
-                    <strong>在线会员</strong>
-                    <span class="xs1">- 总计
-                      <strong>440</strong>人在线 -
-                      <strong>5</strong>会员,
-                      <strong>435</strong>位游客 - 最高记录是
-                      <strong>6000</strong>于
-                      <strong>2018-12-26</strong>.</span></h3>
-                </div>
+                
               </div>
               <div class="bm lk">
                 <div id="category_lk" class="bm_c ptm">
@@ -292,7 +278,6 @@
                       <div class="portal_block_summary">
                         <div class="itofeedback cl">
                           <a class="bluebigbutton" href='/home/post/create' title="发帖">发帖</a> 
-                          <!-- <a class="bluebigbutton" onclick="showWindow('nav', this.href, 'get', 0)" href="forum.php?mod=misc&amp;action=nav" title="发帖">发帖</a> -->
                           <a href="dc_signin-sign.html" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a></div>
                       </div>
                     </div>

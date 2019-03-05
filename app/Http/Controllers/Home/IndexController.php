@@ -9,17 +9,6 @@ use App\Models\Post;
 use App\Models\Carousel;
 class IndexController extends Controller
 {
-    public  static function getPidForumCates($id = 0)
-    {
-        $forum_cates = Forum::where('pid',$id)->get();
-        $array = [];
-        foreach ($forum_cates as $key => $value) {
-            $value['sum'] = self::getPidForumCates($value->fid);
-            $array[] = $value;
-        }
-        return $array;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -65,13 +54,15 @@ class IndexController extends Controller
 
     public function index()
     {
-        //获取分类数据
-        $forum_data = self::getIdForum();
+
+        //获取分类
+        $data = self::getIdForum();
         
         //获取轮播图数据
         $carousels = Carousel::select('img_src','link_url')->get();
+        
         //加载视图,分配数据
-        return view('home.index',['data'=>$forum_data ,'carousels_data'=>$carousels]);
+        return view('home.index',['data'=>$data,'carousels_data'=>$carousels]);
 
     }
 

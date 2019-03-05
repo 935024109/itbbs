@@ -57,41 +57,33 @@
       </div>
       <!-- 导航 -->
       <div class="nav">
+        @foreach ($common_forum as $k=>$v)
         <ul>
            
-                    <li                 id="mn_N8473" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="http://www.itxdl.cn/" hidefocus="true" target="_blank"  >精品课程</a>
+                    <li                 id="mn_N8473{{$v->fid}}" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true" target="_blank"  >{{$v->fname}}</a>
           </li>
            
            
-                    <li                 id="mn_forum" ><a href="http://bbs.itxdl.cn" hidefocus="true" title="BBS"  >论坛<span>BBS</span></a>
-          </li>
-           
-           
-                    <li                 id="mn_N53b0" ><a href="http://bbs.itxdl.cn/thread-htm-fid-252-page-1.html" hidefocus="true"  >战地日记</a>
-          </li>
-           
-           
-                    <li                 id="mn_N8ea2" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="http://bbs.itxdl.cn/thread-htm-fid-101-page-1.html" hidefocus="true"  >免费资源</a>
-          </li>
-           
-           
-                    <li class="a"                 id="mn_N9ec7" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="http://bbs.itxdl.cn/forum.php" hidefocus="true"  >技术交流</a>
-          </li>
-           
-           
-           
-           
-                    <li                 id="mn_N78b3" ><a href="http://bbs.itxdl.cn/thread-htm-fid-285-page-1.html" hidefocus="true"  >明哥聊求职</a>
-          </li>
-           
-           
-           
-           
-           
+                   
                   </ul>
+        @endforeach
          
       </div>
-      <div class="th_post y cl" style="display: none;"><a onClick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=')" href="javascript:;" title="发新帖" style="margin: 0;">发布</a></div>
+      <!-- 二级导航 -->
+      @foreach ($common_forum as $k=>$v)
+      <div class="sub_nav">
+      
+        <ul class="p_pop h_pop" id="mn_N8473{{$v->fid}}_menu" style="display: none ;width:150px;">
+         @foreach ($v->sub as $kk=>$vv)
+          <li>
+            <a href="http://java.itxdl.cn/" hidefocus="true" target="_blank">{{$vv->fname}}</a></li>
+        @endforeach
+        </ul>
+      
+
+      </div>
+      @endforeach
+    
       <!-- 用户信息 --> 
             <div class="Quater_user" style="width: 88px; margin-left: 20px; line-height: 60px; font-size: 14px;">
         
@@ -204,57 +196,6 @@ initSearchmenu('scbar', '');
    
   </ul>
  
-<!-- 二级导航 -->
-<div class="sub_nav">
-  <ul class="p_pop h_pop" id="mn_N8473_menu" style="display: none">
-    <li>
-      <a href="http://java.itxdl.cn/" hidefocus="true" target="_blank">Java工程师</a></li>
-    <li>
-      <a href="http://bt.itxdl.cn/" hidefocus="true" target="_blank">Go全栈+区块链</a></li>
-    <li>
-      <a href="http://python.itxdl.cn/" hidefocus="true" target="_blank">Python+人工智能</a></li>
-    <li>
-      <a href="http://php.itxdl.cn/" hidefocus="true" target="_blank">PHP开发工程师</a></li>
-    <li>
-      <a href="http://ui.itxdl.cn/" hidefocus="true">UI/UE全能设计师</a></li>
-    <li>
-      <a href="http://linux.itxdl.cn/" hidefocus="true" target="_blank">云计算Linux</a></li>
-    <li>
-      <a href="http://data.itxdl.cn/" hidefocus="true" target="_blank">大数据开发工程师</a></li>
-    <li>
-      <a href="http://h5.itxdl.cn/" hidefocus="true" target="_blank">前端全栈工程师</a></li>
-    <li>
-      <a href="http://em.itxdl.cn/" hidefocus="true" target="_blank">互联网营销经理人</a></li>
-  </ul>
-  <ul class="p_pop h_pop" id="mn_N8ea2_menu" style="display: none">
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-101-page-1.html" hidefocus="true" target="_blank">视频教程</a></li>
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-162-page-1.html" hidefocus="true" target="_blank">资源分享</a></li>
-  </ul>
-  <ul class="p_pop h_pop" id="mn_N9ec7_menu" style="display: none">
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-271-page-1.html" hidefocus="true" target="_blank">Java技术交流</a></li>
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-291-page-1.html" hidefocus="true" target="_blank">Go+区块链</a></li>
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-286-page-1.html" hidefocus="true" target="_blank">Python+人工智能</a></li>
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-127-page-1.html" hidefocus="true">PHP技术交流</a></li>
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-126-page-1.html" hidefocus="true" target="_blank">前端全栈</a></li>
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-276-page-1.html" hidefocus="true" target="_blank">UI/UE全能设计</a></li>
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-128-page-1.html" hidefocus="true" target="_blank">云计算Linux</a></li>
-    <li>
-      <a href="http://bbs.itxdl.cn/thread-htm-fid-289-page-1.html" hidefocus="true" target="_blank">大数据</a></li>
-    <li>
-      <a href="http://bbs.itxdl.cn/forum.php" hidefocus="true" target="_blank">互联网营销经理人</a></li>
-  </ul>
-  <div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div>
-</div>
-
 
 <!-- 用户菜单 -->
 <ul class="sub_menu" id="m_menu" style="display: none;">
