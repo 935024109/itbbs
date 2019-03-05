@@ -6,18 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Forum;
 use App\Models\Post;
+use App\Models\User;
+
 class IndexController extends Controller
 {
-    public  static function getPidForumCates($id = 0)
-    {
-        $forum_cates = Forum::where('pid',$id)->get();
-        $array = [];
-        foreach ($forum_cates as $key => $value) {
-            $value['sum'] = self::getPidForumCates($value->fid);
-            $array[] = $value;
-        }
-        return $array;
-    }
+   
 
     /**
      * Display a listing of the resource.
@@ -63,11 +56,14 @@ class IndexController extends Controller
     }
 
     public function index()
-    {
+    {   
+        
+        $user = User::where('uid',session('id'))->first();
+        // dd($user);
         $data = self::getIdForum();
         // dd($data);
         //加载视图,分配数据
-        return view('home.index.index',['data'=>$data]);
+        return view('home.index',['data'=>$data,'user'=>$user]);
 
     }
 

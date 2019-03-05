@@ -132,15 +132,21 @@ class RegisterController extends Controller
         $user->email = $email;
         $user->photo = 'iamges/user/default.jpg';
         $user->token = str_random(60); //生成token
+
         //如果压入数据成功就发送邮件激活
         if($user->save()){
             Mail::send('home.register.mail', ['user' => $user->uname,'id'=>$user->uid,'token'=>$user->token], function ($m) use ($user) {
-                if($m->to($user->email)->subject('Your Reminder!')){
-                   return back()->with('success','成功');
+                $res = $m->to($user->email)->subject('Your Reminder!');
+                // 获取底层的 SwiftMailer 消息实例...
+                // $s =  $m->getSwiftMessage();
+                if($res){
+                    dd('成功请前往验证');
+                   return redirect('/home')->with('success','成功');
                 } else {
                     return back()->with('error','发送邮件失败');
                 }
             });
+            
         } else {
             return back()->with('error','未知原因注册失败!');
         }
@@ -153,10 +159,10 @@ class RegisterController extends Controller
         // 接收数据
         $user = User::find($id);
         if($user->token != $token){
-            dd('未知错误..');
+           return redirect('error.404');
         }
         if(!$user){
-            dd('未知错误..');
+            return redirect('error.404');
         }
         // 更改激活
         $user->status = '1';
@@ -164,12 +170,12 @@ class RegisterController extends Controller
         $user->token = str_random(60);
         // 跳转
         if($user->save()){
-            dd('激活成功');
+            return redirect('/home')->with('success','激活成功');
         } else {
-            dd('激活失败');
+            return redirect('error.404');
         }
 
     }
 
-
+   
 }

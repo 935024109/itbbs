@@ -2,12 +2,8 @@
 
 
 @section('main')
-<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.js"></script>
-<html>
- <head></head>
- <body>
-  <div style="width: 1000px; margin: 0 auto;"> 
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
    <div id="ct" class="wp cl" style="padding: 100px 0 60px 0;"> 
     <div class="nfl" id="main_succeed" style="display: none"> 
      <div class="f_c altw"> 
@@ -148,7 +144,7 @@
     </div> 
    </div> 
   </div> 
- </body>
-</html>
+
+
 
 @endsection

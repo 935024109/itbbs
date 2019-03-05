@@ -32,10 +32,10 @@
 </head><body id="nv_forum" class="pg_index" onkeydown="if(event.keyCode==27) return false;">
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
- <link rel="stylesheet" type="text/css" href="/homes/static/css/register.css" />
- 
- 
- 
+
+ <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+
  
 
 <div id="Quater_headtop" >
@@ -49,7 +49,7 @@
       <li><a href="http://www.itxdl.cn/" target="_blank">兄弟连教育官网</a></li>
     </ul>
   </div>
-  <div id="Quater_bar" class="cl"> 
+  <div id="Quater_bar" class="cl" > 
     <div class="wp cl">
       <!-- 站点LOGO -->
       <div class="hd_logo"> 
@@ -91,17 +91,41 @@
                   </ul>
          
       </div>
+      <div href="javascript:void(0)" target="_blank" class="headerbtn header_search newbtn" title="搜索" style="margin:0;padding: 0;margin:18px"></div>
       <div class="th_post y cl" style="display: none;"><a onClick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=')" href="javascript:;" title="发新帖" style="margin: 0;">发布</a></div>
       <!-- 用户信息 --> 
             <div class="Quater_user" style="width: 88px; margin-left: 20px; line-height: 60px; font-size: 14px;">
         
-
+      @if(session('flag') != true)
        <ul>
               <li class="z"><a href="/home/login"><i></i>登录</a></li>
               <span class="pipe z" style="margin: 0 12px; color: #e6e6e6;">|</span>
               <li class="z"><a href="/home/user/register" ><i></i>注册</a></li>
        </ul>
-    
+       @else
+
+        <div class="Quater_user logined" style="margin:0;padding:0">
+        <div class="Quater_user_info">
+          <div class="user-main ">
+            <div class="avatar"> <a href="http://d.bbs.itxdl.cn/space-uid-450063.html" target="_blank" title="访问我的空间" id="umnav" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'a'})"> 
+              <img src="http://bbs.itxdl.cn/uc_server/avatar.php?uid=450063&amp;size=small"> 
+              </a></div>
+            <span class="nickname">{{ session('uname') }}</span><span class="arrow"></span></div>
+          <div class="user-link">
+            <ul>
+              <li><a id="nte_menu" href="/home/user/{{ session('id') }}/edit" class="notification">修改密码</a></li>
+              <li><a id="msg_menu" href="home.php?mod=space&amp;do=pm" class="msg">消息</a></li>
+                            <li><a href="/home/user/{{ session('id') }}">个人中心</a></li>           
+               
+                            <li class="l4"><a href="/home/out">退出登录</a></li>
+              </div>
+                        </ul>
+          </div>
+        </div>
+      </div>
+  
+
+      @endif
       
 
       </div>
@@ -139,8 +163,7 @@
 </form>
 
 </div>
-            <div href="javascript:void(0)" target="_blank" class="headerbtn header_search newbtn" title="搜索">
-      </div>
+            
       <div style="display: none;" class="Quater_search"> 
        <div class="wp cl" style="position: relative; z-index: 1000;">
           <div id="scbar" class="cl">
@@ -179,15 +202,7 @@ initSearchmenu('scbar', '');
   </div>
   <div class="fm_line"></div>
 </div>
-<div class="mus_box cl">
-  <div id="mus" class="wp cl"> 
-     
-     
-     
-     
-     
-  </div>
-</div>
+
 
  
  
@@ -290,15 +305,14 @@ initSearchmenu('scbar', '');
   <li class="user_list app_login"><a href="connect.php?mod=login&amp;op=init&amp;referer=forum.php&amp;statfrom=login"><i class="i_qq"></i>腾讯QQ</a></li>
   <li class="user_list app_login"><a href="wechat-login.html"><i class="i_wb"></i>微信登录</a></li>
 </ul> 
- @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
 
- @if (session('error'))
-    <div class="alert alert-error">
-        {{ session('error') }}
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     </div>
 @endif
 @section('main')
@@ -395,30 +409,6 @@ initSearchmenu('scbar', '');
 <a href="http://www11.53kf.com/webCompany.php?style=1&amp;arg=10143228" target="_blank" class="moquu_wmaps"></a>
 <a id="totop" title="">返回顶部</a>
 </div>
-<script type="text/javascript">
-jQuery.noConflict();
-jQuery(function(){
-        //首先将#back-to-top隐藏
-        jQuery("#share").hide();
-        //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
-        jQuery(function () {
-            jQuery(window).scroll(function(){
-                if (jQuery(window).scrollTop()>100){
-                    jQuery("#share").fadeIn();
-                }
-                else
-                {
-                    jQuery("#share").fadeOut();
-                }
-            });
-            //当点击跳转链接后，回到页面顶部位置
-            jQuery("#totop").click(function(){
-                jQuery('body,html').animate({scrollTop:0},500);
-                return false;
-            });
-        });
-    }); 
-</script>
 
  
  </div>
@@ -427,4 +417,4 @@ jQuery(function(){
 (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); 
 </script>
 </body>
-<script src="/homes/static/js/bdtj.js" type="text/javascript"></script><script src="/homes/static/js/cnzz.js" type="text/javascript"></script></html> 
+<script src="/homes/static/js/bdtj.js" type="text/javascript"></script><script src="/homes/static/js/cnzz.js" type="text/javascript"></script></html>   
