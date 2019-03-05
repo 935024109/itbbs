@@ -8,17 +8,6 @@ use App\Models\Forum;
 use App\Models\Post;
 class IndexController extends Controller
 {
-    public  static function getPidForumCates($id = 0)
-    {
-        $forum_cates = Forum::where('pid',$id)->get();
-        $array = [];
-        foreach ($forum_cates as $key => $value) {
-            $value['sum'] = self::getPidForumCates($value->fid);
-            $array[] = $value;
-        }
-        return $array;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -66,8 +55,12 @@ class IndexController extends Controller
     {
         $data = self::getIdForum();
         // dd($data);
+        foreach ($data as $k => $v) {
+            $onelist[] = $v->fname;
+        }
+        // dump($onelist[0]);
         //加载视图,分配数据
-        return view('home.index.index',['data'=>$data]);
+        return view('home.index',['data'=>$data]);
 
     }
 
