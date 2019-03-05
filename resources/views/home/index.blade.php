@@ -36,91 +36,31 @@
                     <div class="foucebox cl">
                       <!-- 大图 -->
                       <div class="bd">
+                        @foreach($carousels_data as $k => $v)
                         <div class="showDiv">
-                          <a href="http://python.itxdl.cn/" target="_blank">
-                            <img src="/homes/static/picture/239d9bb55f28dcce3b31a3af6bbd06ea.jpg" width="770" height="330" /></a>
+                          <a href="{{ $v->link_url }}" target="_blank">
+                            <img src="/uploads/images/{{ $v->img_src }}" width="770" height="330" /></a>
                           <div class="foucebox_bg"></div>
                           <div>
                             <h2>
                               <a href="http://python.itxdl.cn/">兄弟连Python培训</a></h2>
                           </div>
                         </div>
-                        <div class="showDiv">
-                          <a href="http://bbs.itxdl.cn/read-htm-tid-241377-page-1.html" target="_blank">
-                            <img src="/homes/static/picture/2590afcac7671f6c4e099b990de4eaf1.jpg" width="770" height="330" /></a>
-                          <div class="foucebox_bg"></div>
-                          <div>
-                            <h2>
-                              <a href="http://bbs.itxdl.cn/read-htm-tid-241377-page-1.html">名师培优计划开启你的“薪”未来</a></h2>
-                          </div>
-                        </div>
-                        <div class="showDiv">
-                          <a href="http://bt.itxdl.cn/" target="_blank">
-                            <img src="/homes/static/picture/e00df8aee1af3455807e9cd7142159aa.jpg" width="770" height="330" /></a>
-                          <div class="foucebox_bg"></div>
-                          <div>
-                            <h2>
-                              <a href="http://bt.itxdl.cn/">兄弟连区块链学院</a></h2>
-                          </div>
-                        </div>
-                        <div class="showDiv">
-                          <a href="http://www.itxdl.cn/activity/jiangshifengcai/" target="_blank">
-                            <img src="/homes/static/picture/216f86ecc69786dd8558d1bee22fef02.jpg" width="770" height="330" /></a>
-                          <div class="foucebox_bg"></div>
-                          <div>
-                            <h2>
-                              <a href="http://www.itxdl.cn/activity/jiangshifengcai/">兄弟连讲师风采大赛</a></h2>
-                          </div>
-                        </div>
-                        <div class="showDiv">
-                          <a href="http://uec.itxdl.cn/" target="_blank">
-                            <img src="/homes/static/picture/a11ad76ae2014d13c6fa50b249846b85.jpg" width="770" height="330" /></a>
-                          <div class="foucebox_bg"></div>
-                          <div>
-                            <h2>
-                              <a href="http://uec.itxdl.cn/">兄弟连编程大赛</a></h2>
-                          </div>
-                        </div>
+                        @endforeach
                       </div>
                       <!-- 小图 -->
                       <div class="hd">
                         <ul>
+                          @foreach($carousels_data as $k => $v)
                           <li>
-                            <a href="http://python.itxdl.cn/">
-                              <img src="/homes/static/picture/239d9bb55f28dcce3b31a3af6bbd06ea.jpg">
+                            <a href="{{ $v->link_url }}">
+                              <img src="/uploads/images/{{ $v->img_src }}">
                               <span class="txt_bg"></span>
                               <span class="mask"></span>
                             </a>
                           </li>
-                          <li>
-                            <a href="http://bbs.itxdl.cn/read-htm-tid-241377-page-1.html">
-                              <img src="/homes/static/picture/2590afcac7671f6c4e099b990de4eaf1.jpg">
-                              <span class="txt_bg"></span>
-                              <span class="mask"></span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="http://bt.itxdl.cn/">
-                              <img src="/homes/static/picture/e00df8aee1af3455807e9cd7142159aa.jpg">
-                              <span class="txt_bg"></span>
-                              <span class="mask"></span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="http://www.itxdl.cn/activity/jiangshifengcai/">
-                              <img src="/homes/static/picture/216f86ecc69786dd8558d1bee22fef02.jpg">
-                              <span class="txt_bg"></span>
-                              <span class="mask"></span>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="http://uec.itxdl.cn/">
-                              <img src="/homes/static/picture/a11ad76ae2014d13c6fa50b249846b85.jpg">
-                              <span class="txt_bg"></span>
-                              <span class="mask"></span>
-                            </a>
-                          </li>
-                        </ul>
+                          @endforeach
+                        </ul> 
                       </div>
                     </div>
                     <script type="text/javascript">jQuery(".foucebox").slide({
@@ -351,7 +291,8 @@
                     <div id="portal_block_4_content" class="dxb_bc">
                       <div class="portal_block_summary">
                         <div class="itofeedback cl">
-                          <a class="bluebigbutton" onclick="showWindow('nav', this.href, 'get', 0)" href="forum.php?mod=misc&action=nav" title="发帖">发帖</a>
+                          <a class="bluebigbutton" href='/home/post/create' title="发帖">发帖</a> 
+                          <!-- <a class="bluebigbutton" onclick="showWindow('nav', this.href, 'get', 0)" href="forum.php?mod=misc&amp;action=nav" title="发帖">发帖</a> -->
                           <a href="dc_signin-sign.html" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a></div>
                       </div>
                     </div>

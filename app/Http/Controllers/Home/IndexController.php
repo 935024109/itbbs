@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Forum;
 use App\Models\Post;
+use App\Models\Carousel;
 class IndexController extends Controller
 {
     public  static function getPidForumCates($id = 0)
@@ -64,10 +65,13 @@ class IndexController extends Controller
 
     public function index()
     {
-        $data = self::getIdForum();
-        // dd($data);
+        //获取分类数据
+        $forum_data = self::getIdForum();
+        
+        //获取轮播图数据
+        $carousels = Carousel::select('img_src','link_url')->get();
         //加载视图,分配数据
-        return view('home.index.index',['data'=>$data]);
+        return view('home.index',['data'=>$forum_data ,'carousels_data'=>$carousels]);
 
     }
 

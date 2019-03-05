@@ -35,8 +35,10 @@ Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterControll
 Route::get('home/login','Home\LoginController@login');//登录页面
 Route::post('home/in','Home\LoginController@in');//
 
-
-
+// 轮播图
+Route::get('home/carousel','Home\CarouselController@index');
+Route::get('home/goPost','Home\PostController@goPost');
+Route::resource('home/post','Home\PostController');
 
 //41-60 czz
 //用户路由
@@ -46,8 +48,12 @@ Route::get('/admin/user/stoptalk/{id}','Admin\UserController@stoptalk')->middlew
 Route::get('/admin/user/black','Admin\UserController@black')->middleware('login');
 Route::resource('/admin/user','Admin\UserController')->middleware('login');
 //后台登录页面
-Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha');
-
+Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha')	;
+Route::get('/admin/in','Admin\LoginController@index');
+//登录
+Route::post('/admin/login','Admin\LoginController@login');
+//退出
+Route::get('/admin/out','Admin\LoginController@out');
 // 前台首页
 Route::resource("/home",'Home\IndexController');
 
@@ -96,13 +102,16 @@ Route::resource('admin/announcement','Admin\AnnouncementController');
 
 
 
-//81-100 oywz
+//81-100 oywz 后台
 //轮播图路由
 Route::resource('admin/carousel','Admin\CarouselController')->middleware('login');
 //添加板块子分类路由
 Route::get('admin/forum/create/{id}','Admin\ForumController@create')->middleware('login');
 //板块分类资源路由
 Route::resource('admin/forum','Admin\ForumController')->middleware('login');
+
+
+//前台 
 
 
 
