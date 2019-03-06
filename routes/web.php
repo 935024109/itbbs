@@ -58,7 +58,10 @@ Route::resource("/home",'Home\IndexController');
 // 前台帖子
 Route::resource('/home/post','Home\PostController');
 // 前台帖子列表管理
-Route::resource('/home/postlist','Home\PostlistController');
+Route::get('home/postlist/nolike/{id}','Home\PostlistController@nolike');
+Route::get('home/postlist/like/{id}','Home\PostlistController@like');
+Route::get('home/postlist/index','Home\PostlistController@index');
+Route::resource('home/postlist','Home\PostlistController');
 
 
 

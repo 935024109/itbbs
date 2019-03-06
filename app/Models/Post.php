@@ -36,4 +36,17 @@ class Post extends Model
         $replyCount = DB::table('replys')->where('pid',$pid)->count();
         return $replyCount;
     }
+
+    // 与收藏的关系
+    public function collection()
+    {
+        return $this->hasMany('App\Models\Collection','pid');
+    }
+
+
+    public function collection_uid($pid,$uid)
+    {   
+        return Collection::where('uid',$uid)->where('pid',$pid)->first();
+    }
+
 }
