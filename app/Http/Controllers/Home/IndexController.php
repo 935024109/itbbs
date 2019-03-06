@@ -52,6 +52,7 @@ class IndexController extends Controller
         return $data;
     }
 
+    // 获取分类数据,分配数据到视图
     public function index()
     {
 

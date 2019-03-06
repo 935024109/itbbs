@@ -83,6 +83,10 @@
 
       </div>
       @endforeach
+
+       <div class="th_post y cl" style="display: none;"><a href="/home/goPost/{{$id or 0}}" title="发新帖" style="margin: 0;">发布</a></div>
+    
+    
     
       <!-- 用户信息 --> 
             <div class="Quater_user" style="width: 88px; margin-left: 20px; line-height: 60px; font-size: 14px;">

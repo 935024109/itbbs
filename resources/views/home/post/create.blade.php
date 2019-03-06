@@ -32,27 +32,26 @@
 <div class="container" style="margin-left: 136px">
 <form class="form-inline" action="/home/post" method="post">
 	 {{  csrf_field() }}
-	<!--<div class="dropdown" style="display: inline;">
-	   分类:<button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    选择主体分类
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu" aria-labelledby="dLabel">
-	    <li>1</li>
-	    <li>2</li>
-	    <li>3</li>
-	    <li>4</li>
-	  </ul></div> -->
+	<!-- <div class="dropdown">
+	    				<label class="mws-form-label">所属分类</label>
+	    				<div class="mws-form-item">
+	    					<select class="large" name="pid">
+	    						<option value="0">顶级分类</option>
+	    						@foreach($forum_cates as $k => $v)
+	    						 <option value="{{ $v->fid }}" {{ $v->fid == $fid ? 'selected' : '' }}> {{ $v->fname }} </option>
+	    						@endforeach
+	    					</select>
+	    				</div>
+	                </div> -->
 	<select class="form-control" name='fid'>
-	  <option>选择主体分类</option>
-	  <option value="0">电器</option>
-	  <option value="1">服装</option>
-	  <option value="2">食品</option>
-	  
+	 <option value="0">顶级分类</option>
+	 @foreach($forum_cates as $k => $v)
+	 <option value="{{ $v->fid }}" {{ $v->fid == $fid ? 'selected' : '' }}> {{ $v->fname }} </option>
+	 @endforeach
 	</select>
 	
 	<div class="form-group">
-	   主体:<input type="text" name="title" value="" class="form-control" id="exampleInputName2" placeholder="不超过100字...">
+	   主体:<input type="text" name="title" va class="form-control" id="exampleInputName2" placeholder="不超过100字...">
 	</div>
 	<!--引入百度编辑器-->
 	<script id="container" name="content" type="text/plain"></script>

@@ -36,7 +36,7 @@ Route::post('home/in','Home\LoginController@in');//
 
 // 轮播图
 Route::get('home/carousel','Home\CarouselController@index');
-Route::get('home/goPost','Home\PostController@goPost');
+Route::get('home/goPost/{id}','Home\PostController@goPost');
 Route::resource('home/post','Home\PostController');
 
 //41-60 czz
@@ -53,16 +53,18 @@ Route::get('/admin/in','Admin\LoginController@index');
 Route::post('/admin/login','Admin\LoginController@login');
 //退出
 Route::get('/admin/out','Admin\LoginController@out');
-// 前台首页
-Route::resource("/home",'Home\IndexController');
+
 // 前台帖子
+Route::get('/home/post/{pid}/{uid}','Home\PostController@goCheckContent');
 Route::resource('/home/post','Home\PostController');
 // 前台帖子列表管理
 Route::resource('/home/postlist','Home\PostlistController');
 
+//前台回复贴
+Route::resource('home/reply','Home\ReplyController');
 
-
-
+// 前台首页
+Route::resource("/home",'Home\IndexController');
 
 
 

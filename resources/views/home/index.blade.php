@@ -183,12 +183,12 @@
                       <tr>
                         <td class="fl_g" width="49.9%">
                           <div class="fl_icn_g" style="width: 60px;">
-                            <a href="/home/postlist/{{$vv->fid}}/edit">
+                            <a href="/home/post/{{$vv->fid}}/edit">
                               <img src="/homes/static/picture/common_271_icon.png" align="left" alt="" /></a>
                           </div>
                           <dl style="margin-left: 60px;">
                             <dt>
-                              <a href="/home/postlist/{{$vv->fid}}/edit">{{$vv->fname}}</a>
+                              <a href="/home/post/{{$vv->fid}}/edit">{{$vv->fname}}</a>
                             <dd>
                               <em>帖数: {{$vv->count}}</em></dd>
                             <dd>
@@ -277,7 +277,7 @@
                     <div id="portal_block_4_content" class="dxb_bc">
                       <div class="portal_block_summary">
                         <div class="itofeedback cl">
-                          <a class="bluebigbutton" href='/home/post/create' title="发帖">发帖</a> 
+                          <a class="bluebigbutton" href='/home/goPost/{{$id or 0}}' title="发帖">发帖</a> 
                           <a href="dc_signin-sign.html" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a></div>
                       </div>
                     </div>
