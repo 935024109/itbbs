@@ -121,7 +121,7 @@
         </div> 
        </div> 
        <div class="login_now cl" style="padding-left: 446px;"> 
-        <a href="member.php?mod=logging&amp;action=login&amp;referer=http%3A%2F%2Fbbs.itxdl.cn%2Fmember.php%3Fmod%3Dregister" onclick="showWindow('login', this.href);return false;" class="xi2"><em style="color: #000000;">已有账号？</em>现在登录</a> 
+        <a href="/home/login" onclick="showWindow('login', this.href);return false;" class="xi2"><em style="color: #000000;">已有账号？</em>现在登录</a> 
        </div> 
       </form> 
      </div> 

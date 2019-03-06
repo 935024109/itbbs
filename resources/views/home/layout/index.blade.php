@@ -107,10 +107,12 @@
         <div class="Quater_user logined" style="margin:0;padding:0">
         <div class="Quater_user_info">
           <div class="user-main ">
-            <div class="avatar"> <a href="http://d.bbs.itxdl.cn/space-uid-450063.html" target="_blank" title="访问我的空间" id="umnav" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'a'})"> 
-              <img src="http://bbs.itxdl.cn/uc_server/avatar.php?uid=450063&amp;size=small"> 
+            <div class="avatar"> <a href="/home/user/{{ session('id') }}" target="_blank" title="访问我的空间" id="umnav" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'a'})"> 
+              <img src="/uploads/{{ session('photo') }}"> 
               </a></div>
-            <span class="nickname">{{ session('uname') }}</span><span class="arrow"></span></div>
+            <span class="nickname" style="width:50px" title="{{ session('uname') }}">{{ session('uname') }}</span>
+            <span class="arrow"></span>
+          </div>
           <div class="user-link">
             <ul>
               <li><a id="nte_menu" href="/home/user/{{ session('id') }}/edit" class="notification">修改密码</a></li>
@@ -305,7 +307,16 @@ initSearchmenu('scbar', '');
   <li class="user_list app_login"><a href="connect.php?mod=login&amp;op=init&amp;referer=forum.php&amp;statfrom=login"><i class="i_qq"></i>腾讯QQ</a></li>
   <li class="user_list app_login"><a href="wechat-login.html"><i class="i_wb"></i>微信登录</a></li>
 </ul> 
-
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+@if (session('error'))
+    <div class="alert alert-success">
+        {{ session('error') }}
+    </div>
+@endif
 @if (count($errors) > 0)
     <div class="alert alert-danger">
         <ul>
@@ -404,15 +415,17 @@ initSearchmenu('scbar', '');
 
   
 
-<div id="share">
-<a class="moquu_wxin"><div class="moquu_wxinh"><em class="arrow"></em></div></a>
-<a href="http://www11.53kf.com/webCompany.php?style=1&amp;arg=10143228" target="_blank" class="moquu_wmaps"></a>
-<a id="totop" title="">返回顶部</a>
-</div>
+    <div id="share">
+    <a class="moquu_wxin"><div class="moquu_wxinh"><em class="arrow"></em></div></a>
+    <a href="http://www11.53kf.com/webCompany.php?style=1&amp;arg=10143228" target="_blank" class="moquu_wmaps"></a>
+    <a id="totop" title="">返回顶部</a>
+    </div>
 
  
  </div>
-</div>
+
+
+
 <script> 
 (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); 
 </script>

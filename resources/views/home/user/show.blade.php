@@ -5,16 +5,17 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.js"></script>
 
 
-<div >
-  <div id="wp" class="wp time_wp cl">
+
+  <div style="width:750px;margin:0 auto">
    <div id="pt" class="bm cl"> 
     <div class="z"> 
-     <a href="./" class="nvhm" title="首页">兄弟连论坛_每个人的交流社区</a> 
-     <em>›</em> 
-     <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp">设置</a> 
+     <a href="/home" class="nvhm" title="首页">兄弟连论坛_每个人的交流社区</a>  
+    
      <em>›</em>个人资料 
     </div> 	
    </div> 
+
+   
   <div class="form-group" >
     <label for="inputEmail3" class="col-sm-2 control-label">账号</label>
     <div class="col-sm-10">
@@ -35,6 +36,7 @@
 		      <input type="test" class="form-control" id="inputPassword3" readonly value="{{ $user->email }}">
 	    </div>
 	</div>
+</div>
 
 	<div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">手机号</label>
@@ -56,7 +58,7 @@
 		      <input type="test" class="form-control" id="inputPassword3" readonly value="{{ $user->last_time }}">
 	    </div>
 	</div>
-
+  </div>
 	<div class="form-group">
 		<div class="form-group">
 		    <label for="inputPassword3" class="col-sm-2 control-label">用户注册时间</label>
@@ -64,7 +66,7 @@
 		      <input type="test" class="form-control" id="inputPassword3" readonly value="{{ $user->created_at }}">
 	    </div>
 	</div>
-
+</div>  
 	
  	
  	<div class="form-group">
@@ -73,5 +75,8 @@
 		    <img src="/uploads/{{ $user->photo }}" class="img-rounded" style="width:140px;height:140px">
 	    </div>
 	</div>
-</div>	
+
+  </div>
+
+
 @endsection
