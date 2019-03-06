@@ -38,7 +38,8 @@
      <!-- 板块右侧 --> 
      <div id="main_sidebar"> 
       <div class="itofeedback cl"> 
-       <a class="bluebigbutton" onclick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=271')" href="javascript:;" title="发新帖">发帖</a> 
+       <!-- <a class="bluebigbutton" onclick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=271')" href="javascript:;" title="发新帖">发帖</a> --> 
+        <a class="bluebigbutton"  href="/home/goPost/{{$id or 0}}" title="发新帖">发帖</a>
        <a href="dc_signin-sign.html" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a> 
       </div> 
       <!--[diy=diy6]-->
@@ -269,6 +270,7 @@
             </div>
             <div style="width: 1px;height: 100%;float: left;margin-left: 40px;"></div>
             <div style="float: right;height: 48px;width: 650px; ">
+              <b><a href="/home/post/{{ $v->pid }}/{{ $v->user->uid}}">{{$v->title}}</a></b>
               <b><a href="" style="color:black;">{{$v->title}}</a></b>
             @if(session('flag') == true)
               @if($v->collection_uid($v->pid,session('id')))

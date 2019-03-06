@@ -82,6 +82,7 @@ class PostlistController extends Controller
 
         // 通过id查询板块信息
         $data = Forum::find($id);
+        $post = $data->post;
         // 帖子信息
        
         $post = Post::where('fid',$id)->where($key[0],$value)->orderBy('top','desc')->orderBy('created_at','desc')->paginate(13);

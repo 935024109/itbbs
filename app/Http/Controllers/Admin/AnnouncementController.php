@@ -123,5 +123,7 @@ class AnnouncementController extends Controller
            }else{
              return back()->with('error','删除失败');
            }
+		   
+		   
     }
 }

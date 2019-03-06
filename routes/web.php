@@ -32,11 +32,40 @@ Route::get('home/user/register','Home\RegisterController@index');//注册
 Route::post('home/user/register/email','Home\RegisterController@email');//发送邮件
 Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterController@changestatus');//激活
 Route::get('home/login','Home\LoginController@login');//登录页面
+Route::get('home/out','Home\LoginController@out');//登录页面
 Route::post('home/in','Home\LoginController@in');//
+Route::resource('home/user','Home\UserController');
+Route::get('home/user/phone/{phone}','Home\UserController@phone');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 轮播图
 Route::get('home/carousel','Home\CarouselController@index');
-Route::get('home/goPost','Home\PostController@goPost');
+Route::get('home/goPost/{id}','Home\PostController@goPost');
 Route::resource('home/post','Home\PostController');
 
 //41-60 czz
@@ -53,9 +82,10 @@ Route::get('/admin/in','Admin\LoginController@index');
 Route::post('/admin/login','Admin\LoginController@login');
 //退出
 Route::get('/admin/out','Admin\LoginController@out');
-// 前台首页
-Route::resource("/home",'Home\IndexController');
+
+
 // 前台帖子
+Route::get('/home/post/{pid}/{uid}','Home\PostController@goCheckContent');
 Route::resource('/home/post','Home\PostController');
 // 前台帖子列表管理
 Route::get('home/postlist/nolike/{id}','Home\PostlistController@nolike');
@@ -63,8 +93,11 @@ Route::get('home/postlist/like/{id}','Home\PostlistController@like');
 Route::get('home/postlist/index','Home\PostlistController@index');
 Route::resource('home/postlist','Home\PostlistController');
 
+//前台回复贴
+Route::resource('home/reply','Home\ReplyController');
 
-
+// 前台首页
+Route::resource("/home",'Home\IndexController');
 
 
 
@@ -91,6 +124,9 @@ Route::resource('admin/blogroll','Admin\BlogrollController')->middleware('login'
 Route::resource('admin/config','Admin\ConfigController');
 // announcement 公告管理
 Route::resource('admin/announcement','Admin\AnnouncementController');
+//前台签到
+Route::get('/home/user/signin','Home\UserController@signin');
+Route::get('/home/user/signin_form/{id}','Home\UserController@signin_form');
 
 
 

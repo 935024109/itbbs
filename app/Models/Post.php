@@ -13,25 +13,25 @@ class Post extends Model
     public $primaryKey = 'pid';
 
     //跟user建立属于关系
-    public function User()
+    public function user()
     {
     	return $this->belongsTo('App\Models\User','uid');
     }
     
     //跟forum建立属于关系
-    public function Forum()
+    public function forum()
     {
     	return $this->belongsTo('App\Models\Forum','fid');
     }
 
     //跟Reply建立一对多关系
-    public function Reply()
+    public function reply()
     {
         return $this->hasMany('App\Models\Reply','pid');
     }
 
      // 统计对应帖子的回复条数
-    public function ReplyCount($pid)
+    public function replyCount($pid)
     {
         $replyCount = DB::table('replys')->where('pid',$pid)->count();
         return $replyCount;

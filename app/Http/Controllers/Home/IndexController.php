@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Forum;
 use App\Models\Post;
 use App\Models\Carousel;
+use App\Models\Blogroll;
+use App\Models\User;
+
 class IndexController extends Controller
 {
     /**
@@ -52,18 +55,20 @@ class IndexController extends Controller
         return $data;
     }
 
+    // 获取分类数据,分配数据到视图
     public function index()
-    {
-
+    {   
+        
+        $user = User::where('uid',session('id'))->first();
         //获取分类
         $data = self::getIdForum();
-        
         //获取轮播图数据
         $carousels = Carousel::select('img_src','link_url')->get();
-        
+        // 获取友情链接数据
+        $blogroll = Blogroll::select('name','url')->get();
         //加载视图,分配数据
-        return view('home.index',['data'=>$data,'carousels_data'=>$carousels]);
 
+        return view('home.index',['data'=>$data,'carousels_data'=>$carousels,'blogroll'=>$blogroll,'user'=>$user]);
     }
 
     /**
@@ -131,4 +136,6 @@ class IndexController extends Controller
     {
         //
     }
+
+
 }

@@ -21,16 +21,16 @@ class LoginController extends Controller
     public function in(Request $request)
     {
 
-    	// $this->validate($request, [
-	    //     'uname' => 'required',
-	    //     'pwd' => 'required',
-	    //     'captcha' => 'required|captcha'
-    	// ],[
-    	// 	'uname.required' => '用户不能为空',
-    	// 	'pwd.required' => '密码不能为空',
-    	// 	'captcha.required' => '验证码不能为空',
-    	// 	'captcha.captcha' => '验证码不对'
-    	// ]);
+    	$this->validate($request, [
+	        'uname' => 'required',
+	        'pwd' => 'required',
+	        'captcha' => 'required|captcha'
+    	],[
+    		'uname.required' => '用户不能为空',
+    		'pwd.required' => '密码不能为空',
+    		'captcha.required' => '验证码不能为空',
+    		'captcha.captcha' => '验证码不对'
+    	]);
     	
 		// 判断用户名和密码
     	$user = User::where('uname',$request->uname)->first();
@@ -43,7 +43,9 @@ class LoginController extends Controller
     	if(!$pwd){
     		return back()->with('error','用户名或者密码不正确');
     	}
-	
+	    $user->last_time = date('Y-m-d H:i:s',time());   
+        $user->save(); 
+
     	session(['flag'=>true]); 
 		session(['id'=>$user->uid]);
 		session(['uname'=>$user->uname]);
@@ -53,5 +55,18 @@ class LoginController extends Controller
 
     } 
 
+    /**
+     *  退出登录
+     * @return [type] [description]
+     */
+    public function out(){
+        //清空session
+        session(['flag'=>false]); 
+        session(['id'=>NULL]);
+        session(['uname'=>NULL]);
+        session(['photo'=>NULL]);
+        // 退出成功跳转
+        return redirect('/home')->with('success','退出成功');
+    }
 
 }
