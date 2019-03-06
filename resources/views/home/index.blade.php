@@ -290,50 +290,12 @@
               <div class="bm lk">
                 <div id="category_lk" class="bm_c ptm">
                   <ul class="x mbm cl">
+                    @foreach($blogroll as $k => $v)
                     <li>
-                      <a href="http://nj.itxdl.cn/" target="_blank" title="南京UI培训">南京UI培训</a></li>
-                    <li>
-                      <a href="http://sh.itxdl.cn/" target="_blank" title="上海Java培训">上海Java培训</a></li>
-                    <li>
-                      <a href="http://php.itxdl.cn" target="_blank" title="PHP培训">PHP培训</a></li>
-                    <li>
-                      <a href="http://gz.itxdl.cn/" target="_blank" title="广州UI培训">广州UI培训</a></li>
-                    <li>
-                      <a href="http://bj.itxdl.cn/" target="_blank" title="北京IT培训">北京IT培训</a></li>
-                    <li>
-                      <a href="http://he.yixue99.com/" target="_blank" title="河南卫生人才网">河南卫生人才网</a></li>
-                    <li>
-                      <a href="http://www.hnzikao.net" target="_blank" title="湖南自考网">湖南自考网</a></li>
-                    <li>
-                      <a href="https://bj.xuemanfen.cn/" target="_blank" title="北京学满分">北京学满分</a></li>
-                    <li>
-                      <a href="http://www.tokei.cn" target="_blank" title="苏州日语">苏州日语</a></li>
-                    <li>
-                      <a href="http://www.chinadsb.net" target="_blank" title="都市生活">都市生活</a></li>
-                    <li>
-                      <a href="http://www.xdjunxun.com" target="_blank" title="企业拓展训练">企业拓展训练</a></li>
-                    <li>
-                      <a href="https://shanghai.xuemanfen.cn/" target="_blank" title="上海培训网">上海培训网</a></li>
-                    <li>
-                      <a href="http://webi.tantuw.com" target="_blank" title="韦博英语">韦博英语</a></li>
-                    <li>
-                      <a href="http://java.itxdl.cn" target="_blank" title="Java培训">Java培训</a></li>
-                    <li>
-                      <a href="http://ui.itxdl.cn" target="_blank" title="UI/UE培训">UI/UE培训</a></li>
-                    <li>
-                      <a href="http://python.itxdl.cn" target="_blank" title="Pythond培训">Pythond培训</a></li>
-                    <li>
-                      <a href="http://linux.itxdl.cn" target="_blank" title="云计算培训">云计算培训</a></li>
-                    <li>
-                      <a href="http://www.rucedu.cn/" target="_blank" title="人大在职研究生">人大在职研究生</a></li>
-                    <li>
-                      <a href="http://fangjia.2018.cn/" target="_blank" title="放假安排">放假安排</a></li>
-                    <li>
-                      <a href="http://sc.zgjsks.com/" target="_blank" title="四川教师招聘网">四川教师招聘网</a></li>
-                    <li>
-                      <a href="http://www.php-z.com" target="_blank" title="PHP教程">PHP教程</a></li>
-                    <li>
-                      <a href="http://www.ydma.cn" target="_blank" title="猿代码">猿代码</a></li>
+                      <a href="{{$v->url}}" target="_blank" title="{{$v->name}}">{{$v->name}}</a>
+                    </li>
+                    @endforeach
+                  
                   </ul>
                 </div>
               </div>
@@ -352,7 +314,7 @@
                       <div class="portal_block_summary">
                         <div class="itofeedback cl">
                           <a class="bluebigbutton" onclick="showWindow('nav', this.href, 'get', 0)" href="forum.php?mod=misc&action=nav" title="发帖">发帖</a>
-                          <a href="dc_signin-sign.html" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a></div>
+                          <a href="/home/user/signin" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a></div>
                       </div>
                     </div>
                   </div>

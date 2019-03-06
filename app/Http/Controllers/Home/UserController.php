@@ -92,17 +92,17 @@ class UserController extends Controller
     public function in(Request $request)
     {
         $this->validate($request, [
-            'uname' => 'required',
-            'pwd' => 'required',
-            'captcha' => 'required|captcha',
-        ],
-        [
-            'uname.required'    => '用户名不能为空',
-            'pwd.required'    => '密码不能为空',
-            'captcha.required' => '验证码不能为空',
-            'captcha.captcha' => '验证码不正确',
-        ]
-    );
+                'uname' => 'required',
+                'pwd' => 'required',
+                'captcha' => 'required|captcha',
+            ],
+            [
+                'uname.required'    => '用户名不能为空',
+                'pwd.required'    => '密码不能为空',
+                'captcha.required' => '验证码不能为空',
+                'captcha.captcha' => '验证码不正确',
+            ]
+        );
          
 
         $data = $request->except('_token');
@@ -125,5 +125,28 @@ class UserController extends Controller
         } else {
             return back()->with('error','用户名不存在');
         }
+    }
+
+    // 签到页面
+    public function signin()
+    {
+        // 判断session是否有值
+        if(session('id')){
+            // 有值跳到签到页面
+            return view('home.signin.index');
+
+        }
+            // 没有则跳到登陆页面
+            return view('home/login/index');
+        // 加载试图
+        
+    }
+    // 接受
+    public function signin_form($id)
+    {
+        
+        $data = User::find($id);
+        
+        return view('home.signin.signin_form',['data'=>$data]);
     }
 }

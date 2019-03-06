@@ -46,8 +46,12 @@ Route::get('/admin/user/stoptalk/{id}','Admin\UserController@stoptalk')->middlew
 Route::get('/admin/user/black','Admin\UserController@black')->middleware('login');
 Route::resource('/admin/user','Admin\UserController')->middleware('login');
 //后台登录页面
-Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha');
-
+Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha')	;
+Route::get('/admin/in','Admin\LoginController@index');
+//登录
+Route::post('/admin/login','Admin\LoginController@login');
+//退出
+Route::get('/admin/out','Admin\LoginController@out');
 // 前台首页
 Route::resource("/home",'Home\IndexController');
 
@@ -78,6 +82,9 @@ Route::resource('admin/blogroll','Admin\BlogrollController')->middleware('login'
 Route::resource('admin/config','Admin\ConfigController');
 // announcement 公告管理
 Route::resource('admin/announcement','Admin\AnnouncementController');
+//前台签到
+Route::get('/home/user/signin','Home\UserController@signin');
+Route::get('/home/user/signin_form/{id}','Home\UserController@signin_form');
 
 
 

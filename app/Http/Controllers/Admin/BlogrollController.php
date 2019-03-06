@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Blogroll;
 use DB;
-
+use App\Http\Requests\BologrollStoreRequset;
 class BlogrollController extends Controller
 {
     /**
@@ -47,7 +47,7 @@ class BlogrollController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BologrollStoreRequset $request)
     {   
 
         // $data = Blogroll::select('name')->get();
@@ -164,11 +164,17 @@ class BlogrollController extends Controller
      */
     public function destroy($id)
     {
-        // 删除
-        if(Blogroll::destroy($id)){
-             return  redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+       
+		
+		
+        $logo = Blogroll::find($id)->logo;
+        $logo_path = 'uploads/'.$logo;
+        $res1 = Blogroll::destroy($id);
+        $res2 = unlink($logo_path);
+        if($res1 && $res2){
+			return  redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
         }else{
-              return  redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
+            return  redirect($_SERVER['HTTP_REFERER'])->with('error','删除失败');
         }
     }
 }

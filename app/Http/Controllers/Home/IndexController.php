@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Forum;
 use App\Models\Post;
+use App\Models\Blogroll;
 class IndexController extends Controller
 {
     public  static function getPidForumCates($id = 0)
@@ -65,9 +66,10 @@ class IndexController extends Controller
     public function index()
     {
         $data = self::getIdForum();
+        $blogroll = Blogroll::select('name','url')->get();
         // dd($data);
         //加载视图,分配数据
-        return view('home.index.index',['data'=>$data]);
+        return view('home.index',['data'=>$data,'blogroll'=>$blogroll]);
 
     }
 
@@ -136,4 +138,6 @@ class IndexController extends Controller
     {
         //
     }
+
+
 }
