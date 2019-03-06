@@ -54,6 +54,7 @@ Route::post('/admin/login','Admin\LoginController@login');
 //退出
 Route::get('/admin/out','Admin\LoginController@out');
 
+
 // 前台帖子
 Route::get('/home/post/{pid}/{uid}','Home\PostController@goCheckContent');
 Route::resource('/home/post','Home\PostController');
@@ -90,6 +91,9 @@ Route::resource('admin/blogroll','Admin\BlogrollController')->middleware('login'
 Route::resource('admin/config','Admin\ConfigController');
 // announcement 公告管理
 Route::resource('admin/announcement','Admin\AnnouncementController');
+//前台签到
+Route::get('/home/user/signin','Home\UserController@signin');
+Route::get('/home/user/signin_form/{id}','Home\UserController@signin_form');
 
 
 

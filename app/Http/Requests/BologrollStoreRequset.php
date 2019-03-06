@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BologrollRequest extends FormRequest
+class BologrollStoreRequset extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,16 +23,22 @@ class BologrollRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required',
+        // return [
+        //     'name' => 'required',
+        //     'logo' => 'required',
+        //     'url' => 'required',
+        //     'title' => 'required',
+        // ];
+         return [
+            'name' => 'required',   
             'logo' => 'required',
             'url' => 'required',
             'title' => 'required',
+    
         ];
     }
 
-    // 自定义错误信息
-    public function messages()
+     public function messages()
     {
         return [
             'name.required'=>'用户名必填',
