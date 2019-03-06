@@ -297,6 +297,7 @@
           </li>
         @endforeach
         </ul>
+        {{ $post->appends(['sort' => 'votes'])->links() }}
         </div> 
        </div> 
       </div> 

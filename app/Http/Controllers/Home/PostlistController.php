@@ -84,7 +84,7 @@ class PostlistController extends Controller
         $data = Forum::find($id);
         // 帖子信息
        
-        $post = Post::where('fid',$id)->where($key[0],$value)->orderBy('top','desc')->orderBy('created_at','desc')->get();
+        $post = Post::where('fid',$id)->where($key[0],$value)->orderBy('top','desc')->orderBy('created_at','desc')->paginate(13);
 
         // dump($post[0]->Collection[0]->uid);
         return view('home/postlist/index',['id'=>$id,'data'=>$data,'post'=>$post]);
