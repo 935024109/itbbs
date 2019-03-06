@@ -32,7 +32,36 @@ Route::get('home/user/register','Home\RegisterController@index');//注册
 Route::post('home/user/register/email','Home\RegisterController@email');//发送邮件
 Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterController@changestatus');//激活
 Route::get('home/login','Home\LoginController@login');//登录页面
+Route::get('home/out','Home\LoginController@out');//登录页面
 Route::post('home/in','Home\LoginController@in');//
+Route::resource('home/user','Home\UserController');
+Route::get('home/user/phone/{phone}','Home\UserController@phone');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 轮播图
 Route::get('home/carousel','Home\CarouselController@index');
@@ -66,6 +95,7 @@ Route::resource('home/reply','Home\ReplyController');
 
 // 前台首页
 Route::resource("/home",'Home\IndexController');
+
 
 
 

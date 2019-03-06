@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Home;
 
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Hash;
+
 class UserController extends Controller
 {
     /**
@@ -16,6 +18,7 @@ class UserController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -25,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        // Redis::setex('12313',1000,'123123');
     }
 
     /**
@@ -47,7 +50,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        if(session('id') != $id){
+            return redirect('error.404');
+        }
+        $user = User::find($id);
+        // dump($user);
+        return view('home.user.show',compact('user'));
     }
 
     /**
@@ -58,7 +66,15 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(session('id') != $id){
+            return redirect('error.404');
+        }
+
+        $user = User::find($id);
+
+
+        return view('home.user.edit',compact('user'));
+
     }
 
     /**
@@ -70,7 +86,34 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request, [
+            'pwd' => 'required',
+            'repwd' => 'required|same:pwd',
+            'code' => 'required'
+        ],[
+         'pwd.required' => '密码不能为空',
+         'repwd.required' => '密码不能为空',
+         'code.required' => '验证码不能为空',
+         'pwd.same' => '两次密码输入不一致'
+         
+        ]);
+        // dump($request);
+        
+        $code = Redis::get('code_'.$request->phone);
+        if($request->code != $code){
+            return back()->with('error','验证码输入错误');
+        }
+
+        $user = User::find($id);
+        $user->pwd = Hash::make($request->pwd);
+        $res = $user->save();
+
+        if($res){
+            return redirect('home/login')->with('success','修改成功请重新登录');
+        } else {
+            return back()->with('error','修改失败');
+        }
     }
 
     /**
@@ -84,12 +127,9 @@ class UserController extends Controller
         //
     }
 
-    public function login()
-    {
-        return view('home/login/index');
-    }
+   
 
-    public function in(Request $request)
+    public function phone($phone)
     {
         $this->validate($request, [
                 'uname' => 'required',
@@ -125,6 +165,8 @@ class UserController extends Controller
         } else {
             return back()->with('error','用户名不存在');
         }
+
+        return view('home.user.sendphone',compact('phone'));
     }
 
     // 签到页面

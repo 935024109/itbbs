@@ -29,13 +29,13 @@ class PostController extends Controller
     public function create($id)
     {
         //判断用户是否登录
-        if(!session('id')){
+       /* if(!session('id')){
             //如果没有登录,跳转到 登录页面
             return view('home.login.index');
         }
 
         return view('home.post.create',['fid'=>$id]);
-
+*/
     }
 
     /**
@@ -50,7 +50,7 @@ class PostController extends Controller
         $data = $request->except('_token');
         $uid = session('id');
         $post = new Post;
-        $post->$uid;
+        $post->uid = $uid;
         $user = User::find($uid);
         $post->title = $data['title'];
         $post->content = $data['content'];
@@ -136,11 +136,11 @@ class PostController extends Controller
 
     public function goPost($id = 0)
     {
-       /* //判断用户是否登录
+        //判断用户是否登录
         if(!session('id')){
             //如果没有登录,跳转到 登录页面
             return view('home.login.index');
-        }*/
+        }
 
         return view('home.post.create',['forum_cates'=>self::getForumCates(),'fid'=>$id]);
 

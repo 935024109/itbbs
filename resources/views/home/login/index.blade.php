@@ -1,6 +1,7 @@
 @extends('home/layout/index')
 
 @section('main')
+<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<div id="ct" class="wp w cl" style="padding: 100px 0 100px 0;">
 		<div class="nfl" id="main_succeed" style="display: none">
 		<div class="f_c altw">
@@ -11,6 +12,7 @@
 		</div>
 		</div>
 		</div>
+	
 		<div class="mn" id="main_message">
 		        <div class="ldLoginIntro cl" style="float: left; width: 400px;">
 		           <img src="/homes/static/picture/main_fm365.png">
@@ -18,15 +20,7 @@
 				<form style="float: right; width: 400px;" action="/home/in" method="post" >
 					{{  csrf_field() }}
 					<h1 align="center">登录</h1>
-					@if (count($errors) > 0)
-					    <div class="alert alert-danger">
-					        <ul>
-					            @foreach ($errors->all() as $error)
-					                <li>{{ $error }}</li>
-					            @endforeach
-					        </ul>
-					    </div>
-					@endif
+				
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">用户名</label>
 				    <input name="uname" type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名" value="{{ old('uname') }}">
@@ -43,5 +37,8 @@
 				</form>
 	</div>
 		</div>
+	
 
+
+	
 @endsection
