@@ -15,6 +15,12 @@ class User extends Model
 	// 设置与主贴的关系
 	public function post()
     {
-        return $this->hasMany('App\Model\Post','uid');
+        return $this->hasMany('App\Models\Post','uid');
+    }
+
+    // 设置与收藏贴的关系
+    public function collection()
+    {
+    	return $this->hasMany('App\Models\Collection','uid');
     }
 }

@@ -256,26 +256,45 @@
         <div id="forumnew" style="display:none"></div> 
         <div style="width: 100%;height: 1700px;">
         <ul>
-          <div style="height: 50px;"></div>
+          <div style="height: 50px;">
+            <form action="/home/postlist/{{$data->fid}}/edit" method="get">
+              <input type="submit" name="" class="" value="查看所有" >
+              <input type="submit" name="top" value="查看置顶" >
+              <input type="submit" name="hot" value="查看精品" >
+            </form>
+          </div>
         @foreach ($post as $k=>$v)
-          <li  style="height: 100px;margin-top: 20px;">
+          <li  style="height: 100px;margin-top: 10px;background-color: #D3D3D3;border: 1px solid #896961;border-radius: 10px;">
             <div style="height: 100%;width: 30px;float: left;">
-              <input type="text" readonly name="" style="width: 50px;height: 40px;margin-top: 30px;margin-left: 15px;" value="{{$v->reply->count()}}"></input>
+              <input type="text" readonly name="" style="width: 50px;height: 40px;margin-top: 30px;margin-left: 15px;" title="回复" value="{{$v->reply->count()}}"></input>
             </div>
             <div style="width: 1px;height: 100%;float: left;margin-left: 40px;"></div>
             <div style="float: right;height: 48px;width: 650px; ">
               <b><a href="/home/post/{{ $v->pid }}/{{ $v->user->uid}}">{{$v->title}}</a></b>
+              <b><a href="" style="color:black;">{{$v->title}}</a></b>
+            @if(session('flag') == true)
+              @if($v->collection_uid($v->pid,session('id')))
+                <form action="/home/postlist/nolike/{{$v->pid}}">
+                  <button style="float: right;" class="btn btn-danger">已收藏</button>
+                </form>
+              @else
+                <form action="/home/postlist/like/{{$v->pid}}">
+                  <button class="btn btn-info" style="float: right;">收藏</button>
+                </form>
+              @endif
+            @endif
+              @if($v->top == 1)
+              <button class="btn btn-success" style="float: right;">置顶</button>
+              @endif
+
+              @if($v->hot == 1)
+              <button class="btn btn-warning" style="float: right;">精品</button>
+              @endif
             </div>
             <div style="float: right;height: 48px;width: 650px;">
               <div>
               <a href="">{{$v->user->uname}}</a>&nbsp;&nbsp; @ {{$v->created_at}}
-              @if($v->like == 0)
-              <button class="btn btn-info">收藏</button>
-              @else
-                <button>已收藏</button>
-              @endif
-              </div>
-              
+            </div>
             </div>
           </li>
         @endforeach

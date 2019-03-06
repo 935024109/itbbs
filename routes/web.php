@@ -88,7 +88,10 @@ Route::get('/admin/out','Admin\LoginController@out');
 Route::get('/home/post/{pid}/{uid}','Home\PostController@goCheckContent');
 Route::resource('/home/post','Home\PostController');
 // 前台帖子列表管理
-Route::resource('/home/postlist','Home\PostlistController');
+Route::get('home/postlist/nolike/{id}','Home\PostlistController@nolike');
+Route::get('home/postlist/like/{id}','Home\PostlistController@like');
+Route::get('home/postlist/index','Home\PostlistController@index');
+Route::resource('home/postlist','Home\PostlistController');
 
 //前台回复贴
 Route::resource('home/reply','Home\ReplyController');
