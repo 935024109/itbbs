@@ -257,7 +257,7 @@
         <div style="width: 100%;height: 1700px;">
         <ul>
           <div style="height: 50px;">
-            <form action="/home/postlist/{{$data->fid}}/edit" method="get">
+            <form action="/home/post/{{$data->fid}}/edit" method="get">
               <input type="submit" name="" class="" value="查看所有" >
               <input type="submit" name="top" value="查看置顶" >
               <input type="submit" name="hot" value="查看精品" >
@@ -274,11 +274,11 @@
               <b><a href="" style="color:black;">{{$v->title}}</a></b>
             @if(session('flag') == true)
               @if($v->collection_uid($v->pid,session('id')))
-                <form action="/home/postlist/nolike/{{$v->pid}}">
+                <form action="/home/post/nolike/{{$v->pid}}">
                   <button style="float: right;" class="btn btn-danger">已收藏</button>
                 </form>
               @else
-                <form action="/home/postlist/like/{{$v->pid}}">
+                <form action="/home/post/like/{{$v->pid}}">
                   <button class="btn btn-info" style="float: right;">收藏</button>
                 </form>
               @endif
@@ -299,7 +299,6 @@
           </li>
         @endforeach
         </ul>
-        {{ $post->appends(['sort' => 'votes'])->links() }}
         </div> 
        </div> 
       </div> 

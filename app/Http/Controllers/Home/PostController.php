@@ -88,12 +88,35 @@ class PostController extends Controller
      */
      public function edit(Request $request,$id)
     {
+         // 接收表单传来的值
+        $get = $_GET;
+        // 先随便给value赋个初值
+        $value = $id;
+        // 进行判断如果是查看所有 给$get 赋一个关联下标数据
+        if (!$get) {
+            $get['fid'] = $value;
+        }
+
+
+        $key = array_keys($get);
+        // 如果传值是 top 
+        if ($key[0] == 'top') {
+            $value = '1';
+        }
+        // 如果传值是 hot 
+        elseif ($key[0] == 'hot') {
+            $value = '1';
+        }
+
         // 通过id查询板块信息
         $data = Forum::find($id);
-        
-        $post = Post::where('fid',$id)->get();
+        $post = $data->post;
+        // 帖子信息
        
-        return view('home.postlist.index',['id'=>$id,'data'=>$data,'post'=>$post]);
+        $post = Post::where('fid',$id)->where($key[0],$value)->orderBy('top','desc')->orderBy('created_at','desc')->get();
+
+        // dump($post[0]->Collection[0]->uid);
+        return view('home/postlist/index',['id'=>$id,'data'=>$data,'post'=>$post]);
     }
 
     /**
@@ -155,5 +178,31 @@ class PostController extends Controller
         
         return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user]);
        
+    }
+    public function like($id)
+    {
+        $uid = session('id');
+        $pid = $id;
+        // dd($uid,$pid);
+        $collection = new Collection;
+        $collection->uid = $uid;
+        $collection->pid = $pid;
+        $res = $collection->save();
+        // dd('123');
+        if ($res) {
+            return back();
+        } else {
+            return back();
+        }
+    }
+
+    public function nolike($id)
+    {
+        $res = Collection::where('pid',$id)->where('uid',session('id'))->delete();
+        if ($res) {
+            return back();
+        } else {
+            return back();
+        }
     }
 }
