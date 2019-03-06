@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Forum;
+use App\Models\Collection;
 use DB;
 
 class PostController extends Controller
