@@ -25,6 +25,7 @@ Route::get('admin/post/nothot/{id}','Admin\PostController@nothot')->middleware('
 Route::get('admin/post/top/{id}','Admin\PostController@top')->middleware('login');
 Route::get('admin/post/nottop/{id}','Admin\PostController@nottop')->middleware('login');
 //结束
+Route::get('admin/post/changepid/{id}','Admin\PostController@changepid');
 Route::resource('admin/post','Admin\PostController')->middleware('login');//帖子
 Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']])->middleware('login');//回帖的路由
 //前台

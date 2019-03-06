@@ -13,7 +13,6 @@
 <meta http-equiv="MSThemeCompatible" content="Yes" />
 <link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_common.css" /><link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_index.css" />    <script src="/homes/static/js/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">var STYLEID = '2', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'Ac9', charset = 'gbk', discuz_uid = '0', cookiepre = '6tcf_40b9_', cookiedomain = '.itxdl.cn', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '1|威望|,2|金钱|,3|贡献|', defaultstyle = '', REPORTURL = 'aHR0cDovL2Jicy5pdHhkbC5jbi8=', SITEURL = 'http://bbs.itxdl.cn/', JSPATH = 'static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
-<script src="/homes/static/js/common.js" type="text/javascript"></script>
     <!--[if IE 6]>
      <script language='javascript' type="text/javascript">   
     function ResumeError() {  
@@ -60,7 +59,7 @@
         @foreach ($common_forum as $k=>$v)
         <ul>
            
-                    <li                 id="mn_N8473{{$v->fid}}" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true" target="_blank"  >{{$v->fname}}</a>
+                    <li id="mn_N8473{{$v->fid}}" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true" target="_blank"  >{{$v->fname}}</a>
           </li>
            
            
@@ -377,3 +376,5 @@ initSearchmenu('scbar', '');
 </script>
 </body>
 <script src="/homes/static/js/bdtj.js" type="text/javascript"></script><script src="/homes/static/js/cnzz.js" type="text/javascript"></script></html>   
+<script src="/homes/static/js/common.js" type="text/javascript"></script>
+

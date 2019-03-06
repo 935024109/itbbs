@@ -50,9 +50,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        if(session('id') != $id){
-            return redirect('error.404');
-        }
+        // if(session('id') != $id){
+        //     return redirect('error.404');
+        // }
         $user = User::find($id);
         // dump($user);
         return view('home.user.show',compact('user'));
