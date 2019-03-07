@@ -14,7 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+// 前台签到
+Route::get('/home/signs/list','Home\SignsController@list');
+Route::get('/home/signs/error','Home\SignsController@error');
+Route::get('/home/signs/login','Home\SignsController@login');
+Route::resource('/home/signs','Home\SignsController'); 
 // 19 - 40 wzl
 // 后台
 //加精置顶是否可以回复的路由开始
@@ -93,7 +97,9 @@ Route::get('home/post/nolike/{id}','Home\PostController@nolike');
 Route::get('/home/post/{pid}/{uid}','Home\PostController@goCheckContent');
 Route::resource('/home/post','Home\PostController');
 // 前台帖子列表管理
+
 Route::get('home/post/like/{id}','Home\PostController@like');
+
 //前台回复贴
 Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
 // Route::resource('home/reply','Home\ReplyController');
@@ -123,12 +129,12 @@ Route::resource("/home",'Home\IndexController');
 // Blogroll 友情链接路由
 Route::resource('admin/blogroll','Admin\BlogrollController')->middleware('login');
 // Config 网站配置
-Route::resource('admin/config','Admin\ConfigController');
+Route::resource('admin/config','Admin\ConfigController')->middleware('login');
 // announcement 公告管理
-Route::resource('admin/announcement','Admin\AnnouncementController');
-//前台签到
-Route::get('/home/user/signin','Home\UserController@signin');
-Route::get('/home/user/signin_form/{id}','Home\UserController@signin_form');
+Route::resource('admin/announcement','Admin\AnnouncementController')->middleware('login');
+// 后台首页
+Route::resource("/admin",'Admin\IndexController')->middleware('login');
+
 
 
 
