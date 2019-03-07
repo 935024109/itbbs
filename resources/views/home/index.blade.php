@@ -194,7 +194,7 @@
                             <dd>
                               <a href="http://bbs.itxdl.cn/forum.php?mod=redirect&amp;tid=243117&amp;goto=lastpost#lastpost" class="xi2" style="color: #555555;">{{$vv->title}}</a>
                               <cite>{{$vv->created}}
-                                <a href="http://d.bbs.itxdl.cn/space-username-%CD%F5%D5%F1%DB%C3.html">{{$vv->auth}}</a></cite>
+                                <a href="home/user/{{session('id')}}">{{$vv->auth}}</a></cite>
                             </dd>
                           </dl>
                         </td>

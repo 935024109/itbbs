@@ -13,13 +13,13 @@
   <!--[/diy]-->
   <div id="pt" class="bm cl">
     <div class="z">
-      <a href="/">论坛</a>
+      <a href="/home">论坛</a> 
+     <em>›</em> 
+     <a href="/home">{{$lastforum}}</a>
+     <em>›</em> 
+     <a href="/home/post/{{$forum->fid}}/edit">{{$forum->fname}}</a>
       <em>›</em>
-      <a href="http://bbs.itxdl.cn/forum.php?gid=123">:::. 技术交流 :::.</a>
-      <em>›</em>
-      <a href="http://bbs.itxdl.cn/forum.php?mod=forumdisplay&amp;fid=271&amp;page=%7Bprevpage%7D">Java技术</a>
-      <em>›</em>
-      <a href="http://bbs.itxdl.cn/read-htm-tid-240393-page-1.html">查看内容</a></div>
+    </div>
     <div class="y" style="display: none;">
       <a href="http://bbs.itxdl.cn/forum.php?mod=viewthread&amp;action=printable&amp;tid=240393" title="打印" target="_blank">
         <img src="/home/picture/print.png" alt="打印" class="vm" data-bd-imgshare-binded="1"></a>

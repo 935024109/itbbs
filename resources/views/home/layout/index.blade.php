@@ -34,6 +34,7 @@
 
  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
  
 
@@ -69,17 +70,18 @@
          
       </div>
       <!-- 二级导航 -->
-      @foreach ($common_forum as $k=>$v)
+     @foreach ($common_forum as $k=>$v)
       <div class="sub_nav">
-      
+       
         <ul class="p_pop h_pop" id="mn_N8473{{$v->fid}}_menu" style="display: none ;width:150px;">
          @foreach ($v->sub as $kk=>$vv)
           <li>
-            <a href="http://java.itxdl.cn/" hidefocus="true" target="_blank">{{$vv->fname}}</a></li>
+            <a href="/home/post/{{$vv->fid}}/edit" hidefocus="true" target="_blank">{{$vv->fname}}</a>
+          </li>
         @endforeach
         </ul>
       
-
+     
       </div>
       @endforeach
       <div href="javascript:void(0)" target="_blank" class="headerbtn header_search newbtn" title="搜索" style="margin:0;padding: 0;margin:18px"></div>
