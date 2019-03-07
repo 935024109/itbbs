@@ -38,7 +38,7 @@ class LoginController extends Controller
     			session(['id'=>$user->uid]);
     			session(['uname'=>$data['uname']]);
     			session(['photo'=>$user->photo]);
-    			return redirect('/admin/user');
+    			return redirect('/admin');
     		} else {
     			return back()->with('error','密码输入错误');
     		}

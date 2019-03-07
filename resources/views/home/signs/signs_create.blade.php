@@ -8,8 +8,8 @@
       <a href="javascript:;" onclick="hideWindow('sign');" class="flbc" title="关闭">关闭</a></span>
   </h3>
   <style type="text/css">.layer_dcsignin { padding: 10px 0 0; width: 322px; overflow: hidden; position: relative; } .layer_dcsignin .dcsignin_title{background:url("source/plugin/dc_signin/images/top.png") no-repeat; width :162px; height:15px; margin:0 15px 10px;} .layer_dcsignin .dcsignin_list{ padding:0 0 5px 15px; } .layer_dcsignin .dcsignin_list li{ float:left; text-align:center; cursor:pointer; height:60px; } .layer_dcsignin .dcsignin_list li div{ padding:4px 5px 2px; width:48px;} .layer_dcsignin .dcsignin_list li.current div{ border:1px solid #99d0ff; background:#eaf6ff; padding:3px 4px 1px;} .layer_dcsignin .dcsignin_list li img{ display:block; margin:0 0 3px; margin-left:8px; *margin-left:3px;} .layer_dcsignin .dcsignin_send{ padding:5px 15px;} .layer_dcsignin .dcsignin_send textarea{ width:280px; padding:5px; border:1px solid #c6c6c6; font-family:"Tahoma" ; line-height:18px; height:55px;}</style>
-  <form method="get" id="signform" action="/home/user/signin_form/{{session('id')}}">
-   
+  <form method="post" id="signform" action="/home/signs">
+   {{ csrf_field() }}
     <input type="hidden" name="formhash" value="60c2ede7">
     <input type="hidden" name="signsubmit" value="yes">
     <input type="hidden" name="handlekey" value="signin">

@@ -169,26 +169,4 @@ class UserController extends Controller
         return view('home.user.sendphone',compact('phone'));
     }
 
-    // 签到页面
-    public function signin()
-    {
-        // 判断session是否有值
-        if(session('id')){
-            // 有值跳到签到页面
-            return view('home.signin.index');
-
-        }
-            // 没有则跳到登陆页面
-            return view('home/login/index');
-        // 加载试图
-        
-    }
-    // 接受
-    public function signin_form($id)
-    {
-        
-        $data = User::find($id);
-        
-        return view('home.signin.signin_form',['data'=>$data]);
-    }
 }
