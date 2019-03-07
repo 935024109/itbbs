@@ -1,8 +1,7 @@
 @extends('home.layout.index')
 
 @section('main')
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<!--  -->
 <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -29,38 +28,38 @@
     </div> 	
    </div> 
   <div class="form-group" >
-    <label for="inputEmail3" class="col-sm-2 control-label">账号</label>
+    <label class="col-sm-2 control-label">账号</label>
     <div class="col-sm-10">
-      <input type="test" name="uname" class="form-control" id="inputEmail3" readonly  value="{{ $user->uname}}">
+      <input type="test" name="uname" class="form-control"  readonly  value="{{ $user->uname}}">
     </div>
   </div>
 
 		<div class="form-group">
-		    <label for="inputPassword3" class="col-sm-2 control-label">手机号</label>
+		    <label  class="col-sm-2 control-label">手机号</label>
 		    <div class="col-sm-10">
-		      <input type="test" class="form-control" name="phone" id="phone" id="inputPassword3" readonly value="{{ $user->phone }}">
+		      <input type="test" class="form-control" name="phone"  id="phone" readonly value="{{ $user->phone }}">
 	    </div>
 	</div>
   <input type="button" onclick="sendPhone(this)" id="sendBtn" value="免费获取验证码" class="btn btn-success" style="margin:0 15px">
   <br>
    <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">新密码</label>
+    <label class="col-sm-2 control-label">新密码</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" name="pwd" id="inputPassword3">
+      <input type="password" class="form-control" name="pwd" >
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">再次输入密码</label>
+    <label class="col-sm-2 control-label">再次输入密码</label>
     <div class="col-sm-10">
-      <input type="repwd" class="form-control" name="repwd" id="inputPassword3">
+      <input type="password" class="form-control" name="repwd">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">手机验证码</label>
+    <label class="col-sm-2 control-label">手机验证码</label>
     <div class="col-sm-10">
-      <input type="repwd" class="form-control" name="code" id="inputPassword3">
+      <input type="text" class="form-control" name="code" >
     </div>
   </div>
   
@@ -71,7 +70,7 @@
 	
 
 <script type="text/javascript">
- 
+  alert($('#phone').val());
     function editCon()
     {
       var t = 60;
@@ -95,12 +94,11 @@
 
     function sendPhone(obj)
     {
-      // alert(obj);
-      // die;
-      // 接收手机号码
+     
+      //接收手机号码
+      // console.log($('#phone'));
       var phone = $('#phone').val();
       // 定义正则检查手机号是否格式正确
-      // console.log(phone);
       // 将js对象转化成jquery对象
       var object = $(obj);
       // 设置button状态

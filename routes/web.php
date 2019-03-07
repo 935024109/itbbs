@@ -36,8 +36,8 @@ Route::get('home/login','Home\LoginController@login');//登录页面
 Route::get('home/out','Home\LoginController@out');//登录页面
 Route::post('home/in','Home\LoginController@in');//
 Route::get('home/user/collection/{id}','Home\UserController@collection');
-Route::resource('home/user','Home\UserController');
 Route::get('home/user/phone/{phone}','Home\UserController@phone');
+Route::resource('home/user','Home\UserController');
 
 
 
