@@ -25,6 +25,7 @@ Route::get('admin/post/nothot/{id}','Admin\PostController@nothot')->middleware('
 Route::get('admin/post/top/{id}','Admin\PostController@top')->middleware('login');
 Route::get('admin/post/nottop/{id}','Admin\PostController@nottop')->middleware('login');
 //结束
+Route::get('admin/post/changepid/{id}','Admin\PostController@changepid');
 Route::resource('admin/post','Admin\PostController')->middleware('login');//帖子
 Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']])->middleware('login');//回帖的路由
 //前台
@@ -34,6 +35,7 @@ Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterControll
 Route::get('home/login','Home\LoginController@login');//登录页面
 Route::get('home/out','Home\LoginController@out');//登录页面
 Route::post('home/in','Home\LoginController@in');//
+Route::get('home/user/collection/{id}','Home\UserController@collection');
 Route::resource('home/user','Home\UserController');
 Route::get('home/user/phone/{phone}','Home\UserController@phone');
 
@@ -87,11 +89,11 @@ Route::get('/admin/out','Admin\LoginController@out');
 
 
 // 前台帖子
+Route::get('home/post/nolike/{id}','Home\PostController@nolike');
 Route::get('/home/post/{pid}/{uid}','Home\PostController@goCheckContent');
 Route::resource('/home/post','Home\PostController');
 // 前台帖子列表管理
-Route::get('home/post/nolike/{id}','Home\PostlistController@nolike');
-Route::get('home/post/like/{id}','Home\PostlistController@like');
+Route::get('home/post/like/{id}','Home\PostController@like');
 //前台回复贴
 Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
 // Route::resource('home/reply','Home\ReplyController');

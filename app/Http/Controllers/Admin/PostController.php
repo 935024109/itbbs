@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\ForumController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogPost;
 use App\Models\Post;
@@ -41,8 +42,8 @@ class PostController extends Controller
     {
 
         //获取所有分区 下拉框便利
-        $forum = Forum::all();
-
+        // $forum = Forum::all();
+        $forum = ForumController::getForumCates();
         //添加视图
         return view('admin.post.create',compact('forum'));
     }
@@ -270,7 +271,16 @@ class PostController extends Controller
         }
     }
 
-
+    /**
+     * 检查pid 分区下不能建立帖子
+     * @return [type] [description]
+     */
+    public function changepid($id)
+    {
+        $res = Forum::find($id)->pid;
+        // var_dump($res);
+        echo  $res;
+    }
 
 
 }

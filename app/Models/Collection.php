@@ -14,4 +14,17 @@ class Collection extends Model
     {
     	return $this->belongsTo('App\Models\User','uid'); 
     }
+        // 跟post表建立关联
+    public function post()
+    {
+    	return $this->belongsTo('App\Models\Post','pid'); 
+    }
+
+
+    public function post_user($pid)
+    {	
+    	$uid = Post::find($pid)->uid;
+    	return User::find($uid)->nickname;
+    }
+
 }

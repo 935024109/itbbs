@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Forum;
 use App\Models\Reply;
+use App\Models\Collection;
 use DB;
 
 class PostController extends Controller

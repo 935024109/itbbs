@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Collection;
 use Hash;
 
 class UserController extends Controller
@@ -50,9 +51,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        if(session('id') != $id){
-            return redirect('error.404');
-        }
+        // if(session('id') != $id){
+        //     return redirect('error.404');
+        // }
         $user = User::find($id);
         // dump($user);
         return view('home.user.show',compact('user'));
@@ -190,5 +191,19 @@ class UserController extends Controller
         $data = User::find($id);
         
         return view('home.signin.signin_form',['data'=>$data]);
+    }
+
+
+    /**
+     * 收藏
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function collection($id)
+    {
+        $user = User::find($id);
+        $data = Collection::where('uid',$id)->get();
+        // dd($data);
+        return view('home.user.collection',compact('data','user'));
     }
 }
