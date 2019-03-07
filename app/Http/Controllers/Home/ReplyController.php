@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Reply;
+use App\Models\User;
+
 
 class ReplyController extends Controller
 {
@@ -14,7 +17,8 @@ class ReplyController extends Controller
      */
     public function index()
     {
-        dump('aaa');
+
+       
     }
 
     /**
@@ -35,7 +39,7 @@ class ReplyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       echo 'creater';
     }
 
     /**
@@ -47,6 +51,8 @@ class ReplyController extends Controller
     public function show($id)
     {
         //
+        dd($id);
+         return view('home.post.checkcontent');
     }
 
     /**
@@ -81,5 +87,26 @@ class ReplyController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // 添加回复贴
+    public function add(Request $request, $pid, $uid)
+    {
+        //获取数据
+        $data = $request -> input('content');
+        //实例化对象
+        $reply = new Reply;
+        $reply->content = $data;
+        $reply->pid = $pid;
+        $reply->uid = $uid;
+        $user = User::find($uid);
+        //保存数据到数据库
+        $reply->save();
+
+        $reply_count = Reply::where('pid',$pid)->count();
+        dd($reply);
+        return view('home.post.checkcontent',['reply'=>$reply,'reply_count'=>$reply_count,'user'=>$user]);
+
+
     }
 }

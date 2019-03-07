@@ -65,8 +65,10 @@ Route::get('home/user/phone/{phone}','Home\UserController@phone');
 
 // 轮播图
 Route::get('home/carousel','Home\CarouselController@index');
+
+
 Route::get('home/goPost/{id}','Home\PostController@goPost');
-Route::resource('home/post','Home\PostController');
+
 
 //41-60 czz
 //用户路由
@@ -91,7 +93,8 @@ Route::resource('/home/post','Home\PostController');
 Route::get('home/post/nolike/{id}','Home\PostlistController@nolike');
 Route::get('home/post/like/{id}','Home\PostlistController@like');
 //前台回复贴
-Route::resource('home/reply','Home\ReplyController');
+Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
+// Route::resource('home/reply','Home\ReplyController');
 
 // 前台首页
 Route::resource("/home",'Home\IndexController');

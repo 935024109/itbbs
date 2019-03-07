@@ -60,7 +60,7 @@
         @foreach ($common_forum as $k=>$v)
         <ul>
            
-                    <li                 id="mn_N8473{{$v->fid}}" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true" target="_blank"  >{{$v->fname}}</a>
+                    <li id="mn_N8473{{$v->fid}}" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="#" hidefocus="true" target="_blank"  >{{$v->fname}}</a>
           </li>
            
            

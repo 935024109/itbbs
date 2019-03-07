@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Forum;
+use App\Models\Reply;
 use DB;
 
 class PostController extends Controller
@@ -175,8 +176,8 @@ class PostController extends Controller
         $post = Post::find($pid);
         $user = User::find($uid);
         $post_count = Post::where('uid',$uid)->count();
-        
-        return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user]);
+        $reply_count = Reply::where('pid',$pid)->count();
+        return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'pid'=>$pid,'reply_count'=>$reply_count]);
        
     }
     public function like($id)
