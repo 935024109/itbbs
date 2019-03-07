@@ -1300,54 +1300,54 @@ function AC_GetArgs(args, classid, mimeType) {
 	return ret;
 }
 
-// function simulateSelect(selectId, widthvalue) {
-// 	var selectObj = $(selectId);
-// 	if(!selectObj) return;
-// 	if(BROWSER.other) {
-// 		if(selectObj.getAttribute('change')) {
-// 			selectObj.onchange = function () {eval(selectObj.getAttribute('change'));}
-// 		}
-// 		return;
-// 	}
-// 	var widthvalue = widthvalue ? widthvalue : 70;
-// 	var defaultopt = selectObj.options[0] ? selectObj.options[0].innerHTML : '';
-// 	var defaultv = '';
-// 	var menuObj = document.createElement('div');
-// 	var ul = document.createElement('ul');
-// 	var handleKeyDown = function(e) {
-// 		e = BROWSER.ie ? event : e;
-// 		if(e.keyCode == 40 || e.keyCode == 38) doane(e);
-// 	};
-// 	var selectwidth = (selectObj.getAttribute('width', i) ? selectObj.getAttribute('width', i) : widthvalue) + 'px';
-// 	var tabindex = selectObj.getAttribute('tabindex', i) ? selectObj.getAttribute('tabindex', i) : 1;
+function simulateSelect(selectId, widthvalue) {
+	var selectObj = $(selectId);
+	if(!selectObj) return;
+	if(BROWSER.other) {
+		if(selectObj.getAttribute('change')) {
+			selectObj.onchange = function () {eval(selectObj.getAttribute('change'));}
+		}
+		return;
+	}
+	var widthvalue = widthvalue ? widthvalue : 70;
+	var defaultopt = selectObj.options[0] ? selectObj.options[0].innerHTML : '';
+	var defaultv = '';
+	var menuObj = document.createElement('div');
+	var ul = document.createElement('ul');
+	var handleKeyDown = function(e) {
+		e = BROWSER.ie ? event : e;
+		if(e.keyCode == 40 || e.keyCode == 38) doane(e);
+	};
+	var selectwidth = (selectObj.getAttribute('width', i) ? selectObj.getAttribute('width', i) : widthvalue) + 'px';
+	var tabindex = selectObj.getAttribute('tabindex', i) ? selectObj.getAttribute('tabindex', i) : 1;
 
-// 	for(var i = 0; i < selectObj.options.length; i++) {
-// 		var li = document.createElement('li');
-// 		li.innerHTML = selectObj.options[i].innerHTML;
-// 		li.k_id = i;
-// 		li.k_value = selectObj.options[i].value;
-// 		if(selectObj.options[i].selected) {
-// 			defaultopt = selectObj.options[i].innerHTML;
-// 			defaultv = selectObj.options[i].value;
-// 			li.className = 'current';
-// 			selectObj.setAttribute('selecti', i);
-// 		}
-// 		li.onclick = function() {
-// 			if($(selectId + '_ctrl').innerHTML != this.innerHTML) {
-// 				var lis = menuObj.getElementsByTagName('li');
-// 				lis[$(selectId).getAttribute('selecti')].className = '';
-// 				this.className = 'current';
-// 				$(selectId + '_ctrl').innerHTML = this.innerHTML;
-// 				$(selectId).setAttribute('selecti', this.k_id);
-// 				$(selectId).options.length = 0;
-// 				$(selectId).options[0] = new Option('', this.k_value);
-// 				eval(selectObj.getAttribute('change'));
-// 			}
-// 			hideMenu(menuObj.id);
-// 			return false;
-// 		};
-// 		ul.appendChild(li);
-// 	}
+	for(var i = 0; i < selectObj.options.length; i++) {
+		var li = document.createElement('li');
+		li.innerHTML = selectObj.options[i].innerHTML;
+		li.k_id = i;
+		li.k_value = selectObj.options[i].value;
+		if(selectObj.options[i].selected) {
+			defaultopt = selectObj.options[i].innerHTML;
+			defaultv = selectObj.options[i].value;
+			li.className = 'current';
+			selectObj.setAttribute('selecti', i);
+		}
+		li.onclick = function() {
+			if($(selectId + '_ctrl').innerHTML != this.innerHTML) {
+				var lis = menuObj.getElementsByTagName('li');
+				lis[$(selectId).getAttribute('selecti')].className = '';
+				this.className = 'current';
+				$(selectId + '_ctrl').innerHTML = this.innerHTML;
+				$(selectId).setAttribute('selecti', this.k_id);
+				$(selectId).options.length = 0;
+				$(selectId).options[0] = new Option('', this.k_value);
+				eval(selectObj.getAttribute('change'));
+			}
+			hideMenu(menuObj.id);
+			return false;
+		};
+		ul.appendChild(li);
+	}
 
 	selectObj.options.length = 0;
 	selectObj.options[0]= new Option('', defaultv);

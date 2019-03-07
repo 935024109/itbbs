@@ -48,5 +48,17 @@ class Post extends Model
     {   
         return Collection::where('uid',$uid)->where('pid',$pid)->first();
     }
+    
+    
+    // 根据帖子id  去查询最新回复的时间和用户信息
+    public function newreply($pid)
+    {
+        //根据pid去查询回复
+        $reply = Reply::where('pid',$pid)->orderBy('created_at','desc')->first();
+        $createdtime = $reply['created_at'];
+        $user = User::where('uid',$reply['uid'])->first();
+        $username  = $user['uname'];
+        return '<a href="/home/user/'.$user['uid'].'">'.$username.'</a>'.'@'.$createdtime;
 
+    }
 }

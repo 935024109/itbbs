@@ -1,17 +1,18 @@
   @extends('home/layout/index')
    @section('main') 
-  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
-  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!--  引入bootstrap start -->
+<link rel="stylesheet" type="text/css" href="/homes/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script type="text/javascript" src="/homes/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/homes/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!--  引入bootstrap end -->
   <div id="wp" class="wp time_wp cl">
    <script src="template/zvis_3_zuk/src/js/jquery.superslide.js" type="text/javascript"></script> 
    <div id="pt" class="bm cl"> 
     <div class="z" style="padding-right: 0;">
      <a href="/home">论坛</a> 
      <em>›</em> 
-     <a href="/home">:::. 技术交流 :::.</a>
+     <a href="/home">{{$lastforum}}</a>
      <em>›</em> 
-     <a href="/home/postlist/{{$id}}/edit">{{$data->fname}}</a>
     </div> 
    </div> 
    <style id="diy_style" type="text/css"></style>
@@ -270,8 +271,7 @@
             </div>
             <div style="width: 1px;height: 100%;float: left;margin-left: 40px;"></div>
             <div style="float: right;height: 48px;width: 650px; ">
-              <b><a href="/home/post/{{ $v->pid }}/{{ $v->user->uid}}">{{$v->title}}</a></b>
-              <b><a href="" style="color:black;">{{$v->title}}</a></b>
+              <b><a href="/home/post/{{ $v->pid }}/{{ $v->user->uid}}" style="color:black;">{{$v->title}}</a></b>
             @if(session('flag') == true)
               @if($v->collection_uid($v->pid,session('id')))
                 <form action="/home/post/nolike/{{$v->pid}}">
@@ -293,12 +293,16 @@
             </div>
             <div style="float: right;height: 48px;width: 650px;">
               <div>
-              <a href="">{{$v->user->uname}}</a>&nbsp;&nbsp; @ {{$v->created_at}}
+              <a href="/home/user/{{$v->user->uid}}">{{$v->user->uname}}</a>&nbsp;&nbsp; @ {{$v->created_at}}
+              <div style="float: right;margin-top: 20px;">{!!$v->newreply($v->pid)!!}</div>
             </div>
             </div>
           </li>
         @endforeach
         </ul>
+        <nav aria-label="Page navigation">
+        {{ $post->appends(['fid'=>$data->fid],['top'=>'查看置顶'],['hot'=>'查看精品'])->links() }}
+        </nav>
         </div> 
        </div> 
       </div> 
