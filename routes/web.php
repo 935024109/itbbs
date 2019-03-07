@@ -14,21 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 /**
  * 后台路由
  */
-
-// 后台首页
-
-
-//后台首页
-Route::get('/admin/in','Admin\LoginController@index');
 //后台登录页面
+Route::get('/admin/in','Admin\LoginController@index');
+//后台登录
 Route::post('/admin/login','Admin\LoginController@login');
 //后台登录验证码
 Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha');
 //退出
 Route::get('/admin/out','Admin\LoginController@out');
+//后台首页
 Route::resource("/admin",'Admin\IndexController')->middleware('login');
 
 //后台用户路由
@@ -104,10 +102,6 @@ Route::group(['middleware'=>'login'],function(){
 
 
 
-
-
-
-
 /**
  * 前台路由
  */
@@ -167,7 +161,3 @@ Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
 
 // 前台首页
 Route::resource("/home",'Home\IndexController');
-
-
-
-

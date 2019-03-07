@@ -132,41 +132,6 @@ class UserController extends Controller
 
     public function phone($phone)
     {
-        $this->validate($request, [
-                'uname' => 'required',
-                'pwd' => 'required',
-                'captcha' => 'required|captcha',
-            ],
-            [
-                'uname.required'    => '用户名不能为空',
-                'pwd.required'    => '密码不能为空',
-                'captcha.required' => '验证码不能为空',
-                'captcha.captcha' => '验证码不正确',
-            ]
-        );
-         
-
-        $data = $request->except('_token');
-        // dd($data);
-        // 根据用户名去查询数据
-        $user = User::where('uname','=',$data['uname'])->first();
-        //dd($user->photo);
-        if ($user) {
-            // 匹配密码
-            $res = Hash::check($data['pwd'], $user->pwd);
-            if ($res) {
-                // 如果匹配成功
-                session(['id'=>$user->uid]);
-                session(['uname'=>$data['uname']]);
-                session(['photo'=>$user->photo]);
-                return redirect('/home');
-            } else {
-                return back()->with('error','密码输入错误');
-            }
-        } else {
-            return back()->with('error','用户名不存在');
-        }
-
         return view('home.user.sendphone',compact('phone'));
     }
 
