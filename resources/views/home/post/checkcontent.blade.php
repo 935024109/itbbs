@@ -15,9 +15,9 @@
     <div class="z">
       <a href="/home">论坛</a> 
      <em>›</em> 
-     <a href="/home">{{$lastforum}}</a>
+    <a href="/home">{{$lastforum}}</a>
      <em>›</em> 
-     <a href="/home/post/{{$forum->fid}}/edit">{{$forum->fname}}</a>
+    <a href="/home/post/{{$forum->fid}}/edit">{{$forum->fname}}</a>
       <em>›</em>
     </div>
     <div class="y" style="display: none;">
@@ -186,6 +186,7 @@
                 <strong>{{$reply_count}}</strong>个回复</h2>
               <a href="http://bbs.itxdl.cn/forum.php?mod=viewthread&amp;tid=240393&amp;extra=page%3D%257Bprevpage%257D&amp;ordertype=1" class="show z" style="padding-left: 20px; border-left: 1px solid #CCCCCC;">倒序浏览</a></div>
             <div id="post_1068720">
+              @foreach($replyUserArr as $k => $v)
               <table id="pid1068720" class="plhin" summary="pid1068720" cellspacing="0" cellpadding="0">
                 <tbody>
                   <tr>
@@ -197,9 +198,9 @@
                             <div class="cl" style="float: right; width: 660px; overflow: hidden;">
                               <div class="cl" style="height: 30px; margin: 7px 0 0 0; overflow: hidden;">
                                 <em id="authorposton1068720">
-                                  <a href="http://d.bbs.itxdl.cn/space-uid-442000.html" target="_blank" style="padding: 0 5px 0 0; color: #333333; font-size: 14px; font-weight: 400;">{{ $user->uname }}</a></em>
+                                  <a href="http://d.bbs.itxdl.cn/space-uid-442000.html" target="_blank" style="padding: 0 5px 0 0; color: #333333; font-size: 14px; font-weight: 400;">{{ $v->uname }}</a></em>
                                 <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank" style="padding: 0 10px 0 5px;">下士</a>
-                                <em style="padding: 0 10px 0 0; color: #BBBBBB;">{{ $reply->created_at}}</em>
+                                <em style="padding: 0 10px 0 0; color: #BBBBBB;"></em>
                                 <div style="display:none;">
                                   <span class="pipe">|</span>
                                   <a href="http://bbs.itxdl.cn/forum.php?mod=viewthread&amp;tid=240393&amp;page=1&amp;authorid=442000" rel="nofollow">只看该作者</a></div>
@@ -217,7 +218,7 @@
                             <table cellspacing="0" cellpadding="0">
                               <tbody>
                                 <tr>
-                                  <td class="t_f" id="postmessage_1068720">没有基础的情况下确实会感到比较困难，能够寻求导师和同学的帮助是值得肯定的，没有人是生来什么都会得，相信你继续保持学习的热情，积极面对遇到的难题，是能够成为佼佼者的，加油！</td></tr>
+                                  <td class="t_f" id="postmessage_1068720">{!!$k!!}</td></tr>
                               </tbody>
                             </table>
                           </div>
@@ -250,6 +251,7 @@
                   </tr>
                 </tbody>
               </table>
+              @endforeach
             </div>
             <div id="postlistreply" class="pl">
               <div id="post_new" class="viewthread_table" style="display: none;"></div>
@@ -276,53 +278,14 @@
           var postmaxchars = parseInt('10000');
           var disablepostctrl = parseInt('0');</script>
         <div id="f_pst" class="pl bm bmw">
-          <form method="post" autocomplete="off" id="fastpostform" action="forum.php?mod=post&amp;action=reply&amp;fid=271&amp;tid=240393&amp;extra=page%3D%257Bprevpage%257D&amp;replysubmit=yes&amp;infloat=yes&amp;handlekey=fastpost" onsubmit="return fastpostvalidate(this)">
-            <table cellspacing="0" cellpadding="0">
-              <tbody>
-                <tr>
-                  <td class="plc">
-                    <span id="fastpostreturn"></span>
-                    <div class="cl">
-                      <div id="fastsmiliesdiv" class="y" style="margin-top: 60px;">
-                        <div id="fastsmiliesdiv_data">
-                          <div id="fastsmilies"></div>
-                        </div>
-                      </div>
-                      <div class="hasfsl" id="fastposteditor">
-                        <div class="tedt mtn">
-                          <div class="bar">
-                            <span class="y">
-                              <a href="http://bbs.itxdl.cn/forum.php?mod=post&amp;action=reply&amp;fid=271&amp;tid=240393" onclick="return switchAdvanceMode(this.href)">高级模式</a></span>
-                            <script src="/home/js/seditor.js" type="text/javascript"></script>
-                            <div class="fpd">
-                              <a href="javascript:;" title="文字加粗" class="fbld">B</a>
-                              <a href="javascript:;" title="设置文字颜色" class="fclr" id="fastpostforecolor">Color</a>
-                              <a id="fastpostimg" href="javascript:;" title="图片" class="fmg">Image</a>
-                              <a id="fastposturl" href="javascript:;" title="添加链接" class="flnk">Link</a>
-                              <a id="fastpostquote" href="javascript:;" title="引用" class="fqt">Quote</a>
-                              <a id="fastpostcode" href="javascript:;" title="代码" class="fcd">Code</a>
-                              <a href="javascript:;" class="fsml" id="fastpostsml">Smilies</a></div>
-                          </div>
-                          <div class="area">
-                            <div class="pt hm">您需要登录后才可以回帖
-                              <a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href)" class="xi2">登录</a>|
-                              <a href="member.php?mod=register" class="xi2">立即注册</a></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <input type="hidden" name="formhash" value="327233d2">
-                    <input type="hidden" name="usesig" value="">
-                    <input type="hidden" name="subject" value="  ">
-                    <div class="pnpost cl" style="padding-top: 10px;">
-                      <button type="button" onclick="showWindow('login', 'member.php?mod=logging&amp;action=login&amp;guestmessage=yes')" name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit" tabindex="5" style="float: right; padding: 0; height: 35px; line-height: 35px;">
-                        <strong style="padding: 0 15px; font-size: 14px; font-weight: bold;">发表回复</strong></button>
-                      <em style="float: right; margin: 2px 0 0 0;"></em>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+         <form class="form-inline" action="/home/reply/add/{{$posts_data->pid}}/{{session('id')}}" method="post">
+             {{  csrf_field() }}
+            
+            <!--引入百度编辑器-->
+            <script id="container" name="content" type="text/plain"></script>
+
+           <!--  <button type="submit" class="btn btn-default">Send invitation</button> -->
+            <input type="submit" class="btn btn-info" value="发帖">
           </form>
         </div>
       </div>
@@ -344,4 +307,16 @@
     }
     fixed_avatar([1154080, 1068720], 1);</script>
 </div>
+
+<!-- 配置文件 -->
+<script type="text/javascript" src="/admins/utf8-php/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="/admins/utf8-php/ueditor.all.js"></script>
+<!-- 实例化百度编辑器  定制工具栏图标 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('container', {toolbars: [
+    ['fullscreen', 'source', 'undo', 'redo'],
+    ['bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc']
+]});
+</script>
 @endsection

@@ -49,23 +49,34 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //获取数据
+        //获取表单数据数据
         $data = $request->except('_token');
+        // 获取登录用户的id
         $uid = session('id');
+        // 实例化表单对象
         $post = new Post;
+
+        // 保存数据到表单中
         $post->uid = $uid;
-        $user = User::find($uid);
         $post->title = $data['title'];
         $post->content = $data['content'];
         $post->revert = $data['revert'];
         $post->fid = $data['fid'];
-        $forum = Forum::find($data['fid']);
-       
         $res = $post->save();
+
+       /* // 根据id获取用户信息
+         $user = User::find($uid);
+        // 获取板块信息
+        $forum = Forum::find($data['fid']);
+        // 上一板块的名字
+        $lastforum = Forum::where('fid',$forum->pid)->first()->fname;
+
         $post_count = Post::where('uid',$uid)->count();
-        // dd($posts_data);
+        // dd($posts_data);*/
         if ($res) {
-            return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user]);
+            /*return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'forum'=>$forum,'lastforum'=>$lastforum]);*/
+            // dd($uid);
+            return $this->goCheckContent($post->pid,$uid);
         }else{
             return back();
         }
@@ -115,6 +126,7 @@ class PostController extends Controller
         $data = Forum::find($id);
         // 查询上一级板块的名字
         $lastforum = Forum::where('fid',$data->pid)->first()->fname;
+
         $post = $data->post;
         // 帖子信息
        
@@ -177,16 +189,33 @@ class PostController extends Controller
     // 跳转到帖子详情页
     public function goCheckContent($pid,$uid)
     {
+        // 获取帖子数据
         $post = Post::find($pid);
         // 获取板块信息
         $forum = $post->forum;
         // 上一板块的名字
         $lastforum = Forum::where('fid',$forum->pid)->first()->fname;
+        // 获取用户数据
         $user = User::find($uid);
+        // 获取当前用户的帖子个数
         $post_count = Post::where('uid',$uid)->count();
+        
+        // 获取帖子下的回帖个数
         $reply_count = Reply::where('pid',$pid)->count();
-        return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'pid'=>$pid,'reply_count'=>$reply_count]);       
+
+        // 获取当前帖子的回帖
+        $reply_data = Reply::where('pid',$pid)->get();
+        // 定义一个空数组
+        $replyUserArr = array();
+        foreach ($reply_data as $key => $value) {
+            // 把回帖内容和用户信息存入数组中
+            $replyUserArr[$value->content] = User::find($value->uid);
+
+        }
+        return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'pid'=>$pid,'replyUserArr'=>$replyUserArr,'reply_count'=>$reply_count,'lastforum'=>$lastforum,'forum'=>$forum]);       
     }
+
+
     public function like($id)
     {
         $uid = session('id');

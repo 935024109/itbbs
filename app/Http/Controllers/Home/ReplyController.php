@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Reply;
 use App\Models\User;
-
+use App\Http\Controllers\Home\PostController;
 
 class ReplyController extends Controller
 {
@@ -102,10 +102,10 @@ class ReplyController extends Controller
         $user = User::find($uid);
         //保存数据到数据库
         $reply->save();
-
-        $reply_count = Reply::where('pid',$pid)->count();
-        dd($reply);
-        return view('home.post.checkcontent',['reply'=>$reply,'reply_count'=>$reply_count,'user'=>$user]);
+        $pc = new PostController;
+       return $pc->goCheckContent( $pid, $uid );
+        // $reply_count = Reply::where('pid',$pid)->count();
+        // return view('home.post.checkcontent',['reply'=>$reply,'reply_count'=>$reply_count,'user'=>$user]);
 
 
     }
