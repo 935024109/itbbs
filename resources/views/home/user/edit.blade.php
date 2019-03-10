@@ -2,6 +2,7 @@
 
 @section('main')
 <!--  -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -70,7 +71,7 @@
 	
 
 <script type="text/javascript">
-  alert($('#phone').val());
+  
     function editCon()
     {
       var t = 60;
@@ -94,7 +95,7 @@
 
     function sendPhone(obj)
     {
-     
+     alert($('#phone').val());
       //接收手机号码
       // console.log($('#phone'));
       var phone = $('#phone').val();

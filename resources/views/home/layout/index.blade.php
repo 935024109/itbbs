@@ -378,5 +378,4 @@ initSearchmenu('scbar', '');
 <script src="/homes/static/js/bdtj.js" type="text/javascript"></script><script src="/homes/static/js/cnzz.js" type="text/javascript"></script></html>   
 <script src="/homes/static/js/common.js" type="text/javascript"></script>
 
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+

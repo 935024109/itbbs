@@ -21,8 +21,8 @@
         @foreach($data as $k => $v)
         <tr>
           <th scope="row">{{ $k+1 }}</th>
-          <td><a >{{ $v->post->title }}</a></td>
-          <td><a >{{ $v->post_user($v->pid)}}</a></td>
+          <td><a href="/home/post/{{ $v->pid }}/{{ $v->uid }}">{{ $v->post->title }}</a></td>
+          <td><a href="/home/user/{{ $v->uid }}">{{ $v->post_user($v->pid)}}</a></td>
           <td>{{ $v->post->created_at }}</td>
           <td>{{ $v->post->replyCount($v->pid) }}</td>
           <td>{{ $v->post->last_time }}</td>
