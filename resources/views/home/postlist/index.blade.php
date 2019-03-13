@@ -271,7 +271,7 @@
             </div>
             <div style="width: 1px;height: 100%;float: left;margin-left: 40px;"></div>
             <div style="float: right;height: 48px;width: 650px; ">
-              <b><a href="/home/post/{{ $v->pid }}/{{ $v->user->uid}}" style="color:black;" >{{$v->title}}</a></b>
+              <b><a href="/home/post/checkcontent/{{ $v->pid }}/{{ $v->user->uid}}" style="color:black;" >{{$v->title}}</a></b>
             @if(session('flag') == true)
               @if($v->collection_uid($v->pid,session('id')))
                 <form action="/home/post/nolike/{{$v->pid}}">

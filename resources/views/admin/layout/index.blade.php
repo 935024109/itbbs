@@ -132,14 +132,14 @@
                         </ul>
                     </li>  
                     <li>
-                        <a href="#"><i class="icon-database"></i> 收藏管理</a>
+                        <a href="#"><i class="icon-pacman"></i> 话题管理</a>
                         <ul>
-                            <li><a href="#">收藏列表</a></li>
-                            <li><a href="#">添加收藏</a></li>
+                            <li><a href="/admin/topic">话题列表</a></li>
+                            <li><a href="/admin/topic/create">添加话题</a></li>
                         </ul>
                     </li>
                      <li>
-                        <a href="#"><i class="icon-list"></i>轮播图管理</a>
+                        <a href="#"><i class="icon-pictures"></i>轮播图管理</a>
                         <ul>
                             <li><a href="/admin/carousel">轮播图列表</a></li>
                             <li><a href="/admin/carousel/create">添加轮播图</a></li>
@@ -147,21 +147,21 @@
                     </li>
                     <li>
 
-                        <a href="#"><i class="icon-list"></i> 友情链接</a>
+                        <a href="#"><i class="icon-unlink"></i> 友情链接</a>
                         <ul>
                             <li><a href="/admin/blogroll">链接列表</a></li>
                             <li><a href="/admin/blogroll/create">添加链接</a></li>
                         </ul>
                     </li>   
                     <li>
-                        <a href="#"><i class="icon-list"></i> 网站配置管理</a>
+                        <a href="#"><i class="icon-cogs"></i> 网站配置管理</a>
                         <ul>
                             <li><a href="/admin/config">网站配置列表</a></li>
                             <li><a href="/admin/config/create">添加网站配置</a></li>
                         </ul>
                     </li>
                      <li>
-                        <a href="#"><i class="icon-list"></i>公告管理</a>
+                        <a href="#"><i class="icon-volume-up"></i>公告管理</a>
                         <ul>
                             <li><a href="/admin/announcement">公告列表</a></li>
                             <li><a href="/admin/announcement/create">添加公告</a></li>

@@ -82,7 +82,7 @@ class SignsController extends Controller
                 // 获取上次签到时间
                 $last_time = $signs -> updated_at;
                 $last_time = json_encode($last_time);
-                $a = json_decode($alst_time,true);
+                $a = json_decode($last_time,true);
                 $last_time = $a['date'];
                 $last_time = substr($last_time,0,10);
                 // dump($last_time);
@@ -107,7 +107,7 @@ class SignsController extends Controller
            
 
                     if($res1 && $res2){
-                        return redirect('/home/signs/list/{$signs->uid}')->with('success','签到成功');
+                        return redirect('/home/signs/list')->with('success','签到成功');
                     }else{
                         return back()->with('error','签到失败');
                     }

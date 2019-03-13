@@ -1,3 +1,4 @@
+
 @extends('home/layout/index')
     @section('main')
     <div id="wp" class="wp time_wp cl">
@@ -94,21 +95,29 @@
             <div id="frameUd9DWM" class="frame move-span cl frame-1">
               <div id="frameUd9DWM_left" class="column frame-1-c">
                 <div id="frameUd9DWM_left_temp" class="move-span temp"></div>
+
+
+
                 <div id="portal_block_32" class="block move-span">
                   <div id="portal_block_32_content" class="dxb_bc">
                     <div class="listBlocks noticeWrap" style="width:100%; padding: 0; margin-bottom: 0; box-shadow: none;">
+
                       <div id="notice">
                         <div style="width: 705px; margin-left: 0;" class="notices bd">
+                          
                           <ul>
-                            <li style="width: 705px;">
-                              <a class="imgAni_curr" href="http://bbs.itxdl.cn/read-htm-tid-170661.html" title="兄弟连视频教程免费下载地址汇总" target="_blank">兄弟连视频教程免费下载地址汇总</a>
-                              <i class="icon icon_zan">07-13</i></li>
-                            <li style="width: 705px;">
-                              <a class="imgAni_curr" href="http://bbs.itxdl.cn/read-htm-tid-226322.html" title="2018兄弟连PHP课程再次升级" target="_blank">2018兄弟连PHP课程再次升级</a>
-                              <i class="icon icon_zan">06-27</i></li>
+                           @foreach($announcement as $k=> $v)
+                              <li style="width: 705px;">
+                                <a class="imgAni_curr" href="{{$v->href}}/{{$v->id}}" title="{{$v->title}}" target="_blank">{{$v->title}}</a>
+                                <i class="icon icon_zan">07-13</i>
+                              </li>
+                           @endforeach
+                           
                           </ul>
+
                         </div>
                       </div>
+
                       <script type="text/javascript">jQuery.noConflict();
                         jQuery("#notice").slide({
                           titCell: ".hd",
@@ -121,6 +130,9 @@
                     </div>
                   </div>
                 </div>
+
+                  
+
                 <div id="portal_block_10" class="block move-span">
                   <div id="portal_block_10_content" class="dxb_bc">
                     <div class="box cl" style="margin-bottom: 0; border-radius: 2px 2px 0 0;">
@@ -252,12 +264,23 @@
                   <div id="portal_block_11" class="block move-span">
                     <div id="portal_block_11_content" class="dxb_bc">
                       <div class="box">
+                      
                         <h3 class="modname">
-                          <span class="more" style="float: right; font-weight: 400;">第1期 - 2019-02-21 更新</span>兄弟连话题</h3>
-                        <div class="s_topic" style="background:url(/homes/static/images/ad2.jpg); ">
-                          <a href="http://bbs.itxdl.cn/read-htm-tid-244171-page-1.html" target="_blank" class="s_topic_content">
-                            <span style="display:none;" class="bluesmallblankbutton">参与讨论</span></a>
+
+                            @foreach($topic as $k => $v)
+                          
+                          <span class="more" style="float: right; font-weight: 400;">第1期 - {{$v->updated_at}} 更新</span>兄弟连话题
+                            @endforeach
+                        </h3>
+
+                          @foreach($topic as $k => $v)
+                         
+                          <a href=" http://www.itbbs.com/home/topic/post/{{$v->pid}}">
+                            <img src="/uploads/{{$v->logo}}" target="_blank" style="width:300px;height:150px;">
+                          </a>
+                          @endforeach
                         </div>
+                      
                       </div>
                     </div>
                   </div>
@@ -274,7 +297,7 @@
             <div id="diy8" class="area"></div>
             <!--[/diy]--></div>
           <!--[diy=diy11]-->
-          <div id="diy11" class="area">
+          <!-- <div id="diy11" class="area">
             <div id="tabI6ABg6" class="frame-tab move-span cl">
               <div id="tabI6ABg6_title" class="tab-title title column cl tab-style" switchtype="mouseover">
                 <div id="portal_block_15" class="block move-span">
@@ -872,7 +895,7 @@
               </div>
               <div id="tabp945F3_content" class="tb-c"></div>
               <script type="text/javascript">initTab("tabp945F3", "mouseover");</script></div>
-          </div>
+          </div> -->
           <!--[/diy]--></div>
       </div>
     </div>
@@ -912,3 +935,4 @@
     </div>
     <script src="/homes/static/js/plugin.js" type="text/javascript"></script>
     @endsection
+

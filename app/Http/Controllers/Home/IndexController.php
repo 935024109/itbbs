@@ -9,7 +9,8 @@ use App\Models\Post;
 use App\Models\Carousel;
 use App\Models\Blogroll;
 use App\Models\User;
-
+use App\Models\Announcement;
+use App\Models\Topic;
 class IndexController extends Controller
 {
     /**
@@ -60,15 +61,18 @@ class IndexController extends Controller
     {   
         
         $user = User::where('uid',session('id'))->first();
-        //获取分类
+        // 获取分类
         $data = self::getIdForum();
-        //获取轮播图数据
+        // 获取轮播图数据
         $carousels = Carousel::select('img_src','link_url')->get();
         // 获取友情链接数据
         $blogroll = Blogroll::select('name','url')->get();
-        //加载视图,分配数据
-
-        return view('home.index',['data'=>$data,'carousels_data'=>$carousels,'blogroll'=>$blogroll,'user'=>$user]);
+        // 加载视图,分配数据
+        // 获取话题的数据
+        $topic = Topic::all();
+        // 获取公告管理的数据
+        $announcement = Announcement::all();
+        return view('home.index',['topic'=>$topic,'data'=>$data,'carousels_data'=>$carousels,'announcement'=>$announcement,'blogroll'=>$blogroll,'user'=>$user]);
     }
 
     /**

@@ -6,8 +6,16 @@
     	<span><i class="icon-pencil"></i>添加公告</span>
     </div>
     <div class="mws-panel-body no-padding">
-    	<!-- 显示错误信息 -->
-	
+	    <!-- 显示错误信息 -->
+        @if (count($errors) > 0)
+            <div class="mws-form-message error">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     	<form  action="/admin/announcement" method="post" enctype="multipart/form-data" class="mws-form">
     		{{csrf_field()}}
         	<div class="mws-form-inline">
@@ -23,6 +31,19 @@
                     	<input type="text" class="large" name='auth' value="" placeholder="作者">
                     </div>
                 </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">链接</label>
+                    <div class="mws-form-item">
+                        <input type="text" class="large" name='href' value="" >
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">头像</label>
+                    <div class="mws-form-item">
+                        <input type="file" class="large" name='logo' value="" >
+                    </div>
+                </div>
+                
             	<div class="mws-form-row">
                 	<label class="mws-form-label">内容</label>
                 	<div class="mws-form-item">

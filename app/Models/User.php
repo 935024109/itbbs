@@ -29,4 +29,6 @@ class User extends Model
     {
         return $this->hasOne('App\Models\Signs','uid');
     }
+
+  
 }

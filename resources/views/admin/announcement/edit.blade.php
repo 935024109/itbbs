@@ -24,6 +24,22 @@
                     	<input type="text" class="large" name='auth' value="{{$data->auth}}" placeholder="作者">
                     </div>
                 </div>
+                 <div class="mws-form-row">
+                    <label class="mws-form-label">链接</label>
+                    <div class="mws-form-item">
+                        <input type="text" class="large" name='href' value="{{$data->href}}">
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">修改图片</label>
+                    <div class="mws-form-item">
+                        <input type="file" class="large" name='logo' value="{{$data->logo}}">
+                         <p style="max-width:200px;">
+                            <img src="/uploads/{{$data->logo}}">
+                        </p>
+                    </div>
+                </div>
+               
             	<div class="mws-form-row">
                 	<label class="mws-form-label">内容</label>
                 	<div class="mws-form-item">

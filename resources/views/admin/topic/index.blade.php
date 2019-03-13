@@ -21,15 +21,15 @@
                     <tr role="row" >
                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 98px;">ID
                         </th>
-                        <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 100px;">公告标题</th>
-                        <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 70px;">作者
+                       
+                        <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 70px;">话题图片
                         </th>
-                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 50px;">图片
+                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 50px;">网址
                         </th>
-                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 50px;">链接
+                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 50px;">PID
                         </th>
-                        <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 229px;">公告内容
-                        </th>
+                       
+                        
                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 155px;">创建时间
                         </th>
                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 98px;">操作
@@ -41,28 +41,23 @@
                     @foreach($data as $k => $v)
                     <tr class="even" style="text-align:center;">
                         <td class="  sorting_1">{{ $v -> id }}</td>
-                        <td class="  sorting_1">{{ $v -> title }}</td>
-                        <td class="  sorting_1">{{ $v -> auth }}</td>
                         <td class="  sorting_1">
                                         <p style="width:100px">
                                             <img src="/uploads/{{$v->logo}}">
                                         </p>
                                     </td>
-                        <td class="  sorting_1">{{ $v -> href }}</td>
                         <td class="  sorting_1">
-                            <span title="{!!$v->content!!}">
-                            <p style="width:250px;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">{{$v->content}}</p>
-                            </span>
+                            {{ $v -> url }}
                         </td>
+                        <td class="  sorting_1">{{$v->pid}}</td>
                         <td class="  sorting_1">{{ $v -> created_at }}</td>
                                           
                       <td>
-                                    <form action="/admin/announcement/{{ $v->id }}" method="post" style="display: inline-block;">
+                                    <form action="/admin/topic/{{ $v->id }}" method="post" style="display: inline-block;">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                         <input type="submit" value="删除" class="btn btn-danger" >
                                     </form>
-                                    <a href="/admin/announcement/{{ $v->id }}/edit" class="btn btn-warning">修改</a>
                 </td>
                     </tr>
                     @endforeach
