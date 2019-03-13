@@ -15,6 +15,70 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// 19 - 40 wzl
+// 后台
+//加精置顶是否可以回复的路由开始
+Route::get('admin/post/revert/{id}','Admin\PostController@revert')->middleware('login');
+Route::get('admin/post/notrevert/{id}','Admin\PostController@notrevert')->middleware('login');
+Route::get('admin/post/hot/{id}','Admin\PostController@hot')->middleware('login');
+Route::get('admin/post/nothot/{id}','Admin\PostController@nothot')->middleware('login');
+Route::get('admin/post/top/{id}','Admin\PostController@top')->middleware('login');
+Route::get('admin/post/nottop/{id}','Admin\PostController@nottop')->middleware('login');
+//结束
+Route::get('admin/post/changepid/{id}','Admin\PostController@changepid');//ajax发送分区下不能建立忒自
+Route::resource('admin/post','Admin\PostController')->middleware('login');//帖子
+Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']])->middleware('login');//回帖的路由
+//前台
+Route::get('home/user/register','Home\RegisterController@index');//注册
+Route::post('home/user/register/email','Home\RegisterController@email');//发送邮件
+Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterController@changestatus');//激活
+Route::get('home/login','Home\LoginController@login');//登录页面
+Route::get('home/out','Home\LoginController@out');//登录页面
+Route::post('home/in','Home\LoginController@in');//
+Route::get('home/user/collection/{id}','Home\UserController@collection');
+Route::get('home/user/phone/{phone}','Home\UserController@phone');
+Route::resource('home/user','Home\UserController');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 轮播图
+Route::get('home/carousel','Home\CarouselController@index');
+Route::get('home/goPost/{id}','Home\PostController@goPost');
+Route::resource('home/post','Home\PostController');
+
+//41-60 czz
+//用户路由
+Route::get('/admin/user/freedom/{id}','Admin\UserController@freedom')->middleware('login');
+Route::get('/admin/user/stopin/{id}','Admin\UserController@stopin')->middleware('login');
+Route::get('/admin/user/stoptalk/{id}','Admin\UserController@stoptalk')->middleware('login');
+Route::get('/admin/user/black','Admin\UserController@black')->middleware('login');
+Route::resource('/admin/user','Admin\UserController')->middleware('login');
+
 /**
  * 后台路由
  */

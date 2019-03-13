@@ -32,11 +32,11 @@
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
 
- <!-- <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- 
+ <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
 
- 
 
 <div id="Quater_headtop" >
   <div class="wp cl">
@@ -385,3 +385,4 @@ initSearchmenu('scbar', '');
 <script src="/homes/static/js/common.js" type="text/javascript"></script>
 
 </html>   
+
