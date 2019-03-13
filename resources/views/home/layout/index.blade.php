@@ -170,19 +170,19 @@
       <div style="display: none;" class="Quater_search"> 
        <div class="wp cl" style="position: relative; z-index: 1000;">
           <div id="scbar" class="cl">
-<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
-<input type="hidden" name="mod" id="scbar_mod" value="search" />
-<input type="hidden" name="formhash" value="4f174724" />
-<input type="hidden" name="srchtype" value="title" />
-<input type="hidden" name="srhfid" value="" />
-<input type="hidden" name="srhlocality" value="forum::index" />
-<table cellspacing="0" cellpadding="0">
-<tr>
-<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>   
-<td class="scbar_type_td"><a href="javascript:;" id="scbar_type" class="xg1" onclick="showMenu(this.id)" hidefocus="true">搜索</a></td>                         
-<td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="请输入搜索内容" autocomplete="off" x-webkit-speech speech /></td>
-</tr>
-</table>
+<form id="scbar_form" autocomplete="off" action="/home/search" >
+      <table cellspacing="0" cellpadding="0">
+      <tr>
+      <td class="scbar_btn_td">
+        <button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc">
+          <strong class="xi2">搜索</strong>
+        </button>
+      </td>                            
+      <td class="scbar_txt_td">
+        <input type="text" name="search" id="scbar_txt" placeholder="请输入搜索内容" autocomplete="off" x-webkit-speech speech />
+      </td>
+    </tr>
+  </table>
 </form>
 </div>
 <ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="forum" class="curtype">帖子</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
@@ -380,8 +380,8 @@ initSearchmenu('scbar', '');
 (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); 
 </script>
 </body>
-<script src="/homes/static/js/bdtj.js" type="text/javascript">
-</script><script src="/homes/static/js/cnzz.js" type="text/javascript"></script>
+<script src="/homes/static/js/bdtj.js" type="text/javascript"></script>
+<script src="/homes/static/js/cnzz.js" type="text/javascript"></script></html>   
 <script src="/homes/static/js/common.js" type="text/javascript"></script>
 
 </html>   

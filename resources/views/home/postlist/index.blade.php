@@ -258,14 +258,14 @@
         <div style="width: 100%;height: 1700px;">
         <ul>
           <div style="height: 50px;">
-            <form action="/home/post/{{$data->fid}}/edit" method="get">
+            <form action="#" method="get">
               <input type="submit" name="" class="" value="查看所有" >
               <input type="submit" name="top" value="查看置顶" >
               <input type="submit" name="hot" value="查看精品" >
             </form>
           </div>
         @foreach ($post as $k=>$v)
-          <li  style="height: 100px;margin-top: 10px;background-color: #D3D3D3;border: 1px solid #896961;border-radius: 10px;">
+          <li  style="height: 100px;background-color: white;border-top: 1px solid #896961;">
             <div style="height: 100%;width: 30px;float: left;">
               <input type="text" readonly name="" style="width: 50px;height: 40px;margin-top: 30px;margin-left: 15px;" title="回复" value="{{$v->reply->count()}}"></input>
             </div>

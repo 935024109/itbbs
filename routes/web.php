@@ -149,18 +149,11 @@ Route::group(['middleware'=>'login'],function(){
 	//后台话题
 	Route::get('admin/topic/post','Admin\TopicController@post');
 	Route::resource('admin/topic','Admin\TopicController');
+
+	//后台首页
+	Route::resource("/admin",'Admin\IndexController');
 });
 
-//后台首页
-Route::resource("/admin",'Admin\IndexController')->middleware('login');
-
-
-
-
-
-
-//后台首页
-Route::resource("/admin",'Admin\IndexController')->middleware('login');
 
 
 
@@ -232,13 +225,14 @@ Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
 // Route::resource('home/reply','Home\ReplyController');
 
 // 前台公告
-
 Route::get('home/announcement/{id}','Home\AnnouncementController@show');
 Route::get('home/announcement/index/{id}','Home\AnnouncementController@index');
 // 前台话题
 Route::get('home/topic/post/{id}','Home\TopicController@post');
 Route::resource('home/topic','Home\TopicController');
 
+// 前台搜索功能
+Route::get("home/search",'Home\IndexController@search');
 
 
 
