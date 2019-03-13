@@ -151,7 +151,7 @@ Route::group(['middleware'=>'login'],function(){
 	Route::resource('admin/topic','Admin\TopicController');
 
 	//后台首页
-	Route::resource("/admin",'Admin\IndexController');
+	Route::resource('admin/index','Admin\IndexController');
 });
 
 
@@ -171,76 +171,77 @@ Route::group(['middleware'=>'login'],function(){
 /**
  * 前台路由
  */
-
-// 前台签到
-// 签到后详情页
-Route::get('/home/signs/list/{uid}','Home\SignsController@list');
-// 已签到提示页
-Route::get('/home/signs/error','Home\SignsController@error');
-// 签到时未登录,跳转到登录页
-Route::get('/home/signs/login','Home\SignsController@login');
-// 资源路由
-Route::resource('/home/signs','Home\SignsController'); 
+Route::group(['middleware'=>'config'],function(){
 
 
-// 前台用户
-// 注册
-Route::get('home/user/register','Home\RegisterController@index');
-// 发送邮件
-Route::post('home/user/register/email','Home\RegisterController@email');
-// 激活
-Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterController@changestatus');
-// 用户收藏帖子
-Route::get('home/user/collection/{id}','Home\UserController@collection');
-// 手机号验证
-Route::get('home/user/phone/{phone}','Home\UserController@phone');
-// 资源路由
-Route::resource('home/user','Home\UserController');
+	// 前台签到
+	// 签到后详情页
+	Route::get('/home/signs/list/{uid}','Home\SignsController@list');
+	// 已签到提示页
+	Route::get('/home/signs/error','Home\SignsController@error');
+	// 签到时未登录,跳转到登录页
+	Route::get('/home/signs/login','Home\SignsController@login');
+	// 资源路由
+	Route::resource('/home/signs','Home\SignsController'); 
 
 
-//登录
-Route::get('home/login','Home\LoginController@login');
-// 退出
-Route::get('home/out','Home\LoginController@out');
-// 到登录页
-Route::post('home/in','Home\LoginController@in');//
+	// 前台用户
+	// 注册
+	Route::get('home/user/register','Home\RegisterController@index');
+	// 发送邮件
+	Route::post('home/user/register/email','Home\RegisterController@email');
+	// 激活
+	Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterController@changestatus');
+	// 用户收藏帖子
+	Route::get('home/user/collection/{id}','Home\UserController@collection');
+	// 手机号验证
+	Route::get('home/user/phone/{phone}','Home\UserController@phone');
+	// 资源路由
+	Route::resource('home/user','Home\UserController');
 
 
-
-
-// 前台帖子
-// 前台发帖
-Route::get('home/goPost/{id}','Home\PostController@goPost');
-// 帖子收藏
-Route::get('home/post/nolike/{id}','Home\PostController@nolike');
-// 帖子取消收藏
-Route::get('home/post/like/{id}','Home\PostController@like');
-// 帖子详情页
-Route::get('home/post/checkcontent/{pid}/{uid}','Home\PostController@goCheckContent');
-// 帖子资源路由
-Route::resource('home/post','Home\PostController');
-
-//前台回复贴
-Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
-// Route::resource('home/reply','Home\ReplyController');
-
-// 前台公告
-Route::get('home/announcement/{id}','Home\AnnouncementController@show');
-Route::get('home/announcement/index/{id}','Home\AnnouncementController@index');
-// 前台话题
-Route::get('home/topic/post/{id}','Home\TopicController@post');
-Route::resource('home/topic','Home\TopicController');
-
-// 前台搜索功能
-Route::get("home/search",'Home\IndexController@search');
+	//登录
+	Route::get('home/login','Home\LoginController@login');
+	// 退出
+	Route::get('home/out','Home\LoginController@out');
+	// 到登录页
+	Route::post('home/in','Home\LoginController@in');//
 
 
 
 
+	// 前台帖子
+	// 前台发帖
+	Route::get('home/goPost/{id}','Home\PostController@goPost');
+	// 帖子收藏
+	Route::get('home/post/nolike/{id}','Home\PostController@nolike');
+	// 帖子取消收藏
+	Route::get('home/post/like/{id}','Home\PostController@like');
+	// 帖子详情页
+	Route::get('home/post/checkcontent/{pid}/{uid}','Home\PostController@goCheckContent');
+	// 帖子资源路由
+	Route::resource('home/post','Home\PostController');
+
+	//前台回复贴
+	Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
+	// Route::resource('home/reply','Home\ReplyController');
+
+	// 前台公告
+	Route::get('home/announcement/{id}','Home\AnnouncementController@show');
+	Route::get('home/announcement/index/{id}','Home\AnnouncementController@index');
+	// 前台话题
+	Route::get('home/topic/post/{id}','Home\TopicController@post');
+	Route::resource('home/topic','Home\TopicController');
+
+	// 前台搜索功能
+	Route::get("home/search",'Home\IndexController@search');
 
 
+	// 前台首页
+	Route::resource("/home",'Home\IndexController');
 
-// 前台首页
-Route::resource("/home",'Home\IndexController');
-
-
+});
+//维护页面路由
+Route::get('home/config/on',function(){
+	return view('home.config.on');
+});
