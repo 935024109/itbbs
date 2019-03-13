@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\user;
+use App\Models\User;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Hash;
 use Gregwar\Captcha\CaptchaBuilder; 
@@ -27,7 +27,7 @@ class LoginController extends Controller
         ]);
     	$data = $request->except('_token');
     	// 根据用户名去查询数据
-    	$user = User::where('uname','=',$data['uname'])->first();
+        $user = User::where('uname','=',$data['uname'])->first();
     	//dd($user->photo);
     	if ($user) {
     		// 匹配密码 

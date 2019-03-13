@@ -162,9 +162,9 @@ class ForumController extends Controller
         }
         //执行删除
         if(Forum::destroy($id)){
-            return redirect('admin/forum')->with('success', '修改成功');
+            return redirect('admin/forum')->with('success', '删除成功');
         }else{
-            return back()->with('error', '修改失败');
+            return back()->with('error', '删除失败');
         }
     }
 

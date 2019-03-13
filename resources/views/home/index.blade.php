@@ -127,18 +127,12 @@
                       <h3 class="modname" style="padding: 0 25px;">推荐阅读</h3>
                       <div class="recommend_pic_small cl">
                         <ul>
+                          @foreach($grooms as $k => $v)
                           <li>
-                            <a href="http://bbs.itxdl.cn/read-htm-tid-241887-page-1.html" target="_blank" title="">
-                              <img src="/homes/static/picture/llh.jpg" alt="" height="100" width="228"></a>
+                            <a href="{{$v->img_href}}{{$v->pid}}" target="_blank" title="">
+                              <img src="/uploads/images/groom/{{$v->picture}}" alt="" height="100" width="228"></a>
                           </li>
-                          <li>
-                            <a href="http://bbs.itxdl.cn/read-htm-tid-240901-page-1.html" target="_blank" title="">
-                              <img src="/homes/static/picture/anlongbo.jpg" alt="" height="100" width="228"></a>
-                          </li>
-                          <li>
-                            <a href="//bbs.itxdl.cn/read-htm-tid-241543-page-1.html" target="_blank" title="">
-                              <img src="/homes/static/picture/lixiwei.png" alt="" height="100" width="228"></a>
-                          </li>
+                          @endforeach
                         </ul>
                       </div>
                       <div class="recommend_article_list cl">

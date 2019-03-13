@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\Carousel;
 use App\Models\Blogroll;
 use App\Models\User;
+use App\Models\Groom;
 
 class IndexController extends Controller
 {
@@ -22,7 +23,7 @@ class IndexController extends Controller
     {
         $data = Forum::where('pid',$id)->get(); // 一级栏目
         foreach ($data as $k => $v) {
-            # code...
+            
             $v['sub'] = self::getIdForum($v->fid); // 二级栏目
             foreach ($v['sub'] as $kk => $vv) {
                 // 计算当前栏目下的帖子数
@@ -35,7 +36,7 @@ class IndexController extends Controller
                 // 获取帖子创建时间
                 $created = $post->created_at;
                 // 通过帖子去获取发帖人的名字
-                $auth = $post->user->uname;
+                // $auth = $post->user->uname;
                 } else {
                 // 获取帖子标题
                 $title = '';
@@ -48,7 +49,7 @@ class IndexController extends Controller
                 $vv['count'] = $count;
                 $vv['title'] = $title;
                 $vv['created'] = $created;
-                $vv['auth'] = $auth;
+                // $vv['auth'] = $auth;
             }
             
         }
@@ -64,11 +65,15 @@ class IndexController extends Controller
         $data = self::getIdForum();
         //获取轮播图数据
         $carousels = Carousel::select('img_src','link_url')->get();
+
         // 获取友情链接数据
         $blogroll = Blogroll::select('name','url')->get();
+
+        // 获取推荐阅读数据
+        $grooms = Groom::get();
         //加载视图,分配数据
 
-        return view('home.index',['data'=>$data,'carousels_data'=>$carousels,'blogroll'=>$blogroll,'user'=>$user]);
+        return view('home.index',['data'=>$data,'carousels_data'=>$carousels,'blogroll'=>$blogroll,'user'=>$user,'grooms'=>$grooms]);
     }
 
     /**

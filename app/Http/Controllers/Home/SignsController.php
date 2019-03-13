@@ -42,77 +42,76 @@ class SignsController extends Controller
     
     public function store(Request $request)
     {   
-      
-        // $id = session('id');
-        // 获取登陆用户信息     
-        if(session('id')){
-            $uid = session('id');
-            $user = User::find(session('id'));
-              $signs = new Signs;
+        // 获取登陆用户信息  
+        $uid = session('id');
+        $user = User::find($uid);  
+
+        // 判断登陆 次数
+        if($user){            
+            // 实例化签到对象
+            $signs = new Signs;
             //判断是否为新用户
-            if($user ->score == 0){
-                // echo 111;
-                $signs -> uid = $user -> uid;
+            if($user ->score == 100){
+                // 赋值
+                $signs -> uid = $uid;
                 $signs -> nickname = $user -> nickname;
                 $signs -> sign_time = date('Y-m-d',time());
-                $sign_count = $signs -> sign_count;
-                $sign_count = $sign_count += 1;
-                $signs->sign_count = $sign_count;
+                $signs -> last_time = date('Y-m-d',time());
+                $signs->sign_count = $signs -> sign_count += 1;
                 $res1 = $signs->save();
-                // dump($res1);
-                $score = $user->score;
-                // dump($score);
-                $score = $score = 20;
-                // dump($score);
-                $user -> score = $score;
+                
+                // 用户增加积分
+                $user -> score =  $user->score += 20;
                 $res2 = $user -> save();
                 if ($res1 && $res2) {
-                    return redirect("/home/signs/list")->with('success','');
+                    return redirect("/home/signs/list/$uid")->with('success','签到成功');
                 }else{
                     return back()->with('error','签到失败');
                 }
             }else {
 
-                $id = $user->uid;
+                // $id = $user->uid;
 
                 //查询用户签到信息
-                $signs = Signs::where('uid',$id)->first();
+                $signs = Signs::where('uid',$uid)->first();
 
                 // dump($signs);
                 // 获取上次签到时间
-                $last_time = $signs -> updated_at;
+                $last_time = $signs -> last_time;
                 $last_time = json_encode($last_time);
-                $a = json_decode($alst_time,true);
-                $last_time = $a['date'];
+                $last_time = json_decode($last_time,true);
+              
                 $last_time = substr($last_time,0,10);
-                // dump($last_time);
-                $yesterday = date('Y-m-d',strtotime('-1 day'));
-                // dd($yesterday);
+                
+                $yesterday = strtotime('-1 day');
+                $today = time();
+               
                 // 判断未签到
                 // 如果上次签到时间等于昨天 或者为空
-                if($last_time == $yesterday){
+                if(strtotime($last_time) <= $yesterday){
                     $signs -> uid = $user -> uid;
                     $signs -> nickname = $user -> nickname;
                     $signs -> sign_time = date('Y-m-d',time());
                     $signs_count = $signs->sign_count;
-                    // dd($signs_count);
+                    
                     $signs_count = $signs_count + 1;
                     $signs->sign_count = $signs_count;
                     $signs->last_time = $signs->updated_at;
                     $res1 = $signs -> save();
-                    // dump($res1);
-                    $score = $user -> score;
-                    // dump($score);
+                   
+                    $score = $user -> score += 20;
+                   
                     $res2 = $user->save();
            
 
                     if($res1 && $res2){
-                        return redirect('/home/signs/list/{$signs->uid}')->with('success','签到成功');
+                        // return redirect('/home/signs/list/{$signs->uid}')->with('success','签到成功');
+                        return redirect("/home/signs/list/$uid")->with('success','签到成功');
                     }else{
                         return back()->with('error','签到失败');
                     }
 
-                } else if ($last_time == date('Y-m-d')) {
+                } else {
                    
                     return redirect('/home/signs/error');
              
@@ -124,7 +123,7 @@ class SignsController extends Controller
         
     }
 
-    public function list()
+    public function list($uid)
     {
         $id = session('id');
         $data = Signs::where('uid',$id)->first();

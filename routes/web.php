@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /*
 |--------------------------------------------------------------------------
@@ -39,12 +39,10 @@ Route::group(['middleware'=>'login'],function(){
 	Route::get('/admin/user/black','Admin\UserController@black');
 	//资源路由
 	Route::resource('/admin/user','Admin\UserController');
-});
 
 
 //后台帖子路由
 
-Route::group(['middleware'=>'login'],function(){
 	//加精置顶是否可以回复的路由开始
 	// 允许回复
 	Route::get('admin/post/revert/{id}','Admin\PostController@revert');
@@ -63,15 +61,15 @@ Route::group(['middleware'=>'login'],function(){
 	Route::get('admin/post/changepid/{id}','Admin\PostController@changepid');
 	//资源路由
 	Route::resource('admin/post','Admin\PostController');
-});
 
-Route::group(['middleware'=>'login'],function(){
 	// 后台回复帖资源路由
 	Route::resource('admin/reply','Admin\ReplyController',['except'=>['index']]);
 
 	// 后台轮播图路由
 	Route::resource('admin/carousel','Admin\CarouselController');
 
+	// 后台推荐阅读路由
+	Route::resource('admin/groom','Admin\GroomController');
 
 	// 添加板块子分类路由
 	Route::get('admin/forum/create/{id}','Admin\ForumController@create');
@@ -108,7 +106,7 @@ Route::resource("/admin",'Admin\IndexController')->middleware('login');
 
 // 前台签到
 // 签到后详情页
-Route::get('/home/signs/list','Home\SignsController@list');
+Route::get('/home/signs/list/{uid}','Home\SignsController@list');
 // 已签到提示页
 Route::get('/home/signs/error','Home\SignsController@error');
 // 签到时未登录,跳转到登录页

@@ -8,7 +8,8 @@ class User extends Model
 {
 	// 默认主键
     public $primaryKey = 'uid';
-
+    // 模型限定
+    public $table = 'users';
     	// 开启软删除
 	use SoftDeletes;
 

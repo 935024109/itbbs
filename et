@@ -1,0 +1,302 @@
+[33mcommit f72f189e443eed5b4e3a602d71b324b1b6d7b361[m
+Author: 935024109 <935024109@qq.com>
+Date:   Fri Mar 8 14:46:09 2019 +0800
+
+    oywz 添加了回复贴子功能
+
+[33mcommit ed70d8d37d073a94e35309533cf0621d9e49978a[m
+Merge: a6aac9b 32e60e8
+Author: 935024109 <935024109@qq.com>
+Date:   Thu Mar 7 13:38:46 2019 +0800
+
+    oywz 合并 wzl  wzl修改了手机号验证bug
+
+[33mcommit 32e60e8d290a5ce6fe31f194e739603d7d77ebdb[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Thu Mar 7 12:17:16 2019 +0800
+
+    修复修改密码的bug
+
+[33mcommit a6aac9b60718825cdc2e001f24f23a22fc61969f[m
+Merge: 0f22539 150588f
+Author: 935024109 <935024109@qq.com>
+Date:   Thu Mar 7 12:04:04 2019 +0800
+
+    oywz 统一了前后台路由
+
+[33mcommit 0f2253966315c3827890021281e8aa8f817b695a[m
+Merge: 03fa813 67da865
+Author: 935024109 <935024109@qq.com>
+Date:   Thu Mar 7 10:19:10 2019 +0800
+
+    oywz 解决了合并 wsx 的冲突
+
+[33mcommit 150588fa206563179cfe4d563e26b3485bac3320[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Thu Mar 7 10:15:28 2019 +0800
+
+    czz
+
+[33mcommit 03fa813d8e40931742cb1d91962203ad38406dbc[m
+Merge: 21a8fb4 fbbc20d
+Author: 935024109 <935024109@qq.com>
+Date:   Thu Mar 7 10:13:44 2019 +0800
+
+    oywz 修改了合并 wzl 的冲突
+
+[33mcommit 67da8652efeb8e5f540a3682769ad965c32515e7[m
+Author: lamp1530631450 <1530631450@qq.com>
+Date:   Thu Mar 7 10:11:45 2019 +0800
+
+    3.7王帅雪提交
+
+[33mcommit 21a8fb47ae2c9bcbb515a498da579a5df4a95d4a[m
+Author: 935024109 <935024109@qq.com>
+Date:   Thu Mar 7 10:11:35 2019 +0800
+
+    oywz 添加了回复贴
+
+[33mcommit fbbc20dacfc9207dc9203bad5083d045a73ceb00[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Wed Mar 6 22:46:08 2019 +0800
+
+    收藏
+
+[33mcommit d698c9ef4182d73a70e28aa401dfa16306332c32[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Wed Mar 6 16:14:21 2019 +0800
+
+    ajax分区不能发帖
+
+[33mcommit d9e55943fbf151c48e56a1a6ce5b7b55a7c7ff45[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Wed Mar 6 10:07:37 2019 +0800
+
+    czz
+
+[33mcommit d7a69d955b5eca6d0c508895e62cfcb06dd31fdf[m
+Merge: f9499a8 4e90d01
+Author: c92099933 <1304550862@qq.com>
+Date:   Wed Mar 6 09:59:45 2019 +0800
+
+    Merge branch 'master' of https://github.com/935024109/itbbs into czz
+
+[33mcommit f9499a85802a089f83e058c5f3ba74101fb05d19[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Wed Mar 6 09:59:37 2019 +0800
+
+    czz
+
+[33mcommit 4e90d0198063def1a67aed669088542ac74c9e8c[m
+Merge: b247555 f3f96fa
+Author: 935024109 <935024109@qq.com>
+Date:   Wed Mar 6 09:56:41 2019 +0800
+
+    oywz 修改了合并 czz 的冲突
+
+[33mcommit b2475556a6efe236a87c52ac2ab5fe350a854aaf[m
+Merge: 01c2f45 7db7dd5
+Author: 935024109 <935024109@qq.com>
+Date:   Wed Mar 6 09:47:05 2019 +0800
+
+    oywz 修改了PostController 控制器
+
+[33mcommit f3f96fa28445f2c674be87d321eb14527649a42c[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Wed Mar 6 09:44:50 2019 +0800
+
+    czz
+
+[33mcommit 01c2f45669172f07256aab6977a9e0c9f68eaf72[m
+Merge: 2e1585c 5f29bab
+Author: 935024109 <935024109@qq.com>
+Date:   Wed Mar 6 09:13:25 2019 +0800
+
+    oywz 修改了合并 wsx 的冲突
+
+[33mcommit 2e1585c26a16859ffe09cd28aa2f0dc6727e36d3[m
+Author: 935024109 <935024109@qq.com>
+Date:   Wed Mar 6 09:05:18 2019 +0800
+
+    oywz 添加了发帖模块,回帖控制器
+
+[33mcommit 5f29babdfa78bcebaa6f01c7b3cdefea969d219b[m
+Author: lamp1530631450 <1530631450@qq.com>
+Date:   Wed Mar 6 08:54:46 2019 +0800
+
+    3.6日提交王帅雪
+
+[33mcommit 7db7dd5b726b15a7e22caa54530bb11148f3f9e6[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Wed Mar 6 08:53:11 2019 +0800
+
+    登录注册修改
+
+[33mcommit d11d96b8b60fbea4dddd1e1282ff0aa93426d083[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Tue Mar 5 14:01:02 2019 +0800
+
+    注册登录
+
+[33mcommit 2f317342a40ce3b2b9179c3218a1487605187ae1[m
+Merge: 1bde4cc 8cbbeef
+Author: 935024109 <935024109@qq.com>
+Date:   Tue Mar 5 10:42:53 2019 +0800
+
+    oywz 合并 czz 修改了postController indexController的冲突
+
+[33mcommit 1bde4cc6871a908423068a825dec02fe2ebedcc8[m
+Author: 935024109 <935024109@qq.com>
+Date:   Tue Mar 5 10:14:45 2019 +0800
+
+    oywz 添加了发帖控制器,页面
+
+[33mcommit 8cbbeefa6bb463b35bc120cdf32298974e89ad0b[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Tue Mar 5 10:14:31 2019 +0800
+
+    czz
+
+[33mcommit f0f8c3e5e99173585a7aed67ae9dbb634fb4b320[m
+Merge: 09ffcd1 afafb4c
+Author: 935024109 <935024109@qq.com>
+Date:   Mon Mar 4 09:16:21 2019 +0800
+
+    oywz 合并 wzl 修改了前台模板冲突
+
+[33mcommit 09ffcd13d46853743794fae8d9f8677cc3aab029[m
+Merge: 6d51d79 52a6789
+Author: 935024109 <935024109@qq.com>
+Date:   Mon Mar 4 09:08:04 2019 +0800
+
+    oywz 合并了 czz 有图片的增删
+
+[33mcommit 6d51d7988bf2621014c4043e29f3f42b84846a7d[m
+Author: 935024109 <935024109@qq.com>
+Date:   Mon Mar 4 09:03:55 2019 +0800
+
+    oywz homes下添加了bootstrap
+
+[33mcommit afafb4cfcc80e973c377074eba9c6367b3c95c0a[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Mon Mar 4 09:02:22 2019 +0800
+
+    统一前台模板
+
+[33mcommit 52a6789cb04a4b427fd0bf54313e0a192aa27b83[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Mon Mar 4 09:01:57 2019 +0800
+
+    czz
+
+[33mcommit cebd121008ea74ff547d636d65ee37068d08b4e7[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Sun Mar 3 19:29:45 2019 +0800
+
+    修改路径
+
+[33mcommit a1d15c46c4ff70e375dca147d0a8a7ab4d045fe4[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Sun Mar 3 17:37:42 2019 +0800
+
+    用户登录
+
+[33mcommit 537e2bd1ee1c2880948e609009538be11c8090b9[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Fri Mar 1 22:15:57 2019 +0800
+
+    注释
+
+[33mcommit 082aa53623ef4ecbcee2f6474859079c6530fe67[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Fri Mar 1 22:13:18 2019 +0800
+
+    邮件发送成功并且激活
+
+[33mcommit 286569a23190e9c9fc340b05dcb3703c617f0288[m
+Merge: 4c11a9b afc6220
+Author: 935024109 <935024109@qq.com>
+Date:   Fri Mar 1 14:18:18 2019 +0800
+
+    oywz 合并 wsx
+
+[33mcommit afc62205df3486a2ff5234d3386f89cfe2e2665f[m
+Author: lamp1530631450 <1530631450@qq.com>
+Date:   Fri Mar 1 14:11:46 2019 +0800
+
+    网站配置,公告管理
+
+[33mcommit 4c11a9b935aea5b0979524fdc829651704e933da[m
+Author: 935024109 <935024109@qq.com>
+Date:   Fri Mar 1 14:07:22 2019 +0800
+
+    oywz 修改了首页,轮播图删除图片
+
+[33mcommit 796805bb4a4f1655fa557f74a3c84f0c7adb4467[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Fri Mar 1 11:22:39 2019 +0800
+
+    czz
+
+[33mcommit b86ce7665ebf68485a4efe11eafe4bb04f1c3ffb[m
+Merge: 0d7a544 235fff1
+Author: 935024109 <935024109@qq.com>
+Date:   Fri Mar 1 10:56:43 2019 +0800
+
+    Merge remote-tracking branch 'origin/czz'
+    
+    'oywz 合并分支 czz'
+
+[33mcommit 0d7a54494f77ce18e0a3e6f282892c6ccd12223c[m
+Author: 935024109 <935024109@qq.com>
+Date:   Fri Mar 1 10:55:12 2019 +0800
+
+    oywz 修改了前台模板
+
+[33mcommit 235fff12ccd039d205c7ce111a8cf9eda8c2d0c5[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Fri Mar 1 10:53:02 2019 +0800
+
+    czz
+
+[33mcommit 22ea02c2853398f0a4924ce9b3115a083fcf8916[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Fri Mar 1 10:12:59 2019 +0800
+
+    czz
+
+[33mcommit 61f59979c7a1b08951213b74987a4bc5a5c917e4[m
+Merge: 5e4db3d 1a33606
+Author: 935024109 <935024109@qq.com>
+Date:   Fri Mar 1 09:56:45 2019 +0800
+
+    oywz 合并 czz 修改了首页登录路径,前台样式
+
+[33mcommit 1a33606c02721106d2904c96ad2431f1cc21ebba[m
+Author: c92099933 <1304550862@qq.com>
+Date:   Fri Mar 1 09:39:30 2019 +0800
+
+    czz
+
+[33mcommit 5e4db3d2a5e921c18fbe27e4c9b3425d66e186c2[m
+Author: 935024109 <935024109@qq.com>
+Date:   Fri Mar 1 09:34:09 2019 +0800
+
+    oywz 去掉板块分类的分页功能
+
+[33mcommit a87c5504aaaf7abf3c651e5edf169b4785588c49[m
+Merge: 606fe0d 8f8c0f6
+Author: 935024109 <935024109@qq.com>
+Date:   Fri Mar 1 09:08:58 2019 +0800
+
+    oywz 修改了合并wzl 分支的ForumController 冲突
+
+[33mcommit 606fe0db5109d59474514bc4de9ee289552ccf62[m
+Author: 935024109 <935024109@qq.com>
+Date:   Fri Mar 1 09:06:23 2019 +0800
+
+    oywz 添加了前台模板 前台首页控制器 板块分类公用数据
+
+[33mcommit 8f8c0f6a248d9b489dcdd4204608a4737468fb7e[m
+Author: wwwwzl <78890074@qq.com>
+Date:   Thu Feb 28 21:37

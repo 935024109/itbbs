@@ -145,6 +145,13 @@
                             <li><a href="/admin/carousel/create">添加轮播图</a></li>
                         </ul>
                     </li>
+                     <li>
+                        <a href="#"><i class="icon-list"></i>推荐阅读管理</a>
+                        <ul>
+                            <li><a href="/admin/groom">推荐阅读列表</a></li>
+                            <li><a href="/admin/groom/create">添加推荐阅读</a></li>
+                        </ul>
+                    </li> 
                     <li>
 
                         <a href="#"><i class="icon-list"></i> 友情链接</a>
