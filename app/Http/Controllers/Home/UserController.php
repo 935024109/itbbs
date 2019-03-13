@@ -129,7 +129,11 @@ class UserController extends Controller
     }
 
    
-
+    /**
+     * 修改密码发送手机验证码文档
+     * @param  [type] $phone [description]
+     * @return [type]        [description]
+     */
     public function phone($phone)
     {
         return view('home.user.sendphone',compact('phone'));
