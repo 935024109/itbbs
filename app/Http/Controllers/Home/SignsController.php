@@ -80,11 +80,9 @@ class SignsController extends Controller
                 $last_time = $signs -> last_time;
                 $last_time = json_encode($last_time);
                 $last_time = json_decode($last_time,true);
-              
                 $last_time = substr($last_time,0,10);
                 
                 $yesterday = strtotime('-1 day');
-                $today = time();
                
                 // 判断未签到
                 // 如果上次签到时间等于昨天 或者为空
@@ -105,7 +103,6 @@ class SignsController extends Controller
            
 
                     if($res1 && $res2){
-                        // return redirect('/home/signs/list/{$signs->uid}')->with('success','签到成功');
                         return redirect("/home/signs/list/$uid")->with('success','签到成功');
                     }else{
                         return back()->with('error','签到失败');

@@ -32,9 +32,9 @@
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
 
- <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+ <!-- <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
 
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
 
  
 
@@ -53,7 +53,7 @@
     <div class="wp cl">
       <!-- 站点LOGO -->
       <div class="hd_logo"> 
-          <h2><a href="http://bbs.itxdl.cn/" target="_blank"><img src="/homes/static/picture/logo.png" /></a></h2>
+          <h2><a href="http://www.itbbs.com/home" target="_blank"><img src="/homes/static/picture/itbbs.jpg" style="width:150px;height:200px;" /></a></h2>
       </div>
       <!-- 导航 -->
       <div class="nav">
@@ -106,7 +106,10 @@
         <div class="Quater_user_info">
           <div class="user-main ">
             <div class="avatar"> <a href="/home/user/{{ session('id') }}" target="_blank" title="访问我的空间" id="umnav" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'a'})"> 
-              <img src="/uploads/{{ session('photo') }}"> 
+              <img src=" /uploads/{{ session('photo') }}"> 
+
+
+            
               </a></div>
             <span class="nickname" style="width:50px" title="{{ session('uname') }}">{{ session('uname') }}</span>
             <span class="arrow"></span>
@@ -377,7 +380,8 @@ initSearchmenu('scbar', '');
 (function(){ var bp = document.createElement('script'); var curProtocol = window.location.protocol.split(':')[0]; if (curProtocol === 'https') { bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'; } else { bp.src = 'http://push.zhanzhang.baidu.com/push.js'; } var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(bp, s); })(); 
 </script>
 </body>
-<script src="/homes/static/js/bdtj.js" type="text/javascript"></script><script src="/homes/static/js/cnzz.js" type="text/javascript"></script></html>   
+<script src="/homes/static/js/bdtj.js" type="text/javascript">
+</script><script src="/homes/static/js/cnzz.js" type="text/javascript"></script>
 <script src="/homes/static/js/common.js" type="text/javascript"></script>
 
-
+</html>   

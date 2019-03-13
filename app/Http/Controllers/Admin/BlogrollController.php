@@ -47,8 +47,20 @@ class BlogrollController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BologrollStoreRequset $request)
+    public function store(Request $request)
     {   
+          // 表单数据验证
+        $this->validate($request, [
+            'name' => 'required',
+            'logo' => 'required',
+            'url' => 'required',
+            'title' => 'required',
+        ],[
+            'name.required' => '名称必填',
+            'logo.required' => '文件必须上传',
+            'url.required' => '链接地址必填',
+            'title.required' => '描述必填',
+        ]);
 
         // $data = Blogroll::select('name')->get();
         // dd($data);
