@@ -26,8 +26,7 @@ Route::post('/admin/login','Admin\LoginController@login');
 Route::get('/admin/captcha/{tmp}','Admin\LoginController@captcha');
 //退出
 Route::get('/admin/out','Admin\LoginController@out');
-//后台首页
-Route::resource("/admin",'Admin\IndexController')->middleware('login');
+
 
 //后台用户路由
 Route::group(['middleware'=>'login'],function(){
@@ -87,7 +86,8 @@ Route::group(['middleware'=>'login'],function(){
 	Route::resource('admin/announcement','Admin\AnnouncementController');
 });
 
-
+//后台首页 
+Route::resource("/admin",'Admin\IndexController')->middleware('login');
 
 
 
@@ -151,7 +151,7 @@ Route::get('home/post/nolike/{id}','Home\PostController@nolike');
 // 帖子取消收藏
 Route::get('home/post/like/{id}','Home\PostController@like');
 // 帖子详情页
-Route::get('home/post/{pid}/{uid}','Home\PostController@goCheckContent');
+Route::get('home/post/checkcontent/{pid}/{uid}','Home\PostController@goCheckContent');
 // 帖子资源路由
 Route::resource('home/post','Home\PostController');
 
@@ -159,5 +159,7 @@ Route::resource('home/post','Home\PostController');
 Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
 // Route::resource('home/reply','Home\ReplyController');
 
+// 前台搜索功能
+Route::get("home/search",'Home\IndexController@search');
 // 前台首页
 Route::resource("/home",'Home\IndexController');

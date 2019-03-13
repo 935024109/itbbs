@@ -180,12 +180,13 @@ class PostController extends Controller
         $post = Post::find($pid);
         // 获取板块信息
         $forum = $post->forum;
+        dump($forum);
         // 上一板块的名字
         $lastforum = Forum::where('fid',$forum->pid)->first()->fname;
         $user = User::find($uid);
         $post_count = Post::where('uid',$uid)->count();
         $reply_count = Reply::where('pid',$pid)->count();
-        return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'pid'=>$pid,'reply_count'=>$reply_count]);       
+        return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'pid'=>$pid,'reply_count'=>$reply_count,'lastforum'=>$lastforum,'forum'=>$forum]);       
     }
     public function like($id)
     {

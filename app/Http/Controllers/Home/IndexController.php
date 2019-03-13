@@ -137,5 +137,18 @@ class IndexController extends Controller
         //
     }
 
+    // 搜索方法
+    public function search(Request $request)
+    {   
 
+        $search = $request->input('search');
+        $searchsubmit = $request->input('searchsubmit');
+        // dump($searchsubmit);
+        $count = Post::where('title','like','%'.$search.'%')->get();
+        $count = count($count);
+        $post = Post::where('title','like','%'.$search.'%')->paginate(13);
+        // dump($post);
+
+        return view('home/search',['post'=>$post,'search'=>$search,'count'=>$count,'searchsubmit'=>$searchsubmit]);
+    }
 }
