@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Forum;
+use App\Models\Reply;
+
 use App\Models\Collection;
 use DB;
 
@@ -111,13 +113,15 @@ class PostController extends Controller
 
         // 通过id查询板块信息
         $data = Forum::find($id);
+        // 查询上一级板块的名字
+        $lastforum = Forum::where('fid',$data->pid)->first()->fname;
         $post = $data->post;
         // 帖子信息
        
-        $post = Post::where('fid',$id)->where($key[0],$value)->orderBy('top','desc')->orderBy('created_at','desc')->get();
-
+        $post = Post::where('fid',$id)->where($key[0],$value)->orderBy('top','desc')->orderBy('created_at','desc')->paginate(13);
+        // 根据id去查询所有回复
         // dump($post[0]->Collection[0]->uid);
-        return view('home/postlist/index',['id'=>$id,'data'=>$data,'post'=>$post]);
+        return view('home/postlist/index',['lastforum'=>$lastforum,'id'=>$id,'data'=>$data,'post'=>$post]);
     }
 
     /**
@@ -174,11 +178,14 @@ class PostController extends Controller
     public function goCheckContent($pid,$uid)
     {
         $post = Post::find($pid);
+        // 获取板块信息
+        $forum = $post->forum;
+        // 上一板块的名字
+        $lastforum = Forum::where('fid',$forum->pid)->first()->fname;
         $user = User::find($uid);
         $post_count = Post::where('uid',$uid)->count();
-        
-        return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user]);
-       
+        $reply_count = Reply::where('pid',$pid)->count();
+        return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'pid'=>$pid,'reply_count'=>$reply_count]);       
     }
     public function like($id)
     {
@@ -206,4 +213,5 @@ class PostController extends Controller
             return back();
         }
     }
+
 }

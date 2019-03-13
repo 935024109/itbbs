@@ -194,7 +194,7 @@
                             <dd>
                               <a href="http://bbs.itxdl.cn/forum.php?mod=redirect&amp;tid=243117&amp;goto=lastpost#lastpost" class="xi2" style="color: #555555;">{{$vv->title}}</a>
                               <cite>{{$vv->created}}
-                                <a href="http://d.bbs.itxdl.cn/space-username-%CD%F5%D5%F1%DB%C3.html">{{$vv->auth}}</a></cite>
+                                <a href="home/user/{{session('id')}}">{{$vv->auth}}</a></cite>
                             </dd>
                           </dl>
                         </td>
@@ -240,7 +240,7 @@
                       <div class="portal_block_summary">
                         <div class="itofeedback cl">
                           <a class="bluebigbutton" href='/home/goPost/{{$id or 0}}' title="发帖">发帖</a> 
-                          <a href="/home/user/signin" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a></div>
+                          <a href="/home/signs/create" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a></div>
                       </div>
                     </div>
                   </div>

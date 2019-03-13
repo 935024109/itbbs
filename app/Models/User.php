@@ -23,4 +23,10 @@ class User extends Model
     {
     	return $this->hasMany('App\Models\Collection','uid');
     }
+
+    // 设置与签到表的关联
+    public function signsinfo()
+    {
+        return $this->hasOne('App\Models\Signs','uid');
+    }
 }

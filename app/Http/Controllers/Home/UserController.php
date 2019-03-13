@@ -139,6 +139,7 @@ class UserController extends Controller
         return view('home.user.sendphone',compact('phone'));
     }
 
+
     // 签到页面
     public function signin()
     {
@@ -175,4 +176,5 @@ class UserController extends Controller
         // dd($data);
         return view('home.user.collection',compact('data','user'));
     }
+
 }

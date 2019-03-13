@@ -18,55 +18,34 @@
     <em>›</em>
     <a href="http://bbs.itxdl.cn/thread-htm-fid-127-page-1.html">PHP技术xxx</a>
     <em>›</em>发表帖子</div></div>
-	<!-- <form action="" method="post">
 	
-		<select>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
+	<div class="container" style="margin-left: 136px">
+	<form class="form-inline" action="/home/post" method="post">
+		 {{  csrf_field() }}
+		<select class="form-control" name='fid'>
+		 <option value="0">顶级分类</option>
+		 @foreach($forum_cates as $k => $v)
+		 <option value="{{ $v->fid }}" {{ $v->fid == $fid ? 'selected' : '' }}> {{ $v->fname }} </option>
+		 @endforeach
 		</select>
-		<input type="text" name="tid" value="">你还可以输入80字
-		<textarea name='content' ></textarea>
-	</form>
-	 -->
-<div class="container" style="margin-left: 136px">
-<form class="form-inline" action="/home/post" method="post">
-	 {{  csrf_field() }}
-	<!-- <div class="dropdown">
-	    				<label class="mws-form-label">所属分类</label>
-	    				<div class="mws-form-item">
-	    					<select class="large" name="pid">
-	    						<option value="0">顶级分类</option>
-	    						@foreach($forum_cates as $k => $v)
-	    						 <option value="{{ $v->fid }}" {{ $v->fid == $fid ? 'selected' : '' }}> {{ $v->fname }} </option>
-	    						@endforeach
-	    					</select>
-	    				</div>
-	                </div> -->
-	<select class="form-control" name='fid'>
-	 <option value="0">顶级分类</option>
-	 @foreach($forum_cates as $k => $v)
-	 <option value="{{ $v->fid }}" {{ $v->fid == $fid ? 'selected' : '' }}> {{ $v->fname }} </option>
-	 @endforeach
-	</select>
-	
-	<div class="form-group">
-	   主体:<input type="text" name="title" va class="form-control" id="exampleInputName2" placeholder="不超过100字...">
-	</div>
-	<!--引入百度编辑器-->
-	<script id="container" name="content" type="text/plain"></script>
-	是否允许回复:
-	<label class="radio-inline">
-	  <input type="radio" name="revert" id="inlineRadio1" checked value="1"> 是
-	</label>
-	<label class="radio-inline">
-	  <input type="radio" name="revert" id="inlineRadio2" value="0"> 否
-	</label>
+		
+		<div class="form-group">
+		   主体:<input type="text" name="title" va class="form-control" id="exampleInputName2" placeholder="不超过100字...">
+		</div>
+		<!--引入百度编辑器-->
+		<script id="container" name="content" type="text/plain"></script>
+		是否允许回复:
+		<label class="radio-inline">
+		  <input type="radio" name="revert" id="inlineRadio1" checked value="1"> 是
+		</label>
+		<label class="radio-inline">
+		  <input type="radio" name="revert" id="inlineRadio2" value="0"> 否
+		</label>
 
- <!--  <button type="submit" class="btn btn-default">Send invitation</button> -->
-  <input type="submit" class="btn btn-info" value="发帖">
-</form>
-</div>
+	 <!--  <button type="submit" class="btn btn-default">Send invitation</button> -->
+	  <input type="submit" class="btn btn-info" value="发帖">
+	</form>
+	</div>
 
 
 
@@ -74,8 +53,7 @@
 <script type="text/javascript" src="/admins/utf8-php/ueditor.config.js"></script>
 <!-- 编辑器源码文件 -->
 <script type="text/javascript" src="/admins/utf8-php/ueditor.all.js"></script>
-<!-- 实例化编辑器 -->
-
+<!-- 实例化百度编辑器  定制工具栏图标 -->
 <script type="text/javascript">
     var ue = UE.getEditor('container', {toolbars: [
     ['fullscreen', 'source', 'undo', 'redo'],
