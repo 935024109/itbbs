@@ -81,8 +81,8 @@
             <tbody>
              <tr> 
               <th><span class="rq">*</span><label for="o0t0ue">确认密码:</label></th> 
-              <td><input type="repwd" id="o0t0ue" name="repwd" size="25" tabindex="1" value="" class="px" required="" /></td> 
-              <td class="tipcol"><i id="tip_o0t0ue" class="p_tip" style="display: none;">请再次输入密码</i></td> 
+              <td><input type="password" id="o0t0ue" name="repwd" size="25" tabindex="1" value="" class="px" required="" /></td> 
+              
              </tr> 
             </tbody>
            </table> 

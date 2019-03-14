@@ -110,9 +110,9 @@ class RegisterController extends Controller
              'repwd.required' => '确认密码不能为空'
         ]);
 
-        // 接收数据
+        // // 接收数据
         $email = $request->email;
-        // dd($email);
+        // // dd($email);
         $uname = $request->uname;
         //查询数据库是否唯一 
         $res = User::where('email',$email)->first();
@@ -132,26 +132,20 @@ class RegisterController extends Controller
         $user->email = $email;
         $user->photo = 'iamges/user/default.jpg';
         $user->token = str_random(60); //生成token
-
         //如果压入数据成功就发送邮件激活
         if($user->save()){
-            Mail::send('home.register.mail', ['user' => $user->uname,'id'=>$user->uid,'token'=>$user->token], function ($m) use ($user) {
-                $res = $m->to($user->email)->subject('Your Reminder!');
-                // 获取底层的 SwiftMailer 消息实例...
-                // $s =  $m->getSwiftMessage();
-                if($res){
-                    dd('成功请前往验证');
-                   return redirect('/home')->with('success','成功');
-                } else {
-                    return back()->with('error','发送邮件失败');
-                }
+            Mail::send('home.register.mail', ['user' => $user->uname,'token'=>$user->token,'id'=>$user->uid], function ($m) use ($user) {
+                $m->to($user->email)->subject('你猜我是谁');
             });
-            
+           dd('发送成功');
         } else {
             return back()->with('error','未知原因注册失败!');
         }
-       
-    }
+
+
+    } 
+
+    
 
 
     public function changestatus($id,$token)
