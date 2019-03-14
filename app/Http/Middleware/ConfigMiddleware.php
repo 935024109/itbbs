@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use DB;
+
+
 class ConfigMiddleware
 {
     /**
@@ -21,7 +23,6 @@ class ConfigMiddleware
         if($on == 0){
             return redirect('home/config/on');
         }
-
         return $next($request);
     }
 }
