@@ -192,7 +192,7 @@ class UserController extends Controller
         $user_post = Post::where('uid',$id)->get();
         // 查询用户发表过的回复
         $user_reply = Reply::where('uid',$id)->get();
-        $user_reply_reply_id = Reply::find($user_reply[0]->reply_id);
+        // $user_reply_reply_id = Reply::find($user_reply[0]->reply_id);
         // dd($user_reply);
 
         return view('home.user.userinfo',compact('user_post','user_reply'));
@@ -203,7 +203,7 @@ class UserController extends Controller
      * @param  [type] $pid [description]
      * @return [type]      [description]
      */
-    public function remove($pid)
+    public function remove_post($pid)
     {
         DB::beginTransaction();
         $res = Post::where('pid',$pid)->delete();
@@ -217,6 +217,22 @@ class UserController extends Controller
             return back()->with('error','删除失败');
         }
 
+    }
+
+
+    /**
+     * 删除自己回复
+     * @param  [type] $rid [description]
+     * @return [type]      [description]
+     */
+    public function remove_reply($rid)
+    {
+        $res = Reply::where('rid',$rid)->delete();
+        if($res){
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        } else {
+            return back()->with('error','删除失败');
+        }
     }
 
 

@@ -22,20 +22,22 @@ class Reply extends Model
     	return $this->belongsTo('App\Models\User','uid');
     }
 
+    //跟post建立属于关系
+    public function Post()
+    {
+    	return $this->belongsTo('App\Models\Post','pid');
+    }
+
     //查看被回复的用户资料
     public function Reply_User($rid)
     {
     	// 先查询被回复的人的id 在通过id反向查找
-		$reply = Reply::find($rid)->uid;
-		return User::find($reply);
-    }
-
-
-      //查看被主贴的资料
-    public function Reply_Post($rid)
-    {
-    	// 先查询被回复的人的id 在通过id反向查找
-		$reply = Reply::find($rid)->pid;
-		return Post::find($reply);
+		$reply = Reply::find($rid);
+		if(empty($reply)){
+			return '该楼层已删除';
+		}
+		$uid = $reply->uid;
+		$res = User::find($uid);
+		return $res;
     }
 }

@@ -28,7 +28,7 @@
 	          <td> {{ $v->replyCount($v->pid) }} </td>
 	          <td> {{ $v->updated_at }} </td>
 	          <td>
-	          	<form action="/home/user/user_info/remove/{{ $v->pid }}" method="post" onclick="return confirm('确定执行该操作?')" >
+	          	<form action="/home/user/user_info/remove_post/{{ $v->pid }}" method="post" onclick="return confirm('确定执行该操作?')" >
 	          		{{ csrf_field() }}
 				<input type="submit" class="btn btn-danger" value="删除" style="width:90px">
 	          	</form>
@@ -57,18 +57,30 @@
 	      	@foreach($user_reply as $k=>$v)
 	        <tr>
 	          <th scope="row">{{$k+1}}</th>
-	          <td>{{ $v->Reply_Post($v->rid)->content }}</td>
+	          <td>{{ $v->Post->title }}</td>
 	          <td>  {{ $v->created_at }} </td>
 	          <td>
-				<a href="/home/user/{{ $v->uid }}">我</a> 
-				回复 
-				<a href="/home/user/{{ $v->reply_id }}">
+				<a href="/home/user/{{ $v->uid }}">我</a>
+
+					回复 
+				@if($v->reply_id == 0)
+					楼主
+					<b> {{ $v->content }} </b>
+				@elseif ($v->Reply_User($v->reply_id) == '该楼层已删除')
+					该楼层已删除
+				
+				@else 
+				<a href="/home/user/{{ $v->Reply_User($v->reply_id)->uid }}">
 					{{ $v->Reply_User($v->reply_id)->uname }}
 				</a> 
 				 <b> {{ $v->content }} </b>
+				@endif
 	          </td>
 	          <td>
-				<a href="javascript:;" class="btn btn-danger" onclick="return confirm('确定执行该操作?')">删除</a>
+				<form action="/home/user/user_info/remove_reply/{{ $v->rid }}" method="post" onclick="return confirm('确定执行该操作?')" >
+	          		{{ csrf_field() }}
+				<input type="submit" class="btn btn-danger" value="删除" style="width:90px">
+	          	</form>
 	          </td>
 	        </tr>
 	        @endforeach
