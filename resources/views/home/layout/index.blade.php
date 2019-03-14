@@ -119,6 +119,7 @@
               <li><a id="nte_menu" href="/home/user/{{ session('id') }}/edit" class="notification">修改密码</a></li>
               <li><a id="msg_menu" href="/home/user/collection/{{ session('id') }}" class="msg">收藏</a></li>
                             <li><a href="/home/user/{{ session('id') }}">个人中心</a></li>           
+                            <li><a href="/home/user/user_info/{{ session('id') }}">个人空间</a></li>           
                
                             <li class="l4"><a href="/home/out">退出登录</a></li>
               </div>

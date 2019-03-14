@@ -109,6 +109,10 @@ Route::group(['middleware'=>'config'],function(){
 	Route::get('home/user/collection/{id}','Home\UserController@collection');
 	// 手机号验证
 	Route::get('home/user/phone/{phone}','Home\UserController@phone');
+	//个人空间
+	Route::get('home/user/user_info/{id}','Home\UserController@user_info');
+	//删除自己发的贴子
+	Route::post('home/user/user_info/remove/{pid}','Home\UserController@remove');
 	// 资源路由
 	Route::resource('home/user','Home\UserController');
 	//登录

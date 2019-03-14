@@ -137,7 +137,7 @@ class RegisterController extends Controller
             Mail::send('home.register.mail', ['user' => $user->uname,'token'=>$user->token,'id'=>$user->uid], function ($m) use ($user) {
                 $m->to($user->email)->subject('你猜我是谁');
             });
-           dd('发送成功');
+           return redirect('/home')->with('success','注册成功请前往激活');
         } else {
             return back()->with('error','未知原因注册失败!');
         }
