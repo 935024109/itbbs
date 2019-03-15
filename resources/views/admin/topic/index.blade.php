@@ -24,8 +24,6 @@
                        
                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 70px;">话题图片
                         </th>
-                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 50px;">网址
-                        </th>
                          <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 50px;">PID
                         </th>
                        
@@ -46,9 +44,9 @@
                                             <img src="/uploads/{{$v->logo}}">
                                         </p>
                                     </td>
-                        <td class="  sorting_1">
+                        <!-- <td class="  sorting_1">
                             {{ $v -> url }}
-                        </td>
+                        </td> -->
                         <td class="  sorting_1">{{$v->pid}}</td>
                         <td class="  sorting_1">{{ $v -> created_at }}</td>
                                           

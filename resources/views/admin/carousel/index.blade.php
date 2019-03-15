@@ -32,11 +32,11 @@
                         <td>{{ $v -> created_at }}</td>
                         <td>{{ $v -> updated_at }}</td>
                         <td>
-    						<a href="/admin/carousel/{{ $v->carid }}/edit">修改</a>
+    						<a href="/admin/carousel/{{ $v->carid }}/edit" class="btn btn-info">修改</a>
     						<form action="/admin/carousel/{{ $v->carid }}" method="post" style="display: inline-block;">
     							{{ csrf_field() }}
     							{{ method_field('DELETE') }}
-    							<input type="submit" value="删除">
+    							<input type="submit" value="删除" class="btn btn-danger">
     						</form>
                         </td>
                     </tr>

@@ -53,7 +53,7 @@
         
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
-                <a href="/admin"><img src="/admins/images/mws-logo.png" alt="mws admins"></a>
+                <a href="/admin/index"><img src="/admins/images/mws-logo.png" alt="mws admins"></a>
             </div>
         </div>
         

@@ -173,7 +173,7 @@
               <div class="y">
                 <a href="http://bbs.itxdl.cn/forum.php?mod=guide&amp;view=new" title="最新回复" class="xi2">最新回复</a></div>
             </div>
-            <div class="Framebox cl" style="width: 100%; padding: 10px 25px; border-radius: 0 0 2px 2px; background: #FFFFFF; box-shadow: none; overflow: hidden;">
+            <div class="Framebox cl" style="width: 93.5%;; padding: 10px 25px; border-radius: 0 0 2px 2px; background: #FFFFFF; box-shadow: none; overflow: hidden;">
               <!-- 栏目遍历 -->
               @foreach($data as $k=>$v)
               <div class="fl bm" style="margin-right: 50px;">

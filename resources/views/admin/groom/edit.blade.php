@@ -32,7 +32,7 @@
         <div class="mws-form-row">
           <label class="mws-form-label">图片链接</label>
           <div class="mws-form-item">
-           <img class="thumbnail" src="/uploads/images/groom/{{ $groom->picture }}">
+           <img class="thumbnail" src="/uploads/images/groom/{{ $groom->picture }}" style="width:200px;height: 100px;">
         </div>        
         <div class="mws-form-row">
           <label class="mws-form-label">图片</label>
@@ -56,8 +56,8 @@
 
        
      <div class="mws-button-row">
-        <input type="submit" value="Submit" class="btn btn-danger">
-        <input type="reset" value="Reset" class="btn ">
+        <input type="submit" value="修改" class="btn btn-danger">
+        <input type="reset" value="重置" class="btn ">
     </div>
     </form>
   </div>
