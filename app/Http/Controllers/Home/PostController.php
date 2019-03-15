@@ -34,7 +34,7 @@ class PostController extends Controller
         //判断用户是否登录
         if(!session('id')){
             //如果没有登录,跳转到 登录页面
-             return redirect('/home/login')->with('success', '抱歉，您尚未登录，没有权限在该版块发帖');
+             return redirect('/home/login')->with('success', '抱歉，您尚未登录，没有权限发帖');
         }
          return view('home.post.create',['forum_cates'=>self::getForumCates(),'fid'=>$id]);
     }
@@ -192,37 +192,7 @@ class PostController extends Controller
         return $forums_cates;
     }   
 
-
-    // 跳转到帖子详情页
-    public function goCheckContent($pid,$uid)
-    {
-        // 获取帖子数据
-        $post = Post::find($pid);
-        // 获取板块信息
-        $forum = $post->forum;
-        // 上一板块的名字
-        $lastforum = Forum::where('fid',$forum->pid)->first()->fname;
-        // 获取用户数据
-        $user = User::find($uid);
-        // 获取当前用户的帖子个数
-        $post_count = Post::where('uid',$uid)->count();
-        
-        // 获取帖子下的回帖个数
-        $reply_count = Reply::where('pid',$pid)->count();
-
-        // 获取当前帖子的回帖
-        $reply_data = Reply::where('pid',$pid)->get();
-        // 定义一个空数组
-        $replyUserArr = array();
-        foreach ($reply_data as $key => $value) {
-            // 把回帖内容和用户信息存入数组中
-            $replyUserArr[$value->content] = User::find($value->uid);
-
-        }
-        return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'pid'=>$pid,'replyUserArr'=>$replyUserArr,'reply_count'=>$reply_count,'lastforum'=>$lastforum,'forum'=>$forum]);       
-    }
-
-
+    // 收藏
     public function like($id)
     {
         $uid = session('id');
@@ -239,7 +209,7 @@ class PostController extends Controller
             return back();
         }
     }
-
+    // 取消收藏
     public function nolike($id)
     {
         $res = Collection::where('pid',$id)->where('uid',session('id'))->delete();

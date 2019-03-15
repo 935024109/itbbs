@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>兄弟连论坛_每个人的交流社区 - </title>
+<title>@yield('title','itbbs')</title>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="keywords" content="PHP交流,PHP教程,PHP论坛,php视频,HTML5学习,HTML5教程,Linux教程,UI设计学习,java教程,H5教程,平面设计教程,UE培训" />
 <meta name="description" content="兄弟连教育旗下官方论坛：大咖分分钟解答的技术交流社区，专注PHP、linux、java、html5、UI设计培训等专业技术交流与教程分享的地方 " />
@@ -119,6 +119,7 @@
               <li><a id="nte_menu" href="/home/user/{{ session('id') }}/edit" class="notification">修改密码</a></li>
               <li><a id="msg_menu" href="/home/user/collection/{{ session('id') }}" class="msg">收藏</a></li>
                             <li><a href="/home/user/{{ session('id') }}">个人中心</a></li>           
+                            <li><a href="/home/user/user_info/{{ session('id') }}">个人空间</a></li>           
                
                             <li class="l4"><a href="/home/out">退出登录</a></li>
               </div>

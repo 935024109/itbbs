@@ -1,4 +1,5 @@
- <?php
+<?php
+
 
 /*
 |--------------------------------------------------------------------------
@@ -11,8 +12,9 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 /**
  * 后台路由
@@ -75,9 +77,11 @@ Route::group(['middleware'=>'login'],function(){
 	Route::get('admin/topic/post','Admin\TopicController@post');
 	Route::resource('admin/topic','Admin\TopicController');
 
+
 	//后台首页
 	Route::resource('admin/index','Admin\IndexController');
 });
+
 
 
 /**
@@ -103,6 +107,12 @@ Route::get('home/user/register/changestatus/{id}/{token}','Home\RegisterControll
 Route::get('home/user/collection/{id}','Home\UserController@collection');
 // 手机号验证
 Route::get('home/user/phone/{phone}','Home\UserController@phone');
+//个人空间
+Route::get('home/user/user_info/{id}','Home\UserController@user_info');
+//删除自己发的贴子
+Route::post('home/user/user_info/remove_post/{pid}','Home\UserController@remove_post');
+// 删除自己的回复
+Route::post('home/user/user_info/remove_reply/{rid}','Home\UserController@remove_reply');
 // 资源路由
 Route::resource('home/user','Home\UserController');
 //登录
@@ -136,3 +146,8 @@ Route::resource('home/topic','Home\TopicController');
 Route::resource("home",'Home\IndexController');
 
 
+
+//维护页面路由
+Route::get('home/config/on',function(){
+	return view('home.config.on');
+});

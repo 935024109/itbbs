@@ -1,5 +1,9 @@
 @extends('home/layout/index')
     
+@section('title')
+{{ $title[0]->title }}
+
+@endsection
     @section('main')
     <div id="wp" class="wp time_wp cl">
       <script src="/homes/static/js/jquery.superslide.js" type="text/javascript" type="text/javascript"></script>

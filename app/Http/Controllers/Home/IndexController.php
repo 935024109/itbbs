@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Groom;
 use App\Models\Announcement;
 use App\Models\Topic;
+use DB;
 
 class IndexController extends Controller
 {
@@ -78,9 +79,12 @@ class IndexController extends Controller
         // 加载视图,分配数据
         // 获取话题的数据
         $topic = Topic::all();
+        //获取配置表里的title
+        $title = DB::table('configs')->get();
+
         // 获取公告管理的数据
         $announcement = Announcement::all();
-        return view('home.index',['topic'=>$topic,'data'=>$data,'carousels_data'=>$carousels,'announcement'=>$announcement,'blogroll'=>$blogroll,'user'=>$user,'grooms'=>$grooms]);
+        return view('home.index',['title'=>$title,'topic'=>$topic,'data'=>$data,'carousels_data'=>$carousels,'announcement'=>$announcement,'blogroll'=>$blogroll,'user'=>$user,'grooms'=>$grooms]);
 
     }
 

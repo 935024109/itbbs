@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class Indexcontroller extends Controller
 {
     /**
@@ -15,8 +15,9 @@ class Indexcontroller extends Controller
     public function index()
     {
         $data = $_SERVER;
-        // dump($data);
+        // DD($data);
         // dump(phpversion());
+
         return view('admin.index.index',['data'=>$data]);
     }
 
