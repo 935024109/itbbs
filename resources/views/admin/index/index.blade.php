@@ -1,9 +1,6 @@
 @extends('admin.layout.index')
 
 @section('main')
- 
-
-
                 <div class="mws-panel grid_4">
                     <div class="mws-panel-header">
                         <span><i class="icon-graph"></i> 我的个人信息</span>

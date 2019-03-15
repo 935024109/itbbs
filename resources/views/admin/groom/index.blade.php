@@ -48,12 +48,12 @@
             <td class=" ">{{ $v->pid }}</td>
             <td>
               <form action="/admin/groom/{{ $v->gid }}/edit" method="get" style="display: inline;">
-                  <input type="submit" value="修改">
+                  <input type="submit" value="修改"  class="btn btn-info">
               </form>
               <form action="/admin/groom/{{ $v->gid }}" method="post" style="display: inline;">
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}
-                  <input type="submit" value="删除" >
+                  <input type="submit" value="删除" class="btn btn-danger">
               </form> 
             </td>
           </tr>

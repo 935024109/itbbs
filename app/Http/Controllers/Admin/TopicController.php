@@ -57,11 +57,9 @@ class TopicController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'logo' => 'required',
-            'url' => 'required',
         ],[
             'title.required' => '标题必填',
             'logo.required' => '文件必须上传',
-            'url.required' => '链接地址必填',
         ]);
 
 
@@ -83,7 +81,7 @@ class TopicController extends Controller
                 $data = $request->except(['_token']);
                 // 实例化模型,赋值
                 $Topic = new Topic;
-                $Topic->url = $data['url'];
+                // $Topic->url = $data['url'];
                 $Topic->logo = $res1;
                 $Topic->pid = $data['pid'];
                 // dump($Topic->save());

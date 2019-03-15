@@ -67,17 +67,17 @@
             <a href="http://www.itxdl.cn/" target="_blank">兄弟连教育官网</a></li>
         </ul>
       </div>
-      <div id="Quater_bar" class="cl">
-        <div class="wp cl">
+      <!-- <div id="Quater_bar" class="cl"> -->
+        <!-- <div class="wp cl"> -->
           <!-- 站点LOGO -->
-          <div class="hd_logo">
+         <!--  <div class="hd_logo">
             <h2>
               <a href="http://bbs.itxdl.cn/" target="_blank">
                 <img src="http://www.itbbs.com/homes/static/picture/itbbs.jpg" /></a>
             </h2>
-          </div>
+          </div> -->
           <!-- 导航 -->
-          <div class="nav">
+         <!--  <div class="nav">
             <ul>
               <li id="mn_N8473" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
                 <a href="http://www.itxdl.cn/" hidefocus="true" target="_blank">精品课程</a></li>
@@ -92,11 +92,11 @@
               <li class="a" id="mn_N9ec7" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
                 <a href="http://bbs.itxdl.cn/forum.php" hidefocus="true">技术交流</a></li>
             </ul>
-          </div>
-          <div class="th_post y cl" style="display: none;">
-            <a onClick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=274')" href="javascript:;" title="发新帖" style="margin: 0;">发布</a></div>
+          </div> -->
+       <!--    <div class="th_post y cl" style="display: none;">
+            <a onClick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=274')" href="javascript:;" title="发新帖" style="margin: 0;">发布</a></div> -->
           <!-- 用户信息 -->
-          <div class="Quater_user" style="width: 88px; margin-left: 20px; line-height: 60px; font-size: 14px;">
+    <!--       <div class="Quater_user" style="width: 88px; margin-left: 20px; line-height: 60px; font-size: 14px;">
             <ul>
               <li class="z">
                 <a href="member.php?mod=logging&amp;action=login">
@@ -110,7 +110,7 @@
                   </i>注册</a>
               </li>
             </ul>
-          </div>
+          </div> -->
           <div style="display:none">
             <script src="static/js/logging.js?Ac9" type="text/javascript"></script>
             <form method="post" autocomplete="off" id="lsform" action="member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes" onsubmit="return lsSubmit();">

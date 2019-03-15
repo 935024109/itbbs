@@ -32,12 +32,12 @@
                         <input type="file" class="large" name='logo' placeholder="作者头像" >
                     </div>
                 </div>
-                 <div class="mws-form-row">
+               <!--   <div class="mws-form-row">
                     <label class="mws-form-label">地址</label>
                     <div class="mws-form-item">
                         <input type="text" class="large" name='url' value="" >
                     </div>
-                </div>
+                </div> -->
                 <div class="mws-form-row">
                     <label class="mws-form-label">帖子ID</label>
                     <div class="mws-form-item">

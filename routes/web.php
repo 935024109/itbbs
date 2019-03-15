@@ -134,6 +134,7 @@ Route::get('home/post/create/{id}','Home\PostController@create');
 // 帖子资源路由
 Route::resource('home/post','Home\PostController');
 //前台回复贴
+
 // Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
 Route::resource('home/reply','Home\ReplyController');
 // 前台公告
@@ -144,8 +145,6 @@ Route::get('home/topic/post/{id}','Home\TopicController@post');
 Route::resource('home/topic','Home\TopicController');
 // 前台首页
 Route::resource("home",'Home\IndexController');
-
-
 
 //维护页面路由
 Route::get('home/config/on',function(){
