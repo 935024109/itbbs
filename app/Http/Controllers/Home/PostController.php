@@ -193,7 +193,7 @@ class PostController extends Controller
         $post = Post::find($pid);
         // 获取板块信息
         $forum = $post->forum;
-        dump($forum);
+        // dump($forum);
         // 上一板块的名字
         $lastforum = Forum::where('fid',$forum->pid)->first()->fname;
         // 获取用户数据

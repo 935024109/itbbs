@@ -53,7 +53,7 @@
     <div class="wp cl">
       <!-- 站点LOGO -->
       <div class="hd_logo"> 
-          <h2><a href="http://www.itbbs.com/home" target="_blank"><img src="/homes/static/picture/itbbs.jpg" style="width:150px;height:200px;" /></a></h2>
+          <h2 style="margin-top:0px;"><a href="/home" target="_blank"><img src="/homes/static/picture/itbbs.jpg" style="width:150px;height:200px;" /></a></h2>
       </div>
       <!-- 导航 -->
       <div class="nav">
@@ -172,16 +172,16 @@
           <div id="scbar" class="cl">
 <form id="scbar_form" autocomplete="off" action="/home/search" >
       <table cellspacing="0" cellpadding="0">
-      <tr>
-      <td class="scbar_btn_td">
-        <button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc">
-          <strong class="xi2">搜索</strong>
-        </button>
-      </td>                            
-      <td class="scbar_txt_td">
-        <input type="text" name="search" id="scbar_txt" placeholder="请输入搜索内容" autocomplete="off" x-webkit-speech speech />
-      </td>
-    </tr>
+	      <tr>
+	      <td class="scbar_btn_td">
+	        <button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc">
+	          <strong class="xi2">搜索</strong>
+	        </button>
+	      </td>                            
+	      <td class="scbar_txt_td">
+	        <input type="text" name="search" id="scbar_txt" placeholder="请输入搜索内容" autocomplete="off" x-webkit-speech speech />
+	      </td>
+	    </tr>
   </table>
 </form>
 </div>
