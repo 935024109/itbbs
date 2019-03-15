@@ -14,7 +14,7 @@ class Reply extends Model
 
 
     //跟user建立属于关系
-    public function User()
+    public function replyUser()
     {
     	return $this->belongsTo('App\Models\User','uid');
     }

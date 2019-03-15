@@ -32,10 +32,10 @@
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
 
-<!-- 
+
  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+<!--<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
 
 
 <div id="Quater_headtop" >
@@ -53,7 +53,7 @@
     <div class="wp cl">
       <!-- 站点LOGO -->
       <div class="hd_logo"> 
-          <h2><a href="http://www.itbbs.com/home" target="_blank"><img src="/homes/static/picture/itbbs.jpg" style="width:150px;height:200px;" /></a></h2>
+          <h2 style="margin-top: 0px"><a href="http://www.itbbs.com/home" target="_blank"><img src="/homes/static/picture/itbbs.jpg" style="width:150px;height:200px;" /></a></h2>
       </div>
       <!-- 导航 -->
       <div class="nav">

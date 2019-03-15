@@ -1,5 +1,10 @@
 @extends('home.layout.index')
 @section('main')
+<!--  引入bootstrap start -->
+  <link rel="stylesheet" type="text/css" href="/homes/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script type="text/javascript" src="/homes/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/homes/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!--  引入bootstrap end -->
 <div id="wp" class="wp time_wp cl">
   <script type="text/javascript">var fid = parseInt('271'),
     tid = parseInt('240393');</script>
@@ -48,12 +53,12 @@
       <div class="sd">
         <div class="quater_author_info cl">
           <div class="quater_author_info_1 cl">
-            <a href="http://d.bbs.itxdl.cn/space-uid-450063.html" target="_blank" class="toux">
-              <img src="http://bbs.itxdl.cn/uc_server/avatar.php?uid=450063&amp;size=middle" data-bd-imgshare-binded="1"></a>
+            <a href="#" target="_blank" class="toux">
+              <img src="/uploads/{{$user->photo}}" data-bd-imgshare-binded="1"></a>
             <p>
               <a href="#" target="_blank">{{$user->uname}}</a></p>
             <p style="margin-top: 3px;">
-              <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank" style="color: #FF0000;">下士</a></p>
+              <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank" style="color: #FF0000;">{{ $user->auth == 0 ? '普通用户':'版主' }}</a></p>
             <div class="time_thread_stat cl">
               <ul>
                 <li>
@@ -99,10 +104,10 @@
                       <p>
                         <a href="/vip" class=""></a>©
                         <a href="http://d.bbs.itxdl.cn/space-uid-442070.html" target="_blank">{{ $user->uname }}</a>
-                       <!--  <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=7" target="_blank">游客</a> -->&nbsp;&nbsp;/&nbsp;&nbsp;{{$posts_data->created_at}}&nbsp;&nbsp;/&nbsp;&nbsp;
+                       <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=7" target="_blank">{{ $user->auth == 0 ? '普通用户':'版主' }}</a>&nbsp;&nbsp;/&nbsp;&nbsp;{{$posts_data->created_at}}&nbsp;&nbsp;/&nbsp;&nbsp;
                         <span>
                           <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=240393&amp;formhash=327233d2" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖" class="k_favorite" style="padding-right: 10px;">
-                            <i></i>0 人收藏</a>
+                            <i></i>{{ $uid_count }}人收藏</a>
                           </span>
                       </p>
                     </div>
@@ -138,7 +143,7 @@
                     <td class="plc plm">
                       <div id="p_btn" class="mtw hm cl" style="margin-bottom: 30px;"></div>
                       <div id="viewthread_foot cl">
-                        <div class="viewthread_foot cl" style="margin-bottom: 0; border-bottom: 0;">
+                        <div class="viewthread_foot cl" style="margin-bottom: 0; margin-left: 0px; border-bottom: 0;">
                           
                           <script>window._bd_share_config = {
                               "common": {
@@ -155,14 +160,13 @@
                             with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~ ( - new Date() / 36e5)];</script>
                           
                           
-                          <span class="cutline" style="margin: 9px 10px 0 0;"></span>
-                          <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=240393&amp;formhash=327233d2" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖" class="k_favorite">收藏</a>
-                          <div class="y" style="margin-top: 7px;">
-                            <em>
-                              <a class="times_fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=271&amp;tid=240393&amp;reppost=1154080&amp;extra=page%3D%257Bprevpage%257D&amp;page=1" onclick="showWindow('reply', this.href)">
-                                <span></span>回复</a>
-                            </em>
-                          </div>
+                         <!--  <span class="cutline" style="margin: 9px 10px 0 0;"></span>
+                         <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=240393&amp;formhash=327233d2" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖" class="k_favorite">收藏</a>
+                         <a href="/home/post/like/{{$posts_data->pid}}" id="k_favorite"  title="收藏本帖" class="k_favorite">收藏</a> -->
+                         <form action="/home/post/like/{{$posts_data->pid}}" >
+                                           <button style="float: right;" class="btn btn-danger">收藏</button>
+                                         </form>
+                          
                         </div>
                       </div>
                     </td>
@@ -186,7 +190,7 @@
                 <strong>{{$reply_count}}</strong>个回复</h2>
               <a href="http://bbs.itxdl.cn/forum.php?mod=viewthread&amp;tid=240393&amp;extra=page%3D%257Bprevpage%257D&amp;ordertype=1" class="show z" style="padding-left: 20px; border-left: 1px solid #CCCCCC;">倒序浏览</a></div>
             <div id="post_1068720">
-              @foreach($replyUserArr as $k => $v)
+              @foreach($reply_data as $k => $v)
               <table id="pid1068720" class="plhin" summary="pid1068720" cellspacing="0" cellpadding="0">
                 <tbody>
                   <tr>
@@ -198,15 +202,25 @@
                             <div class="cl" style="float: right; width: 660px; overflow: hidden;">
                               <div class="cl" style="height: 30px; margin: 7px 0 0 0; overflow: hidden;">
                                 <em id="authorposton1068720">
-                                  <a href="http://d.bbs.itxdl.cn/space-uid-442000.html" target="_blank" style="padding: 0 5px 0 0; color: #333333; font-size: 14px; font-weight: 400;">{{ $v->uname }}</a></em>
-                                <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank" style="padding: 0 10px 0 5px;">下士</a>
-                                <em style="padding: 0 10px 0 0; color: #BBBBBB;"></em>
+                                  <a href="http://d.bbs.itxdl.cn/space-uid-442000.html" target="_blank" style="padding: 0 5px 0 0; color: #333333; font-size: 14px; font-weight: 400;">{{ $v->replyUser->uname }}</a></em>
+                                <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank" style="padding: 0 10px 0 5px;">{{ $v->replyUser->auth==0 ? '普通用户':'版主' }}</a>
+                                <em style="padding: 0 10px 0 0; color: #BBBBBB;">{{$v->created_at}}</em>
                                 <div style="display:none;">
                                   <span class="pipe">|</span>
                                   <a href="http://bbs.itxdl.cn/forum.php?mod=viewthread&amp;tid=240393&amp;page=1&amp;authorid=442000" rel="nofollow">只看该作者</a></div>
                                 <div style="display:none;"></div>
                                 <strong style="margin: 0;" class="floors y">
-                                  <a href="http://bbs.itxdl.cn/forum.php?mod=redirect&amp;goto=findpost&amp;ptid=240393&amp;pid=1068720" id="postnum1068720" onclick="setCopy(this.href, '帖子地址复制成功');return false;" style="line-height: 18px; padding: 2px 5px;">沙发</a></strong>
+                                  <a href="http://bbs.itxdl.cn/forum.php?mod=redirect&amp;goto=findpost&amp;ptid=240393&amp;pid=1068720" id="postnum1068720" onclick="setCopy(this.href, '帖子地址复制成功');return false;" style="line-height: 18px; padding: 2px 5px;">
+                                  @if($k == 0)
+                                  沙发
+                                  @elseif($k == 1)
+                                  板凳
+                                  @elseif($k == 2)
+                                  地板
+                                  @else
+                                  {{$k += 1}}#
+                                  @endif
+                                </a></strong>
                               </div>
                             </div>
                           </div>
@@ -218,7 +232,7 @@
                             <table cellspacing="0" cellpadding="0">
                               <tbody>
                                 <tr>
-                                  <td class="t_f" id="postmessage_1068720">{!!$k!!}</td></tr>
+                                  <td class="t_f" id="postmessage_1068720">{!!$v->content!!}</td></tr>
                               </tbody>
                             </table>
                           </div>
@@ -237,10 +251,10 @@
                       <div class="po bbd reply_p">
                         <div class="pob cl">
                           <span style="float: left;">
-                            <a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=271&amp;tid=240393&amp;repquote=1068720&amp;extra=page%3D%257Bprevpage%257D&amp;page=1" onclick="showWindow('reply', this.href)">回复</a></span>
-                          <em>
-                            <a href="javascript:;" id="mgc_post_1068720" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
-                            <a href="javascript:;" onclick="showWindow('miscreport1068720', 'misc.php?mod=report&amp;rtype=post&amp;rid=1068720&amp;tid=240393&amp;fid=271', 'get', -1);return false;" style="padding-left: 0;">举报</a></em>
+                            <a class="fastre" href="" onclick="showInput()">回复</a></span>
+                         <!--  <em>
+                           <a href="javascript:;" id="mgc_post_1068720" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
+                           <a href="javascript:;" onclick="showWindow('miscreport1068720', 'misc.php?mod=report&amp;rtype=post&amp;rid=1068720&amp;tid=240393&amp;fid=271', 'get', -1);return false;" style="padding-left: 0;">举报</a></em> -->
                           <ul id="mgc_post_1068720_menu" class="p_pop mgcmn" style="display: none;"></ul>
                           <script type="text/javascript" reload="1">checkmgcmn('post_1068720')</script></div>
                       </div>
@@ -278,14 +292,14 @@
           var postmaxchars = parseInt('10000');
           var disablepostctrl = parseInt('0');</script>
         <div id="f_pst" class="pl bm bmw">
-         <form class="form-inline" action="/home/reply/add/{{$posts_data->pid}}/{{session('id')}}" method="post">
+         <form class="form-inline" action="/home/reply/{{$posts_data->pid}}" method="post">
              {{  csrf_field() }}
-            
+             {{ method_field('PUT')}}
             <!--引入百度编辑器-->
             <script id="container" name="content" type="text/plain"></script>
 
            <!--  <button type="submit" class="btn btn-default">Send invitation</button> -->
-            <input type="submit" class="btn btn-info" value="发帖">
+            <input type="submit" class="btn btn-info" value="发帖" style="margin-left: 625px">
           </form>
         </div>
       </div>
@@ -319,4 +333,6 @@
     ['bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc']
 ]});
 </script>
+<script src="/homes/static/js/plugin.js" type="text/javascript"></script>
+
 @endsection

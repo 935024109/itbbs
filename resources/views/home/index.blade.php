@@ -1,5 +1,5 @@
-
 @extends('home/layout/index')
+    
     @section('main')
     <div id="wp" class="wp time_wp cl">
       <script src="/homes/static/js/jquery.superslide.js" type="text/javascript" type="text/javascript"></script>
@@ -40,7 +40,7 @@
                         @foreach($carousels_data as $k => $v)
                         <div class="showDiv">
                           <a href="{{ $v->link_url }}" target="_blank">
-                            <img src="/uploads/images/{{ $v->img_src }}" width="770" height="330" /></a>
+                            <img src="/uploads/images/carousel/{{ $v->img_src }}" width="770" height="330" /></a>
                           <div class="foucebox_bg"></div>
                           <div>
                             <h2>
@@ -173,7 +173,7 @@
               <div class="y">
                 <a href="http://bbs.itxdl.cn/forum.php?mod=guide&amp;view=new" title="最新回复" class="xi2">最新回复</a></div>
             </div>
-            <div class="Framebox cl" style="width: 100%; padding: 10px 25px; border-radius: 0 0 2px 2px; background: #FFFFFF; box-shadow: none; overflow: hidden;">
+            <div class="Framebox cl" style="width: 720px; padding: 10px 25px; border-radius: 0 0 2px 2px; background: #FFFFFF; box-shadow: none; overflow: hidden;">
               <!-- 栏目遍历 -->
               @foreach($data as $k=>$v)
               <div class="fl bm" style="margin-right: 50px;">
@@ -245,7 +245,7 @@
                     <div id="portal_block_4_content" class="dxb_bc">
                       <div class="portal_block_summary">
                         <div class="itofeedback cl">
-                          <a class="bluebigbutton" href='/home/goPost/{{$id or 0}}' title="发帖">发帖</a> 
+                          <a class="bluebigbutton" href='/home/post/create/{{$id or 0}}' title="发帖">发帖</a> 
                           <a href="/home/signs/create" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a></div>
                       </div>
                     </div>

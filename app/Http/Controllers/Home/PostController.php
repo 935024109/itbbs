@@ -29,17 +29,16 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($id = 0)
     {
         //判断用户是否登录
-       /* if(!session('id')){
+        if(!session('id')){
             //如果没有登录,跳转到 登录页面
-            return view('home.login.index');
+             return redirect('/home/login')->with('success', '抱歉，您尚未登录，没有权限在该版块发帖');
         }
-
-        return view('home.post.create',['fid'=>$id]);
-*/
+         return view('home.post.create',['forum_cates'=>self::getForumCates(),'fid'=>$id]);
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -62,21 +61,10 @@ class PostController extends Controller
         $post->content = $data['content'];
         $post->revert = $data['revert'];
         $post->fid = $data['fid'];
+        $post->score = $post->score += 5;
         $res = $post->save();
-
-       /* // 根据id获取用户信息
-         $user = User::find($uid);
-        // 获取板块信息
-        $forum = Forum::find($data['fid']);
-        // 上一板块的名字
-        $lastforum = Forum::where('fid',$forum->pid)->first()->fname;
-
-        $post_count = Post::where('uid',$uid)->count();
-        // dd($posts_data);*/
         if ($res) {
-            /*return view('home.post.checkcontent',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'forum'=>$forum,'lastforum'=>$lastforum]);*/
-            // dd($uid);
-            return $this->goCheckContent($post->pid,$uid);
+            return $this->show($post->pid);
         }else{
             return back();
         }
@@ -91,7 +79,37 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        // 获取帖子数据
+        $post = Post::find($id);
+        // 获取板块信息
+        $forum = $post->forum;
+        // 上一板块的名字
+        $lastforum = Forum::where('fid',$forum->pid)->first()->fname;
+        // 获取用户数据
+        $uid = $post->uid;
+        $user = User::find($uid);
+        // 获取当前用户的帖子个数
+        $post_count = Post::where('uid',$uid)->count();
+        
+        // 获取帖子下的回帖个数
+        $reply_count = Reply::where('pid',$id)->count();
+
+        // 获取当前帖子的回帖
+        $reply_data = Reply::where('pid',$id)->get();
+
+        // 获取帖子被多少人收藏
+        // 初始化变量累计人数
+        $uid_count = 0;
+        // 获取所有收藏该帖子的人数
+        $collections = $post->collection;
+        foreach ($collections as $k => $v) {
+            if ($v->pid == $id) {
+                $uid_count += 1;
+            }
+        }
+
+        // 加载视图,分配数据
+        return view('home.post.show',['posts_data'=>$post,'post_count'=>$post_count, 'user'=>$user,'pid'=>$id,'reply_data'=>$reply_data,'reply_count'=>$reply_count,'lastforum'=>$lastforum,'forum'=>$forum,'uid_count'=>$uid_count,]);
     }
 
     /**
@@ -174,17 +192,6 @@ class PostController extends Controller
         return $forums_cates;
     }   
 
-    public function goPost($id = 0)
-    {
-        //判断用户是否登录
-        if(!session('id')){
-            //如果没有登录,跳转到 登录页面
-            return view('home.login.index');
-        }
-
-        return view('home.post.create',['forum_cates'=>self::getForumCates(),'fid'=>$id]);
-
-    }
 
     // 跳转到帖子详情页
     public function goCheckContent($pid,$uid)
@@ -193,7 +200,6 @@ class PostController extends Controller
         $post = Post::find($pid);
         // 获取板块信息
         $forum = $post->forum;
-        dump($forum);
         // 上一板块的名字
         $lastforum = Forum::where('fid',$forum->pid)->first()->fname;
         // 获取用户数据

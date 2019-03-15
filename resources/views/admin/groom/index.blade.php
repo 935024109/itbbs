@@ -42,7 +42,7 @@
             <td class="  sorting_1">{{ $v->gid }}</td>
             <td class=" ">{{ $v->img_href }}</td>
             <td >
-                <img class="thumbnail" src="/uploads/images/groom/{{ $v->picture }}">
+                <img class="thumbnail" src="/uploads/images/groom/{{ $v->picture }}" style="width: 100px;height: 100px;">
             </td>
             <td class=" ">{{ $v->picture }}</td>
             <td class=" ">{{ $v->pid }}</td>

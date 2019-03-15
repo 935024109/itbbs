@@ -32,7 +32,7 @@
         <div class="mws-form-row">
           <label class="mws-form-label">图片链接</label>
           <div class="mws-form-item">
-           <img class="thumbnail" src="/uploads/images/groom/{{ $groom->picture }}">
+           <img class="thumbnail" src="/uploads/images/groom/{{ $groom->picture }}" style="width: 100px;height: 100px;"></div>
         </div>        
         <div class="mws-form-row">
           <label class="mws-form-label">图片</label>

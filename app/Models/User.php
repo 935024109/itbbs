@@ -31,5 +31,9 @@ class User extends Model
         return $this->hasOne('App\Models\Signs','uid');
     }
 
-  
+    // 设置用户与回帖表的一对多关联
+    public function userReply()
+    {
+        return $this->hasMany('App\Models\Reply','uid');
+    }
 }
