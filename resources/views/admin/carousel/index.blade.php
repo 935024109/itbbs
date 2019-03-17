@@ -25,7 +25,7 @@
                         <td>{{ $v -> carid }}</td>
                         <td>{{ $v -> title }}</td>
                         <td>
-    						<img src="/uploads/images/{{ $v -> img_src }}" style="width:100px;height:100px">
+    						<img src="/uploads/images/carousel/{{ $v -> img_src }}" style="width:100px;height:100px">
                         </td>
                         <td>{{ $v -> img_src }}</td>
                         <td>{{ $v -> link_url }}</td>

@@ -58,7 +58,7 @@ return [
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', '78890074@qq.com'),
         'name' => env('MAIL_FROM_NAME', '你说知不知道'),
- 
+    ],
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
@@ -117,6 +117,6 @@ return [
         'paths' => [
             resource_path('views/vendor/mail'),
         ],
-    ],
+    ]
 
 ];

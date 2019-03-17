@@ -101,9 +101,15 @@ class ReplyController extends Controller
         //
     }
 
-    // 添加回复贴
-    public function add(Request $request, $pid, $uid)
+    // 添加回复的回复贴
+   public function addReply(Request $request, $rid)
     {
+         //判断用户是否登录
+        if(!session('id')){
+            //如果没有登录,跳转到 登录页面
+             return redirect('/home/login')->with('success', '抱歉，您尚未登录，还不能回帖');
+        }
+        dd($request->all());
         //获取数据
         $data = $request -> input('content');
         //实例化对象

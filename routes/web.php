@@ -135,7 +135,7 @@ Route::get('home/post/create/{id}','Home\PostController@create');
 Route::resource('home/post','Home\PostController');
 //前台回复贴
 
-// Route::post('home/reply/add/{pid}/{uid}','Home\ReplyController@add');
+Route::post('home/reply/addReply/{rid}','Home\ReplyController@add');
 Route::resource('home/reply','Home\ReplyController');
 // 前台公告
 Route::get('home/announcement/{id}','Home\AnnouncementController@show');

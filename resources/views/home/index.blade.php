@@ -59,7 +59,7 @@
                           @foreach($carousels_data as $k => $v)
                           <li>
                             <a href="{{ $v->link_url }}">
-                              <img src="/uploads/images/{{ $v->img_src }}">
+                              <img src="/uploads/images/carousel/{{ $v->img_src }}">
                               <span class="txt_bg"></span>
                               <span class="mask"></span>
                             </a>

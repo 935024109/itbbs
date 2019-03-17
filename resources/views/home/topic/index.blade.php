@@ -87,7 +87,7 @@
                               <tr>
                                 <td class="t_f" id="postmessage_1158615">
 	                                <div align="left">
-	                                   {{$post_content->content}}		
+	                                   {!! $post_content->content !!}		
 	                                </div>
                               </td>
                               </tr>

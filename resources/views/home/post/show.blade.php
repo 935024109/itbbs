@@ -58,7 +58,19 @@
             <p>
               <a href="#" target="_blank">{{$user->uname}}</a></p>
             <p style="margin-top: 3px;">
-              <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank" style="color: #FF0000;">{{ $user->auth == 0 ? '普通用户':'版主' }}</a></p>
+              <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank" style="color: #FF0000;">
+                @if($user->score >=  3000 )
+                  班长
+                @elseif($user->score >=  750)
+                  士官
+                @elseif($user->score >=  350)
+                  上士
+                @elseif($user->score >=  200)
+                  中士
+                @else($user->score >=  100)
+                  下士
+                @endif              
+              </a></p>
             <div class="time_thread_stat cl">
               <ul>
                 <li>
@@ -104,7 +116,19 @@
                       <p>
                         <a href="/vip" class=""></a>©
                         <a href="http://d.bbs.itxdl.cn/space-uid-442070.html" target="_blank">{{ $user->uname }}</a>
-                       <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=7" target="_blank">{{ $user->auth == 0 ? '普通用户':'版主' }}</a>&nbsp;&nbsp;/&nbsp;&nbsp;{{$posts_data->created_at}}&nbsp;&nbsp;/&nbsp;&nbsp;
+                       <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=7" target="_blank">
+                        @if($user->score >=  3000 )
+                          班长
+                        @elseif($user->score >=  750)
+                          士官
+                        @elseif($user->score >=  350)
+                          上士
+                        @elseif($user->score >=  200)
+                          中士
+                        @else($user->score >=  100)
+                          下士
+                        @endif
+                       </a>&nbsp;&nbsp;/&nbsp;&nbsp;{{$posts_data->created_at}}&nbsp;&nbsp;/&nbsp;&nbsp;
                         <span>
                           <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=240393&amp;formhash=327233d2" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖" class="k_favorite" style="padding-right: 10px;">
                             <i></i>{{ $uid_count }}人收藏</a>
@@ -162,11 +186,21 @@
                           
                          <!--  <span class="cutline" style="margin: 9px 10px 0 0;"></span>
                          <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=240393&amp;formhash=327233d2" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖" class="k_favorite">收藏</a>
-                         <a href="/home/post/like/{{$posts_data->pid}}" id="k_favorite"  title="收藏本帖" class="k_favorite">收藏</a> -->
+                         <a href="/home/post/like/{{$posts_data->pid}}" id="k_favorite"  title="收藏本帖" class="k_favorite">收藏</a>
                          <form action="/home/post/like/{{$posts_data->pid}}" >
                                            <button style="float: right;" class="btn btn-danger">收藏</button>
-                                         </form>
-                          
+                                         </form> -->
+                        @if(session('flag') == true)
+                          @if($posts_data->collection_uid($posts_data->pid,session('id')))
+                            <form action="/home/post/nolike/{{$posts_data->pid}}">
+                              <button style="float: right;" class="btn btn-danger">已收藏</button>
+                            </form>
+                          @else
+                            <form action="/home/post/like/{{$posts_data->pid}}">
+                              <button class="btn btn-info" style="float: right;">收藏</button>
+                            </form>
+                          @endif
+                        @endif
                         </div>
                       </div>
                     </td>
@@ -199,11 +233,24 @@
                       <div class="pi " style="height: 50px; padding-bottom: 0; border-bottom: 0;">
                         <div class="pti" style="color: #515151;">
                           <div class="authi">
+                            <div class="cl" style="float: left; width: 50px; overflow: hidden;"><a href="http://d.bbs.itxdl.cn/space-uid-361086.html" target="_blank" class="xi2 z inside_avt" style="padding-right: 0;"><img src="/uploads/{{ $v->replyUser->photo }}" data-bd-imgshare-binded="1"></a></div>
                             <div class="cl" style="float: right; width: 660px; overflow: hidden;">
                               <div class="cl" style="height: 30px; margin: 7px 0 0 0; overflow: hidden;">
                                 <em id="authorposton1068720">
                                   <a href="http://d.bbs.itxdl.cn/space-uid-442000.html" target="_blank" style="padding: 0 5px 0 0; color: #333333; font-size: 14px; font-weight: 400;">{{ $v->replyUser->uname }}</a></em>
-                                <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank" style="padding: 0 10px 0 5px;">{{ $v->replyUser->auth==0 ? '普通用户':'版主' }}</a>
+                                <a href="http://d.bbs.itxdl.cn/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank" style="padding: 0 10px 0 5px;">
+                                @if($v->replyUser->score >=  3000 )
+                                  班长
+                                @elseif($v->replyUser->score >=  750)
+                                  士官
+                                @elseif($v->replyUser->score >=  350)
+                                  上士
+                                @elseif($v->replyUser->score >=  200)
+                                  中士
+                                @else($v->replyUser->score >=  100)
+                                  下士
+                                @endif
+                                </a>
                                 <em style="padding: 0 10px 0 0; color: #BBBBBB;">{{$v->created_at}}</em>
                                 <div style="display:none;">
                                   <span class="pipe">|</span>
@@ -249,14 +296,21 @@
                   <tr>
                     <td class="plc" style="overflow:visible;--> width:100%">
                       <div class="po bbd reply_p">
-                        <div class="pob cl">
-                          <span style="float: left;">
-                            <a class="fastre" href="" onclick="showInput()">回复</a></span>
-                         <!--  <em>
-                           <a href="javascript:;" id="mgc_post_1068720" onmouseover="showMenu(this.id)" class="showmenu" style="display: none;"></a>
-                           <a href="javascript:;" onclick="showWindow('miscreport1068720', 'misc.php?mod=report&amp;rtype=post&amp;rid=1068720&amp;tid=240393&amp;fid=271', 'get', -1);return false;" style="padding-left: 0;">举报</a></em> -->
-                          <ul id="mgc_post_1068720_menu" class="p_pop mgcmn" style="display: none;"></ul>
-                          <script type="text/javascript" reload="1">checkmgcmn('post_1068720')</script></div>
+                        <!-- <script type="text/javascript" src='/homes/static/js/jquery-1.11.1.min.js'></script> -->
+                       <!--  <div class="pob cl">
+                         <span style="float: left;">                    
+                           <a  href="javascript:;" id="answer{{$v->rid}}" onclick="answer( {{$v->rid}} )"> 回复</a> -->
+                          </span> 
+                            <script type="text/javascript" reload="1">checkmgcmn('post_1068720')</script></div>
+                      </div>
+                        <form  action="/home/reply/addReply/{{$v->rid}}" id="answer_form{{ $v->rid }}" method="post" hidden>
+                          {{ csrf_field() }}
+                          <input type="text" id="acontent{{$v->id}}" name="acontent" >
+                           <input type="hidden" name="rid" value="{{$v->rid}}">
+                            <input type="hidden" name="tid" value="{{ $v->Post->pid }}">
+                          <input type="button" value="回复" onclick="validata({{ $v->rid }})">
+                          <input type="button" value="关闭" onclick="closer({{ $v->rid }})">
+                        </form>
                       </div>
                     </td>
                   </tr>
@@ -264,6 +318,40 @@
                     <td class="pls"></td>
                   </tr>
                 </tbody>
+                 <!-- <script type="text/javascript">
+                    //显示回复表单方法
+                    function answer(rid)
+                    {
+                    //回复
+                     var answer = 'answer' + rid;
+                     document.getElementById(answer).hidden=true;
+                     //回复表单
+                     var answer_form = 'answer_form' + rid;
+                     document.getElementById(answer_form).hidden=false;
+                    }
+                    //隐藏回复表单方法
+                    function closer(rid){
+                      //定义回复的变量
+                     var answer = 'answer' + rid;
+                     document.getElementById(answer).hidden=false;
+                     //回复表单
+                     var answer_form = 'answer_form' + rid;
+                     document.getElementById(answer_form).hidden=true;
+                    }
+                    //验证数据方法
+                    function validata(rid){alert(rid);
+                      var answer_form = 'answer_form' + rid;
+                      var acontent_id = 'acontent' + rid;
+                      alert(acontent_id);
+                      var acontent = document.getElementById(acontent_id);
+                      alert(acontent);
+                      if(acontent.value == ""){
+                        alert("回复不能为空！囧!");
+                        return false;
+                      }
+                      document.getElementById(answer_form).submit();
+                    }
+                  </script> -->
               </table>
               @endforeach
             </div>
@@ -299,7 +387,7 @@
             <script id="container" name="content" type="text/plain"></script>
 
            <!--  <button type="submit" class="btn btn-default">Send invitation</button> -->
-            <input type="submit" class="btn btn-info" value="发帖" style="margin-left: 625px">
+            <input type="submit" class="btn btn-info" value="回帖" style="margin-left: 716px">
           </form>
         </div>
       </div>
