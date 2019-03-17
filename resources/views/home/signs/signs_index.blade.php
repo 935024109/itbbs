@@ -17,7 +17,7 @@
 <div class="mytips">
 <p>尊敬的<b>{{ $data->nickname }}</b> ，您累计已签到:  <b>{{$data->sign_count}}</b>天
 
-<p>您上次签到时间:<b>{{$data->last_time}}</b></p>
+<p>您上次签到时间:<b>{{$last_time}}</b></p>
 <p>您目前获得的总奖励为: 积分 <b>{{$user->score}}</b>，上次获得的奖励为:积分 <b>20</b></p>
 <p>坚持签到，努力前行！</p>
 </div>

@@ -25,18 +25,18 @@
                         <td>{{ $v -> carid }}</td>
                         <td>{{ $v -> title }}</td>
                         <td>
-    						<img src="/uploads/images/{{ $v -> img_src }}" style="width:100px;height:100px">
+    						<img src="/uploads/images/carousel/{{ $v -> img_src }}" style="width:100px;height:100px">
                         </td>
                         <td>{{ $v -> img_src }}</td>
                         <td>{{ $v -> link_url }}</td>
                         <td>{{ $v -> created_at }}</td>
                         <td>{{ $v -> updated_at }}</td>
                         <td>
-    						<a href="/admin/carousel/{{ $v->carid }}/edit">修改</a>
+    						<a href="/admin/carousel/{{ $v->carid }}/edit" class="btn btn-info">修改</a>
     						<form action="/admin/carousel/{{ $v->carid }}" method="post" style="display: inline-block;">
     							{{ csrf_field() }}
     							{{ method_field('DELETE') }}
-    							<input type="submit" value="删除">
+    							<input type="submit" value="删除" class="btn btn-danger">
     						</form>
                         </td>
                     </tr>

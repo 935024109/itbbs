@@ -1,5 +1,9 @@
-
 @extends('home/layout/index')
+    
+@section('title')
+{{ $title[0]->title }}
+
+@endsection
     @section('main')
     <div id="wp" class="wp time_wp cl">
       <script src="/homes/static/js/jquery.superslide.js" type="text/javascript" type="text/javascript"></script>
@@ -40,7 +44,7 @@
                         @foreach($carousels_data as $k => $v)
                         <div class="showDiv">
                           <a href="{{ $v->link_url }}" target="_blank">
-                            <img src="/uploads/images/{{ $v->img_src }}" width="770" height="330" /></a>
+                            <img src="/uploads/images/carousel/{{ $v->img_src }}" width="770" height="330" /></a>
                           <div class="foucebox_bg"></div>
                           <div>
                             <h2>
@@ -55,7 +59,7 @@
                           @foreach($carousels_data as $k => $v)
                           <li>
                             <a href="{{ $v->link_url }}">
-                              <img src="/uploads/images/{{ $v->img_src }}">
+                              <img src="/uploads/images/carousel/{{ $v->img_src }}">
                               <span class="txt_bg"></span>
                               <span class="mask"></span>
                             </a>
@@ -245,7 +249,7 @@
                     <div id="portal_block_4_content" class="dxb_bc">
                       <div class="portal_block_summary">
                         <div class="itofeedback cl">
-                          <a class="bluebigbutton" href='/home/goPost/{{$id or 0}}' title="发帖">发帖</a> 
+                          <a class="bluebigbutton" href='/home/post/create/{{$id or 0}}' title="发帖">发帖</a> 
                           <a href="/home/signs/create" target="_blank" class="greenbigbutton" title="签到" style="margin-right: 0;">签到</a></div>
                       </div>
                     </div>

@@ -42,18 +42,18 @@
             <td class="  sorting_1">{{ $v->gid }}</td>
             <td class=" ">{{ $v->img_href }}</td>
             <td >
-                <img class="thumbnail" src="/uploads/images/groom/{{ $v->picture }}">
+                <img class="thumbnail" src="/uploads/images/groom/{{ $v->picture }}" style="width: 100px;height: 100px;">
             </td>
             <td class=" ">{{ $v->picture }}</td>
             <td class=" ">{{ $v->pid }}</td>
             <td>
               <form action="/admin/groom/{{ $v->gid }}/edit" method="get" style="display: inline;">
-                  <input type="submit" value="修改">
+                  <input type="submit" value="修改"  class="btn btn-info">
               </form>
               <form action="/admin/groom/{{ $v->gid }}" method="post" style="display: inline;">
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}
-                  <input type="submit" value="删除" >
+                  <input type="submit" value="删除" class="btn btn-danger">
               </form> 
             </td>
           </tr>

@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Post;
+use App\Models\Reply;
 use App\Models\Collection;
 use Hash;
+use DB;
 
 class UserController extends Controller
 {
@@ -19,7 +22,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        
+        echo "string";
     }
 
     /**
@@ -176,5 +179,61 @@ class UserController extends Controller
         // dd($data);
         return view('home.user.collection',compact('data','user'));
     }
+
+
+    /**
+     * 个人空间
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public function user_info($id)
+    {
+        // 查询用户发表过的帖子
+        $user_post = Post::where('uid',$id)->get();
+        // 查询用户发表过的回复
+        $user_reply = Reply::where('uid',$id)->get();
+        // $user_reply_reply_id = Reply::find($user_reply[0]->reply_id);
+        // dd($user_reply);
+
+        return view('home.user.userinfo',compact('user_post','user_reply'));
+    }
+
+    /**
+     * 删除忒贴子
+     * @param  [type] $pid [description]
+     * @return [type]      [description]
+     */
+    public function remove_post($pid)
+    {
+        DB::beginTransaction();
+        $res = Post::where('pid',$pid)->delete();
+        $res2 = Reply::where('pid',$pid)->delete();
+
+        if($res && $res2){
+            DB::commit();
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        } else {
+            DB::rollBack();
+            return back()->with('error','删除失败');
+        }
+
+    }
+
+
+    /**
+     * 删除自己回复
+     * @param  [type] $rid [description]
+     * @return [type]      [description]
+     */
+    public function remove_reply($rid)
+    {
+        $res = Reply::where('rid',$rid)->delete();
+        if($res){
+            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
+        } else {
+            return back()->with('error','删除失败');
+        }
+    }
+
 
 }

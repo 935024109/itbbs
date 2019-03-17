@@ -16,12 +16,6 @@
                     	<input type="text" class="large" name='title' value="{{$data->title}}" placeholder="公告标题">
                     </div>
                 </div>
-               <!--  <div class="mws-form-row">
-                	<label class="mws-form-label">作者</label>
-                	<div class="mws-form-item">
-                    	<input type="text" class="large" name='pname' value="" placeholder="作者">
-                    </div>
-                </div> -->
                 <div class="mws-form-row">
                     <label class="mws-form-label">头像</label>
                     <div class="mws-form-item">
@@ -31,12 +25,12 @@
                         </p>
                     </div>
                 </div>
-                 <div class="mws-form-row">
+                <!--  <div class="mws-form-row">
                     <label class="mws-form-label">地址</label>
                     <div class="mws-form-item">
                         <input type="text" class="large" name='url' value="{{$data->url}}" >
                     </div>
-                </div>
+                </div> -->
                 
                
                 <div class="mws-button-row">

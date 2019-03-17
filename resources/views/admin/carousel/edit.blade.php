@@ -35,7 +35,7 @@
                 <div class="mws-form-row">
                 	<label class="mws-form-label">缩略图</label>
                 	<div class="mws-form-item">
-                    	<img src="/uploads/images/{{ $carousel->img_src }}" style="width:100px;height:100px;">
+                    	<img src="/uploads/images/carousel/{{ $carousel->img_src }}" style="width:100px;height:100px;">
                     </div>
                 </div>
             	<div class="mws-form-row">

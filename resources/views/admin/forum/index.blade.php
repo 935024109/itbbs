@@ -23,13 +23,13 @@
                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 98px;">ID
                         </th>
                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 211px;">分类名称</th>
-                        <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 133px;">父级pid
+                        <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 100px;">父级pid
                         </th>
                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 198px;">分类路径
                         </th>
                         <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 98px;">状态
                         </th>
-                        <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 155px;">操作
+                        <th class="" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 188px;">操作
                         </th>
                     </tr>
                 </thead>
@@ -43,12 +43,12 @@
                         <td class=" ">{{ $v -> path }}</td>
                         <td class=" ">{{ $v -> status == 1 ? '已激活':'未激活'}}</td>                   
                         <td>
-                            <a href="/admin/forum/{{ $v->fid }}/edit">修改</a>
-                            <a href="/admin/forum/create/{{ $v->fid }}">添加子分类</a>
+                            <a href="/admin/forum/{{ $v->fid }}/edit" class="btn btn-info">修改</a>
+                            <a href="/admin/forum/create/{{ $v->fid }}" class="btn btn-">添加子分类</a>
                             <form action="/admin/forum/{{ $v->fid }}" method="post" style="display:inline-block;">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <input type="submit" value="删除">
+                                <input type="submit" value="删除" class="btn btn-danger">
                             </form>
                         </td>
                     </tr>

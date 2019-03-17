@@ -177,7 +177,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        // 根据id删除用户
+        // 根据id查询用户
         $user = User::find($id);
         // dd($res);
 

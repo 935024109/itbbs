@@ -59,7 +59,7 @@ class CarouselController extends Controller
             // 拼接名称
             $file_name = time()+rand(1000,9999).'.'.$ext;
             // dump($file_name);
-            $file->storeAs('images',$file_name);
+            $file->storeAs('images/carousel',$file_name);
         }
 
         // 接收数据
@@ -132,7 +132,7 @@ class CarouselController extends Controller
             // 拼接名称
             $file_name = time()+rand(1000,9999).'.'.$ext;
             // dump($file_name);
-            $file->storeAs('images',$file_name);
+            $file->storeAs('images/carousel',$file_name);
             //给模型图片路径属性赋值
             $carousel->img_src = $file_name;
             // 压入到数据库
@@ -162,7 +162,7 @@ class CarouselController extends Controller
     {
         //根据id 获取数据,拼接图片地址
         $img_src = Carousel::find($id)->img_src;
-        $img_src = 'uploads/images/'.$img_src;
+        $img_src = 'uploads/images/carousel'.$img_src;
         //根据id删除轮播图
         $res1 = Carousel::destroy($id);
         //删除图片

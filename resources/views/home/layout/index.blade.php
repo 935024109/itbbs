@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>兄弟连论坛_每个人的交流社区 - </title>
+<title>@yield('title','itbbs')</title>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="keywords" content="PHP交流,PHP教程,PHP论坛,php视频,HTML5学习,HTML5教程,Linux教程,UI设计学习,java教程,H5教程,平面设计教程,UE培训" />
 <meta name="description" content="兄弟连教育旗下官方论坛：大咖分分钟解答的技术交流社区，专注PHP、linux、java、html5、UI设计培训等专业技术交流与教程分享的地方 " />
@@ -11,7 +11,7 @@
 <meta name="copyright" content="2001-2013 Comsenz Inc." />
 <meta name="MSSmartTagsPreventParsing" content="True" />
 <meta http-equiv="MSThemeCompatible" content="Yes" />
-<link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_common.css" /><link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_index.css" />    <script src="/homes/static/js/jquery.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_common.css" /><link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_index.css" />  <link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_viewthread.css" />  <script src="/homes/static/js/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">var STYLEID = '2', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'Ac9', charset = 'gbk', discuz_uid = '0', cookiepre = '6tcf_40b9_', cookiedomain = '.itxdl.cn', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '1|威望|,2|金钱|,3|贡献|', defaultstyle = '', REPORTURL = 'aHR0cDovL2Jicy5pdHhkbC5jbi8=', SITEURL = 'http://bbs.itxdl.cn/', JSPATH = 'static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
     <!--[if IE 6]>
      <script language='javascript' type="text/javascript">   
@@ -32,10 +32,10 @@
 <div id="append_parent"></div>
 <div id="ajaxwaitid"></div>
 
-<!-- 
+
  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+<!--<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
 
 
 <div id="Quater_headtop" >
@@ -53,7 +53,9 @@
     <div class="wp cl">
       <!-- 站点LOGO -->
       <div class="hd_logo"> 
+
           <h2 style="margin-top:0px;"><a href="/home" target="_blank"><img src="/homes/static/picture/itbbs.jpg" style="width:150px;height:200px;" /></a></h2>
+
       </div>
       <!-- 导航 -->
       <div class="nav">
@@ -119,6 +121,7 @@
               <li><a id="nte_menu" href="/home/user/{{ session('id') }}/edit" class="notification">修改密码</a></li>
               <li><a id="msg_menu" href="/home/user/collection/{{ session('id') }}" class="msg">收藏</a></li>
                             <li><a href="/home/user/{{ session('id') }}">个人中心</a></li>           
+                            <li><a href="/home/user/user_info/{{ session('id') }}">个人空间</a></li>           
                
                             <li class="l4"><a href="/home/out">退出登录</a></li>
               </div>

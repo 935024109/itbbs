@@ -1,7 +1,7 @@
 @extends('home.layout.index')
 
 @section('main')
-<!-- <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"> -->
+<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
 
 <div class="bs-example" data-example-id="simple-table" style="width:1100px;margin:0 auto">
     <table class="table">

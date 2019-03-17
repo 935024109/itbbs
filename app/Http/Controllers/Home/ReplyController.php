@@ -75,7 +75,19 @@ class ReplyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         //获取数据
+        $data = $request -> input('content');
+        //实例化对象
+        $reply = new Reply;
+        $reply->content = $data;
+        $reply->pid = $id;
+        $uid = session('id');
+        $reply->uid = $uid;
+        $user = User::find($uid);
+        //保存数据到数据库
+        $reply->save();
+        $pc = new PostController;
+       return $pc->show( $id );
     }
 
     /**

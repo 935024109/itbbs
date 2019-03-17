@@ -21,6 +21,7 @@ class LoginController extends Controller
     public function in(Request $request)
     {
 
+       
     	$this->validate($request, [
 	        'uname' => 'required',
 	        'pwd' => 'required',
@@ -38,14 +39,19 @@ class LoginController extends Controller
     		return back()->with('error','用户名或者密码不正确');
     	}
     	$pwd = Hash::check($request->pwd, $user->pwd);
-    	// dd($pwd);
     	//返回错误
     	if(!$pwd){
     		return back()->with('error','用户名或者密码不正确');
     	}
+        //判断用户是否激活
+        $user_status = User::where('uname',$request->uname)->get();
+        if($user_status[0]->status == '0'){
+            return response()->view('home/user/status');
+        }
+
 	    $user->last_time = date('Y-m-d H:i:s',time());   
         $user->save(); 
-
+        // 登录成功后吧数据存入session
     	session(['flag'=>true]); 
 		session(['id'=>$user->uid]);
 		session(['uname'=>$user->uname]);
