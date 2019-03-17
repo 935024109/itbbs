@@ -1,9 +1,9 @@
 @extends('admin.layout.index')
 
 @section('main')
-	<div class="mws-panel grid_8">		
-	<div class="mws-panel-header">
-    	<span><i class="icon-pencil"></i> 网站配置</span>
+    <div class="mws-panel grid_8">      
+    <div class="mws-panel-header">
+        <span><i class="icon-pencil"></i> 网站配置</span>
     </div>
 
  <div class="mws-panel-body no-padding">
@@ -46,6 +46,6 @@
             </div>
         </form>
         </div>      
-</div>   	
+</div>      
 
 @endsection

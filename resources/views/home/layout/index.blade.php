@@ -49,7 +49,7 @@
       <li><a href="http://www.itxdl.cn/" target="_blank">兄弟连教育官网</a></li>
     </ul>
   </div>
-  <div id="Quater_bar" class="cl" > 
+  <div id="Quater_bar" class="cl" style="background:#FFFFFF"> 
     <div class="wp cl">
       <!-- 站点LOGO -->
       <div class="hd_logo"> 

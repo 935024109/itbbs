@@ -1,9 +1,9 @@
 @extends('admin.layout.index')
 
 @section('main')
-	<div class="mws-panel grid_8">
-    	<div class="mws-panel-header">
-        	<span><i class="icon-table"></i> 轮播图列表</span>
+    <div class="mws-panel grid_8">
+        <div class="mws-panel-header">
+            <span><i class="icon-table"></i> 轮播图列表</span>
         </div>
         <div class="mws-panel-body no-padding">
             <table class="mws-table">
@@ -20,7 +20,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                	@foreach($carousels as $k => $v)
+                    @foreach($carousels as $k => $v)
                     <tr>
                         <td>{{ $v -> carid }}</td>
                         <td>{{ $v -> title }}</td>
@@ -32,12 +32,12 @@
                         <td>{{ $v -> created_at }}</td>
                         <td>{{ $v -> updated_at }}</td>
                         <td>
-    						<a href="/admin/carousel/{{ $v->carid }}/edit" class="btn btn-info">修改</a>
-    						<form action="/admin/carousel/{{ $v->carid }}" method="post" style="display: inline-block;">
-    							{{ csrf_field() }}
-    							{{ method_field('DELETE') }}
-    							<input type="submit" value="删除" class="btn btn-danger">
-    						</form>
+                            <a href="/admin/carousel/{{ $v->carid }}/edit" class="btn btn-info">修改</a>
+                            <form action="/admin/carousel/{{ $v->carid }}" method="post" style="display: inline-block;">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <input type="submit" value="删除" class="btn btn-danger">
+                            </form>
                         </td>
                     </tr>
                     @endforeach

@@ -78,7 +78,8 @@ class IndexController extends Controller
 
         // 加载视图,分配数据
         // 获取话题的数据
-        $topic = Topic::all();
+        $topic = Topic::first();
+        $topic->created_at = substr($topic->created_at,0,10);
         //获取配置表里的title
         $title = DB::table('configs')->get();
 
