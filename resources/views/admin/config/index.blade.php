@@ -38,7 +38,7 @@
                                     <td>{{$v->title}}</td>
                                     <td>{{$v->url}}</td>
                                     <td style="width:100px">
-                                        <img src="/uploads/images/config/{{$v->logo}}">
+                                        <img src="/uploads/{{$v->logo}}">
                                     </td>
                                     <td>                                                                           
                                   {{ $v->on_off == 1 ? '开启' : '关闭'}}                                      

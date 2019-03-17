@@ -59,7 +59,7 @@
                           @foreach($carousels_data as $k => $v)
                           <li>
                             <a href="{{ $v->link_url }}">
-                              <img src="/uploads/images/{{ $v->img_src }}">
+                              <img src="/uploads/images/carousel/{{ $v->img_src }}">
                               <span class="txt_bg"></span>
                               <span class="mask"></span>
                             </a>
@@ -265,18 +265,19 @@
                       
                         <h3 class="modname">
 
-                            @foreach($topic as $k => $v)
                           
-                          <span class="more" style="float: right; font-weight: 400;">第1期 - {{$v->updated_at}} 更新</span>兄弟连话题
-                            @endforeach
+                          <span class="more" style="float: right; font-weight: 400;">第1期 - {{$topic->created_at}} 
+                           
+                          更新</span>兄弟连话题
+                           
                         </h3>
 
-                          @foreach($topic as $k => $v)
                          
-                          <a href=" http://www.itbbs.com/home/topic/post/{{$v->pid}}">
-                            <img src="/uploads/{{$v->logo}}" target="_blank" style="width:300px;height:150px;">
+                         
+                          <a href=" http://www.itbbs.com/home/topic/post/{{$topic->pid}}">
+                            <img src="/uploads/{{$topic->logo}}" target="_blank" style="width:300px;height:150px;">
                           </a>
-                          @endforeach
+                         
                         </div>
                       
                       </div>

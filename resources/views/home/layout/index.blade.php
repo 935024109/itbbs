@@ -11,7 +11,7 @@
 <meta name="copyright" content="2001-2013 Comsenz Inc." />
 <meta name="MSSmartTagsPreventParsing" content="True" />
 <meta http-equiv="MSThemeCompatible" content="Yes" />
-<link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_common.css" /><link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_index.css" />    <script src="/homes/static/js/jquery.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_common.css" /><link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_index.css" /><link rel="stylesheet" type="text/css" href="/homes/static/css/style_2_forum_viewthread.css" />    <script src="/homes/static/js/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">var STYLEID = '2', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'Ac9', charset = 'gbk', discuz_uid = '0', cookiepre = '6tcf_40b9_', cookiedomain = '.itxdl.cn', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '1|威望|,2|金钱|,3|贡献|', defaultstyle = '', REPORTURL = 'aHR0cDovL2Jicy5pdHhkbC5jbi8=', SITEURL = 'http://bbs.itxdl.cn/', JSPATH = 'static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
     <!--[if IE 6]>
      <script language='javascript' type="text/javascript">   
@@ -49,7 +49,7 @@
       <li><a href="http://www.itxdl.cn/" target="_blank">兄弟连教育官网</a></li>
     </ul>
   </div>
-  <div id="Quater_bar" class="cl" > 
+  <div id="Quater_bar" class="cl" style="background:#FFFFFF"> 
     <div class="wp cl">
       <!-- 站点LOGO -->
       <div class="hd_logo"> 
