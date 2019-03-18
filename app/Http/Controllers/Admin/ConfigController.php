@@ -43,7 +43,8 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // 接收数据
+        $data = $request->except(['_token']);
         // 检测是否有文件上传
         if($request->hasFile('logo')){
             // 创建文件上传对象
@@ -54,8 +55,7 @@ class ConfigController extends Controller
             // 拼接名称
             $file_name = time()+rand(1000,9999).'.'.$ext;
             $res = $file->storeAs('images/config',$file_name);
-             // 接收数据
-            $data = $request->except(['_token']);
+             
             // 实例化模型,赋值
             $config = new Config;
             $config->logo = $file_name;
@@ -66,7 +66,13 @@ class ConfigController extends Controller
             return redirect('admin/config')->with('success','添加成功');
             // dump($res);
         }else{
-            return back()->with('error','添加失败');
+            $config = new Config;
+            $config->logo = 'images/config/default.jpeg';
+            $config->title = $data['title'];
+            $config->url = $data['url'];
+            $config->on_off = $data['on_off'];
+            $config->save();
+            return redirect('admin/config')->with('success','添加成功');
         }
 
         

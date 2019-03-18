@@ -73,7 +73,7 @@ class UserController extends Controller
             $res = $file->storeAs('images/user',$filename);
             //dump($res);
         } else {
-            $res = 'images/user/15512302229854.jpeg';
+            $res = 'images/user/default.jpeg';
         }
 
         // 将所获得的所有数据保存到数据库
