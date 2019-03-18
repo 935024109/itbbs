@@ -51,8 +51,8 @@ class ReplyController extends Controller
     public function show($id)
     {
         //
-        dd($id);
-         return view('home.post.checkcontent');
+        // dd($id);
+         // return view('home.post.checkcontent');
     }
 
     /**
@@ -75,6 +75,11 @@ class ReplyController extends Controller
      */
     public function update(Request $request, $id)
     {
+         // 判断用户是否登录
+        if(!session('id')){
+            // 如果没有登录,跳转到 登录页面
+             return redirect('/home/login')->with('success', '抱歉，您尚未登录，还不能回帖');
+            }
          //获取数据
         $data = $request -> input('content');
         //实例化对象
@@ -102,29 +107,29 @@ class ReplyController extends Controller
     }
 
     // 添加回复的回复贴
-   public function addReply(Request $request, $rid)
-    {
-         //判断用户是否登录
-        if(!session('id')){
-            //如果没有登录,跳转到 登录页面
-             return redirect('/home/login')->with('success', '抱歉，您尚未登录，还不能回帖');
-        }
-        dd($request->all());
-        //获取数据
-        $data = $request -> input('content');
-        //实例化对象
-        $reply = new Reply;
-        $reply->content = $data;
-        $reply->pid = $pid;
-        $reply->uid = $uid;
-        $user = User::find($uid);
-        //保存数据到数据库
-        $reply->save();
-        $pc = new PostController;
-       return $pc->goCheckContent( $pid, $uid );
-        // $reply_count = Reply::where('pid',$pid)->count();
-        // return view('home.post.checkcontent',['reply'=>$reply,'reply_count'=>$reply_count,'user'=>$user]);
+   // public function addReply(Request $request, $rid)
+   //  {
+   //       //判断用户是否登录
+   //      if(!session('id')){
+   //          //如果没有登录,跳转到 登录页面
+   //           return redirect('/home/login')->with('success', '抱歉，您尚未登录，还不能回帖');
+   //      }
+   //      dd($request->all());
+   //      //获取数据
+   //      $data = $request -> input('content');
+   //      //实例化对象
+   //      $reply = new Reply;
+   //      $reply->content = $data;
+   //      $reply->pid = $pid;
+   //      $reply->uid = $uid;
+   //      $user = User::find($uid);
+   //      //保存数据到数据库
+   //      $reply->save();
+   //      $pc = new PostController;
+   //     return $pc->goCheckContent( $pid, $uid );
+   //      // $reply_count = Reply::where('pid',$pid)->count();
+   //      // return view('home.post.checkcontent',['reply'=>$reply,'reply_count'=>$reply_count,'user'=>$user]);
 
 
-    }
+   //  }
 }

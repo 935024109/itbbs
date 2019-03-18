@@ -67,7 +67,7 @@ class IndexController extends Controller
         // 获取分类
         $data = self::getIdForum();
         // 获取轮播图数据
-        $carousels = Carousel::select('img_src','link_url')->get();
+        $carousels = Carousel::get();
 
         // 获取友情链接数据
         $blogroll = Blogroll::select('name','url')->get();
@@ -166,7 +166,7 @@ class IndexController extends Controller
         $count = count($count);
         $post = Post::where('title','like','%'.$search.'%')->paginate(13);
         // dump($post);
-
+        // dd('123');
         return view('home/search',['post'=>$post,'search'=>$search,'count'=>$count,'searchsubmit'=>$searchsubmit]);
     }
 }

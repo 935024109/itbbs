@@ -303,14 +303,14 @@
                           </span> 
                             <script type="text/javascript" reload="1">checkmgcmn('post_1068720')</script></div>
                       </div>
-                        <form  action="/home/reply/addReply/{{$v->rid}}" id="answer_form{{ $v->rid }}" method="post" hidden>
+                       <!--  <form  action="/home/reply/addReply/{{$v->rid}}" id="answer_form{{ $v->rid }}" method="post" hidden>
                           {{ csrf_field() }}
                           <input type="text" id="acontent{{$v->id}}" name="acontent" >
                            <input type="hidden" name="rid" value="{{$v->rid}}">
                             <input type="hidden" name="tid" value="{{ $v->Post->pid }}">
                           <input type="button" value="回复" onclick="validata({{ $v->rid }})">
                           <input type="button" value="关闭" onclick="closer({{ $v->rid }})">
-                        </form>
+                        </form> -->
                       </div>
                     </td>
                   </tr>

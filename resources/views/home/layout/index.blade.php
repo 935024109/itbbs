@@ -53,7 +53,7 @@
     <div class="wp cl">
       <!-- 站点LOGO -->
       <div class="hd_logo"> 
-          <h2 style="margin-top: 0px"><a href="http://www.itbbs.com/home" target="_blank"><img src="/homes/static/picture/itbbs.jpg" style="width:150px;height:200px;" /></a></h2>
+          <h2 style="margin-top: 0px"><a href="/home" target="_blank"><img src="/homes/static/picture/itbbs.jpg" style="width:150px;height:200px;" /></a></h2>
       </div>
       <!-- 导航 -->
       <div class="nav">
@@ -383,7 +383,7 @@ initSearchmenu('scbar', '');
 </body>
 <script src="/homes/static/js/bdtj.js" type="text/javascript"></script>
 <script src="/homes/static/js/cnzz.js" type="text/javascript"></script></html>   
-<!-- <script src="/homes/static/js/common.js" type="text/javascript"></script> -->
+<script src="/homes/static/js/common.js" type="text/javascript"></script>
   <!-- <script type="text/javascript" src="/homes/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script> -->
 
 <!-- <script type="text/javascript" src='/homes/static/js/jquery-1.11.1.min.js'></script> -->

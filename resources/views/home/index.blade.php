@@ -42,13 +42,14 @@
                       <!-- 大图 -->
                       <div class="bd">
                         @foreach($carousels_data as $k => $v)
+                        
                         <div class="showDiv">
                           <a href="{{ $v->link_url }}" target="_blank">
                             <img src="/uploads/images/carousel/{{ $v->img_src }}" width="770" height="330" /></a>
                           <div class="foucebox_bg"></div>
                           <div>
                             <h2>
-                              <a href="http://python.itxdl.cn/">兄弟连Python培训</a></h2>
+                              <a href="{{ $v->link_url }}">{{ $v->title }}</a></h2>
                           </div>
                         </div>
                         @endforeach

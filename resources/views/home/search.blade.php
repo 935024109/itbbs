@@ -57,13 +57,13 @@
         <ul>
         	<h3>结果:搜索找到 “{{$search}}” 相关内容 {{$count}} 个</h3>
             @foreach ($post as $k=>$v)
-          <li  style="height: 100px;background-color: white;border-top: 1px solid #896961;width:48%;">
+          <li  style="height: 100px;background-color: white;border-top: 1px solid #896961;width:800px;display: block;">
             <div style="height: 100%;width: 30px;float: left;">
               <input type="text" readonly name="" style="width: 50px;height: 40px;margin-top: 30px;margin-left: 15px;" title="回复" value="{{$v->reply->count()}}"></input>
             </div>
             <div style="width: 1px;height: 100%;float: left;margin-left: 40px;"></div>
             <div style="float: right;height: 48px;width: 650px; ">
-              <b><a href="/home/post/checkcontent/{{ $v->pid }}/{{ $v->user->uid}}" style="color:black;" >{{$v->title}}</a></b>
+              <b><a href="/home/post/{{ $v->pid }}" style="color:black;" >{{$v->title}}</a></b>
             @if(session('flag') == true)
               @if($v->collection_uid($v->pid,session('id')))
                 <form action="/home/post/nolike/{{$v->pid}}">
